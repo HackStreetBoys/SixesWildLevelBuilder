@@ -37,21 +37,21 @@ public class LevelBuilderApplication extends JFrame{
 	/**
 	 * 
 	 */
-	void enterMainScreen(){
+	public void enterMainScreen(){
 		this.activeScreen = this.mainScreen;
 	}
 
 	/**
 	 * 
 	 */
-	void enterLevelManagerScreen(){
+	public void enterLevelManagerScreen(){
 		this.activeScreen = this.levelManagerScreen;
 	}
 	
 	/**
 	 * 
 	 */
-	void enterLevelEditorScreen(){
+	public void enterLevelEditorScreen(){
 		this.activeScreen = this.levelEditorScreen;
 	}
 	
