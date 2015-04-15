@@ -1,3 +1,3 @@
 SixesWildLevelBuilder
 
-A Level Builder
+Level Builder for SixesWild
