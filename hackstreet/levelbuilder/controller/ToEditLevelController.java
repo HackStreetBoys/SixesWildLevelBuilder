@@ -17,8 +17,15 @@ public class ToEditLevelController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e){
 		JFileChooser jfc = new JFileChooser();
-		jfc.showOpenDialog(null);
-		application.enterLevelEditorScreen();
-	}
+		int returnVal = jfc.showOpenDialog(null);
+		
+		if(returnVal == JFileChooser.APPROVE_OPTION) {
+			application.enterLevelEditorScreen();
+		}
+		else {
+			application.enterMainScreen();
+		}
 	
+	}
+
 }
