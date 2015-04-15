@@ -15,9 +15,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
 		super(application, "Level Editor");
-<<<<<<< HEAD
-//		System.Out("Entered Level Editor");
-=======
+
 		setLayout(null);
 		
 		JCheckBox chckbxSwitchTiles = new JCheckBox("Switch Tiles");
