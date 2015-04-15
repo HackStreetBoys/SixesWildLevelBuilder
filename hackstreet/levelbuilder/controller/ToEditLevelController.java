@@ -14,7 +14,7 @@ public class ToEditLevelController implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
-		//application.enterLevelManagerScreen();
+		application.enterLevelEditorScreen();
 	}
 	
 }

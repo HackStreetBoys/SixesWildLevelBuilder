@@ -1,6 +1,9 @@
 package hackstreet.levelbuilder.gui;
+import hackstreet.levelbuilder.controller.ToMainScreenController;
+
 import java.awt.Color;
 import java.awt.Graphics;
+
 import javax.swing.JButton;
 
 @SuppressWarnings("serial")
@@ -29,13 +32,13 @@ public class LevelManagerScreen extends AbstractScreen{
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(35, 500, 135, 50);
+		btnBack.addActionListener(new ToMainScreenController(application));
 		add(btnBack);
 		
 		JButton btnLevel1 = new JButton("Level Name 1");
 		btnLevel1.setBounds(250, 140, 150, 60);
 		btnLevel1.setOpaque(true);
 		add(btnLevel1);
-
 		
 		JButton btnLevel2 = new JButton("");
 		btnLevel2.setBounds(250, 210, 150, 60);

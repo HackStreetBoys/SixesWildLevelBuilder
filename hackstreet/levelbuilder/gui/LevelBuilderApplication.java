@@ -22,7 +22,7 @@ public class LevelBuilderApplication extends JFrame{
 	public LevelManagerScreen levelManagerScreen;
 	
 	/** Level manager screen GUI. */
-	public LevelEditorScreen levelEditorScreen;
+	public AbstractLevelEditorScreen levelEditorScreen;
 	
 	/** Level manager screen GUI. */
 	public AbstractScreen activeScreen;
@@ -35,7 +35,7 @@ public class LevelBuilderApplication extends JFrame{
 		this.model = model;
 		this.mainScreen = new LBMainScreen(this);
 		this.levelManagerScreen = new LevelManagerScreen(this);
-		this.levelEditorScreen = new LevelEditorScreen(this);
+		this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
 		this.activeScreen = mainScreen;
 		
 		this.getContentPane().add(activeScreen);
@@ -49,23 +49,31 @@ public class LevelBuilderApplication extends JFrame{
 	 * 
 	 */
 	public void enterMainScreen(){
-		this.activeScreen = this.mainScreen;
-		this.repaint();
+		enterScreen(this.mainScreen);
 	}
 
 	/**
 	 * 
 	 */
 	public void enterLevelManagerScreen(){
-		this.activeScreen = this.levelManagerScreen;
-		this.repaint();
+		enterScreen(this.levelManagerScreen);
 	}
 	
 	/**
 	 * 
 	 */
 	public void enterLevelEditorScreen(){
-		this.activeScreen = this.levelEditorScreen;
+		enterScreen(this.levelEditorScreen);
+	}
+	
+	/**
+	 * 
+	 */
+	private void enterScreen(AbstractScreen newScreen){
+		super.remove(this.activeScreen);
+		this.activeScreen = newScreen;
+		super.add(this.activeScreen);
+		super.revalidate();
 		this.repaint();
 	}
 	
