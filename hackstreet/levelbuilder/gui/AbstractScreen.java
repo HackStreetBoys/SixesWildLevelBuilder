@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.JCheckBoxMenuItem;
 
 @SuppressWarnings("serial")
 public abstract class AbstractScreen extends JPanel{
@@ -16,7 +17,7 @@ public abstract class AbstractScreen extends JPanel{
 	public AbstractScreen(LevelBuilderApplication application, String title){
 		this.application = application;
 		
-		super.setLayout(null);
+		setLayout(null);
 		super.setBackground(Color.yellow); //TODO
 		
 		this.title = new JLabel(title);
