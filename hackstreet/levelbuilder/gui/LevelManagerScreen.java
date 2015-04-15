@@ -6,7 +6,7 @@ import javax.swing.border.TitledBorder;
 public class LevelManagerScreen extends AbstractScreen{
 	public LevelManagerScreen(LevelBuilderApplication application) {
 		
-		
+		super(application, "Level Manager Screen");
 		
 		setLayout(null);
 		
