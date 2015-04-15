@@ -5,27 +5,26 @@ import javax.swing.WindowConstants;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
 /**
- * 
+ * Primary GUI class which extends JFrame and displays screens.
  * @author Nicholas
- *
  */
 @SuppressWarnings("serial")
 public class LevelBuilderApplication extends JFrame{
 
 	/** Game model. */
-	SWLevelBuilder model;
+	public SWLevelBuilder model;
 	
 	/** Main Screen GUI. */
-	public LBMainScreen mainScreen;
+	private LBMainScreen mainScreen;
 	
 	/** Level manager screen GUI. */
-	public LevelManagerScreen levelManagerScreen;
+	private LevelManagerScreen levelManagerScreen;
 	
 	/** Level manager screen GUI. */
-	public AbstractLevelEditorScreen levelEditorScreen;
+	private AbstractLevelEditorScreen levelEditorScreen;
 	
 	/** Level manager screen GUI. */
-	public AbstractScreen activeScreen;
+	private AbstractScreen activeScreen;
 	
 	/**
 	 * 
@@ -46,28 +45,36 @@ public class LevelBuilderApplication extends JFrame{
 	}
 	
 	/**
-	 * 
+	 * Display the Main Screen.
 	 */
 	public void enterMainScreen(){
 		enterScreen(this.mainScreen);
 	}
 
 	/**
-	 * 
+	 * Display the Level Manager Screen.
 	 */
 	public void enterLevelManagerScreen(){
 		enterScreen(this.levelManagerScreen);
 	}
 	
 	/**
-	 * 
+	 * Display the Level Editor Screen.
 	 */
 	public void enterLevelEditorScreen(){
 		enterScreen(this.levelEditorScreen);
 	}
 	
 	/**
-	 * 
+	 * Display the Level Preview Screen.
+	 */
+	public void enterPassiveGameScreen() {
+		enterScreen(new PassiveGameScreen(this));	
+	}	
+	
+	/**
+	 * Private helper that displays an AbstractScreen
+	 * and repaints the application.
 	 */
 	private void enterScreen(AbstractScreen newScreen){
 		super.remove(this.activeScreen);
@@ -76,5 +83,33 @@ public class LevelBuilderApplication extends JFrame{
 		super.revalidate();
 		this.repaint();
 	}
+
+	/**
+	 * Takes in a String from the LevelEditor's JComboBox,
+	 * and uses it to change the kind of AbstractLevelConfig being used.
+	 * @param selectedItem
+	 */
+	public void changeLevelConfigType(String selectedItem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setNumShuffle(int numShuffle) {
+		this.model.getActiveLevel().setNumShuffle(numShuffle);
+	}
+	
+	public void setNumSwap(int numSwap) {
+		this.model.getActiveLevel().setNumShuffle(numSwap);
+	}
+	
+	public void setNumRemove(int numRemove) {
+		
+	}
+		
+	public void setNumHint(int numHint) {
+		this.model.getActiveLevel().setNumRemove(numHint);
+	}
+
+
 	
 }

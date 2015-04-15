@@ -7,9 +7,9 @@ import hackstreet.levelbuilder.move.IMove;
 public class SWLevelBuilder {
 
 	
-	AbstractLevelConfig activeLevel;
-	Stack<IMove> undoStack = new Stack<IMove>();
-	Stack<IMove> redoStack = new Stack<IMove>();
+	private AbstractLevelConfig activeLevel;
+	private Stack<IMove> undoStack = new Stack<IMove>();
+	private Stack<IMove> redoStack = new Stack<IMove>();
 	
 	/**
 	 * Empty constructor
@@ -56,5 +56,13 @@ public class SWLevelBuilder {
 	 */
 	public void redoMove(){
 		
+	}
+
+	public AbstractLevelConfig getActiveLevel() {
+		return activeLevel;
+	}
+
+	public void setActiveLevel(AbstractLevelConfig activeLevel) {
+		this.activeLevel = activeLevel;
 	}
 }

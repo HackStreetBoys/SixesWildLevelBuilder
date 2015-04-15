@@ -4,26 +4,26 @@ import java.util.ArrayList;
 
 public abstract class AbstractLevelConfig{
 	
-	String name;
-	int height;
-	int width;
-	ArrayList<Location> nullLocations;
-	double[] percentage = new double[6];
-	int numShuffle;
-	int numSwap;
-	int numRemove;
-	int numHint;
-	double freq1;
-	double freq2;
-	double freq3;
-	double freq4;
-	double freq5;
-	double freq6;
-	double freqMult2;
-	double freqMult3;
-	int pointsStar1;
-	int pointsStar2;
-	int pointsStar3;
+	private String name;
+	private int height;
+	private int width;
+	private ArrayList<Location> nullLocations;
+	private double[] percentage = new double[6];
+	private int numShuffle;
+	private int numSwap;
+	private int numRemove;
+	private int numHint;
+	private double freq1;
+	private double freq2;
+	private double freq3;
+	private double freq4;
+	private double freq5;
+	private double freq6;
+	private double freqMult2;
+	private double freqMult3;
+	private int pointsStar1;
+	private int pointsStar2;
+	private int pointsStar3;
 	
 	/**
 	 * Empty constructor, for when the level type is unknown.
@@ -60,4 +60,36 @@ public abstract class AbstractLevelConfig{
 		pointsStar3 = levelConfig.pointsStar3;
 	}
 	
+	public int getNumShuffle() {
+		return numShuffle;
+	}
+
+	public void setNumShuffle(int numShuffle) {
+		this.numShuffle = numShuffle;
+	}
+
+	public int getNumSwap() {
+		return numSwap;
+	}
+
+	public void setNumSwap(int numSwap) {
+		this.numSwap = numSwap;
+	}
+	
+	public int getNumRemove() {
+		return numRemove;
+	}
+
+	public void setNumRemove(int numRemove) {
+		this.numRemove = numRemove;
+	}
+
+	public int getNumHint() {
+		return numHint;
+	}
+
+	public void setNumHint(int numHint) {
+		this.numHint = numHint;
+	}
+
 }
