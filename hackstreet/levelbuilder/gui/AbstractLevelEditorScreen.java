@@ -3,9 +3,12 @@ import hackstreet.levelbuilder.controller.ToMainScreenController;
 
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
+
 import java.awt.Choice;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
@@ -83,11 +86,11 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		label_5.setBounds(20, 350, 18, 16);
 		add(label_5);
 		
-		Choice choice = new Choice();
-		choice.add("Elimination");
-		choice.setBounds(40, 40, 150, 100);
-		add(choice);
-		choice.add("Release");
+		String[] levelStrings = { "Puzzle", "Elimination", "Lightning", "Release" };
+		JComboBox levelList = new JComboBox(levelStrings);
+		levelList.setSelectedIndex(0);
+		levelList.setBounds(40, 40, 120, 30);
+		add(levelList);
 		
 	}
 }
