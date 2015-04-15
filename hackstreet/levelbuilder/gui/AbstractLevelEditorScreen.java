@@ -92,7 +92,6 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		levelList.setSelectedIndex(0);
 		levelList.setBounds(40, 40, 120, 30);
 		add(levelList);
-		
->>>>>>> 7316b38c19006f9f55bf9a76f4f3ec89b27662ba
+
 	}
 }
