@@ -14,8 +14,6 @@ public class SWLevelBuilderRunner {
 
 		SWLevelBuilder model = new SWLevelBuilder();
 		LevelBuilderApplication application = new LevelBuilderApplication(model);
-		
-		application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		application.setVisible(true);
 		
 	}

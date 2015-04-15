@@ -1,5 +1,6 @@
 package hackstreet.levelbuilder.gui;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
@@ -36,7 +37,12 @@ public class LevelBuilderApplication extends JFrame{
 		this.levelManagerScreen = new LevelManagerScreen(this);
 		this.levelEditorScreen = new LevelEditorScreen(this);
 		this.activeScreen = mainScreen;
+		
 		this.getContentPane().add(activeScreen);
+		this.setSize(800, 600);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 	
 	/**
@@ -44,6 +50,7 @@ public class LevelBuilderApplication extends JFrame{
 	 */
 	public void enterMainScreen(){
 		this.activeScreen = this.mainScreen;
+		this.repaint();
 	}
 
 	/**
@@ -51,6 +58,7 @@ public class LevelBuilderApplication extends JFrame{
 	 */
 	public void enterLevelManagerScreen(){
 		this.activeScreen = this.levelManagerScreen;
+		this.repaint();
 	}
 	
 	/**
@@ -58,6 +66,7 @@ public class LevelBuilderApplication extends JFrame{
 	 */
 	public void enterLevelEditorScreen(){
 		this.activeScreen = this.levelEditorScreen;
+		this.repaint();
 	}
 	
 }

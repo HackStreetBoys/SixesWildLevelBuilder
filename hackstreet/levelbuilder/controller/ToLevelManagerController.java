@@ -14,7 +14,7 @@ public class ToLevelManagerController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
-		application.enterMainScreen();
+		application.enterLevelManagerScreen();
 	}
 	
 }
