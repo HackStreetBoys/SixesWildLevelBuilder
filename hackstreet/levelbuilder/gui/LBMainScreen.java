@@ -7,7 +7,7 @@ public class LBMainScreen extends AbstractScreen{
 	public LBMainScreen(LevelBuilderApplication application) {
 		
 		//Inherits JLabel from LevelBuilderApplication
-		super(application);
+		super(application, "Main Screen");
 
 		setLayout(null);
 
