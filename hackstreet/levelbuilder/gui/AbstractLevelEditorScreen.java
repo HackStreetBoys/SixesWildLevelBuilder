@@ -5,6 +5,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
+import java.awt.Choice;
 
 @SuppressWarnings("serial")
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
@@ -81,5 +82,12 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		JLabel label_5 = new JLabel("6");
 		label_5.setBounds(20, 350, 18, 16);
 		add(label_5);
+		
+		Choice choice = new Choice();
+		choice.add("Elimination");
+		choice.setBounds(40, 40, 150, 100);
+		add(choice);
+		choice.add("Release");
+		
 	}
 }
