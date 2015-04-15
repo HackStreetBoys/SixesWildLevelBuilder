@@ -9,9 +9,19 @@ import javax.swing.JLabel;
 
 import java.awt.Choice;
 import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JTextField;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JToggleButton;
 
 @SuppressWarnings("serial")
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
+	private JTextField txtAllowedMoves;
+	private JTextField txtLevelname;
 
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
 		super(application, "Level Editor");
@@ -30,12 +40,12 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		chckbxAi.setBounds(642, 319, 128, 23);
 		add(chckbxAi);
 		
-		JCheckBox chckbxRemoveTile = new JCheckBox("Remove TIle");
+		JCheckBox chckbxRemoveTile = new JCheckBox("Remove Title");
 		chckbxRemoveTile.setBounds(642, 354, 128, 23);
 		add(chckbxRemoveTile);
 		
 		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(17, 548, 117, 29);
+		btnBack.setBounds(30, 500, 100, 50);
 		add(btnBack);
 		btnBack.addActionListener(new ToMainScreenController(super.getApplication()));
 		
@@ -90,8 +100,55 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		String[] levelStrings = { "Puzzle", "Elimination", "Lightning", "Release" };
 		JComboBox levelList = new JComboBox(levelStrings);
 		levelList.setSelectedIndex(0);
-		levelList.setBounds(40, 40, 120, 30);
+		levelList.setBounds(17, 50, 120, 30);
 		add(levelList);
+		
+		JButton btnPreview = new JButton("Preview");
+		btnPreview.setBounds(670, 500, 100, 50);
+		add(btnPreview);
+		
+		JButton btnNewButton = new JButton("save");
+		btnNewButton.setBounds(300, 520, 80, 30);
+		add(btnNewButton);
+		
+		txtAllowedMoves = new JTextField();
+		txtAllowedMoves.setText("# Allowed moves");
+		txtAllowedMoves.setBounds(20, 82, 134, 28);
+		add(txtAllowedMoves);
+		txtAllowedMoves.setColumns(10);
+		
+		JLabel lblTileFrequnecy = new JLabel("Tile frequency");
+		lblTileFrequnecy.setBounds(17, 172, 117, 16);
+		add(lblTileFrequnecy);
+		
+		txtLevelname = new JTextField();
+		txtLevelname.setText("Set level name");
+		txtLevelname.setBounds(636, 67, 134, 28);
+		add(txtLevelname);
+		txtLevelname.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Name of level");
+		lblNewLabel.setBounds(642, 39, 128, 16);
+		add(lblNewLabel);
+		
+		JButton button = new JButton("undo");
+		button.setBounds(390, 520, 80, 30);
+		add(button);
+		
+		JButton btnRedo = new JButton("redo");
+		btnRedo.setBounds(480, 520, 80, 30);
+		add(btnRedo);
+		
+		JLabel lblSpecialMovesToggle = new JLabel("Special moves");
+		lblSpecialMovesToggle.setBounds(642, 221, 128, 16);
+		add(lblSpecialMovesToggle);
 
+	}
+	
+	@Override
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		g.setColor(Color.black);
+		g.drawLine(175,0,175,600);
 	}
 }
