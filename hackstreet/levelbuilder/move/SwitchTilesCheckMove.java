@@ -1,6 +1,6 @@
 package hackstreet.levelbuilder.move;
 
-public class ShuffleBoardCheckMove implements IMove{
+public class SwitchTilesCheckMove implements IMove{
 
 	@Override
 	public void doMove() {

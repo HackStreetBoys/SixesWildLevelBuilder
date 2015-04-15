@@ -1,5 +1,18 @@
 package hackstreet.levelbuilder.config;
 
-public class ReleaseLevelConfig {
+import java.util.ArrayList;
 
+public class ReleaseLevelConfig extends AbstractLevelConfig{
+
+	int numMoves;
+	ArrayList<Location> sixes;
+	ArrayList<Location> sixGoals;
+	
+	public ReleaseLevelConfig(){
+		super();
+	}
+	
+	public ReleaseLevelConfig(AbstractLevelConfig levelConfig){
+		super(levelConfig);
+	}
 }

@@ -1,5 +1,10 @@
 package hackstreet.levelbuilder.gui;
 
-public abstract class AbstractLevelEditorScreen {
+@SuppressWarnings("serial")
+public abstract class AbstractLevelEditorScreen extends AbstractScreen{
+
+	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
+		super(application, "Level Editor");
+	}
 
 }

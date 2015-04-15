@@ -1,5 +1,6 @@
 package hackstreet.levelbuilder.gui;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
@@ -21,7 +22,7 @@ public class LevelBuilderApplication extends JFrame{
 	public LevelManagerScreen levelManagerScreen;
 	
 	/** Level manager screen GUI. */
-	public LevelEditorScreen levelEditorScreen;
+	public AbstractLevelEditorScreen levelEditorScreen;
 	
 	/** Level manager screen GUI. */
 	public AbstractScreen activeScreen;
@@ -34,30 +35,46 @@ public class LevelBuilderApplication extends JFrame{
 		this.model = model;
 		this.mainScreen = new LBMainScreen(this);
 		this.levelManagerScreen = new LevelManagerScreen(this);
-		this.levelEditorScreen = new LevelEditorScreen(this);
+		this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
 		this.activeScreen = mainScreen;
+		
 		this.getContentPane().add(activeScreen);
+		this.setSize(800, 600);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 	
 	/**
 	 * 
 	 */
 	public void enterMainScreen(){
-		this.activeScreen = this.mainScreen;
+		enterScreen(this.mainScreen);
 	}
 
 	/**
 	 * 
 	 */
 	public void enterLevelManagerScreen(){
-		this.activeScreen = this.levelManagerScreen;
+		enterScreen(this.levelManagerScreen);
 	}
 	
 	/**
 	 * 
 	 */
 	public void enterLevelEditorScreen(){
-		this.activeScreen = this.levelEditorScreen;
+		enterScreen(this.levelEditorScreen);
+	}
+	
+	/**
+	 * 
+	 */
+	private void enterScreen(AbstractScreen newScreen){
+		super.remove(this.activeScreen);
+		this.activeScreen = newScreen;
+		super.add(this.activeScreen);
+		super.revalidate();
+		this.repaint();
 	}
 	
 }
