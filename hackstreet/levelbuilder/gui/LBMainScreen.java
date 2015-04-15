@@ -2,6 +2,8 @@ package hackstreet.levelbuilder.gui;
 
 import hackstreet.levelbuilder.controller.ToEditLevelController;
 import hackstreet.levelbuilder.controller.ToLevelManagerController;
+import hackstreet.levelbuilder.controller.ToNewLevelController;
+
 import javax.swing.JButton;
 
 @SuppressWarnings("serial")
@@ -15,7 +17,7 @@ public class LBMainScreen extends AbstractScreen{
 
 		JButton btnCreateNew = new JButton("Create New");
 		btnCreateNew.setBounds(195, 150, 400, 100);
-		btnCreateNew.addActionListener(new ToEditLevelController(application)); // TODO
+		btnCreateNew.addActionListener(new ToNewLevelController(application)); // TODO
 		add(btnCreateNew);
 
 		JButton btnEditExisting = new JButton("Edit Existing");

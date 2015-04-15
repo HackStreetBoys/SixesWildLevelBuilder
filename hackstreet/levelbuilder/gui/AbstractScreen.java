@@ -6,7 +6,6 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.JCheckBoxMenuItem;
 
 @SuppressWarnings("serial")
 public abstract class AbstractScreen extends JPanel{
@@ -21,10 +20,11 @@ public abstract class AbstractScreen extends JPanel{
 		super.setBackground(Color.yellow); //TODO
 		
 		this.title = new JLabel(title);
-		this.title.setSize(200,75);
+		this.title.setSize(240,80);
 		this.title.setLocation(300,0);
 		this.title.setVerticalAlignment(SwingConstants.CENTER);
-		this.title.setFont(new Font("Serif",Font.BOLD,48));
+		this.title.setHorizontalAlignment(SwingConstants.CENTER);
+		this.title.setFont(new Font("Calibri",Font.BOLD,48));
 		this.setupFont();
 		this.title.setBackground(new Color(0,0,0,0));
 		super.add(this.title);

@@ -7,17 +7,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFileChooser;
 
-public class ToEditLevelController implements ActionListener {
+public class ToNewLevelController implements ActionListener {
 	LevelBuilderApplication application;
 	
-	public ToEditLevelController(LevelBuilderApplication application){
+	public ToNewLevelController(LevelBuilderApplication application){
 		this.application = application;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
-		JFileChooser jfc = new JFileChooser();
-		jfc.showOpenDialog(null);
+		
 		application.enterLevelEditorScreen();
 	}
 	
