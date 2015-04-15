@@ -5,7 +5,9 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 public class LBMainScreen extends AbstractScreen{
 	public LBMainScreen(LevelBuilderApplication application) {
-		//super(application);
+		
+		//Inherits JLabel from LevelBuilderApplication
+		super(application);
 
 		setLayout(null);
 
