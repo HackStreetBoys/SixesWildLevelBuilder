@@ -31,18 +31,22 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		
 		JCheckBox chckbxSwitchTiles = new JCheckBox("Switch Tiles");
 		chckbxSwitchTiles.setBounds(642, 249, 128, 23);
+		chckbxSwitchTiles.setBackground(new Color(0,0,0,0));
 		add(chckbxSwitchTiles);
 		
 		JCheckBox chckbxResetBoard = new JCheckBox("Reset Board");
 		chckbxResetBoard.setBounds(642, 284, 128, 23);
+		chckbxResetBoard.setBackground(new Color(0,0,0,0));
 		add(chckbxResetBoard);
 		
 		JCheckBox chckbxAi = new JCheckBox("AI");
 		chckbxAi.setBounds(642, 319, 128, 23);
+		chckbxAi.setBackground(new Color(0,0,0,0));
 		add(chckbxAi);
 		
 		JCheckBox chckbxRemoveTile = new JCheckBox("Remove Title");
 		chckbxRemoveTile.setBounds(642, 354, 128, 23);
+		chckbxRemoveTile.setBackground(new Color(0,0,0,0));
 		add(chckbxRemoveTile);
 		
 		JButton btnBack = new JButton("Back");
@@ -97,6 +101,10 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		JLabel label_5 = new JLabel("6");
 		label_5.setBounds(20, 350, 18, 16);
 		add(label_5);
+		
+		GridView grid = new GridView();
+		grid.setBounds(250,100,300,300);
+		add(grid);
 		
 		String[] levelStrings = { "Puzzle", "Elimination", "Lightning", "Release" };
 		JComboBox levelList = new JComboBox(levelStrings);
