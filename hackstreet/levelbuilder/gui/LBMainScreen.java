@@ -12,10 +12,6 @@ public class LBMainScreen extends AbstractScreen{
 		setLayout(null);
 
 		JButton btnCreateNew = new JButton("Create New");
-		btnCreateNew.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnCreateNew.setBounds(195, 150, 400, 100);
 		add(btnCreateNew);
 
