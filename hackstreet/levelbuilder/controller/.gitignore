@@ -16,3 +16,5 @@
 /ToMainScreenController.class
 /SwapTilesCheckController.class
 /HintCheckController.class
+/ToNewLevelController.class
+/ToNewLevelController$ToEditLevelController.class

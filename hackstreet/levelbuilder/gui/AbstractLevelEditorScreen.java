@@ -5,6 +5,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
 		super(application, "Level Editor");
+//		System.Out("Entered Level Editor");
 	}
 
 }
