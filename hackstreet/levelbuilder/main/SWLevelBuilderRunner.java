@@ -1,13 +1,22 @@
 package hackstreet.levelbuilder.main;
 
+import javax.swing.WindowConstants;
+
+import hackstreet.levelbuilder.gui.LBMainScreen;
+import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.main.*;
 
 public class SWLevelBuilderRunner {
 	
 	public static void main(String [] args) {
-		SplashScreen splash = new SplashScreen(5000, "images/LevelBuilderSplashScreen.png");
+		SplashScreen splash = new SplashScreen(2000, "images/LevelBuilderSplashScreen.png");
 		splash.showSplash();
 
+		SWLevelBuilder model = new SWLevelBuilder();
+		LevelBuilderApplication application = new LevelBuilderApplication(model);
+		
+		application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		application.setVisible(true);
 		
 	}
 }

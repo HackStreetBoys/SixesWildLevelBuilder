@@ -15,16 +15,16 @@ public class LevelBuilderApplication extends JFrame{
 	SWLevelBuilder model;
 	
 	/** Main Screen GUI. */
-	LBMainScreen mainScreen;
+	public LBMainScreen mainScreen;
 	
 	/** Level manager screen GUI. */
-	LevelManagerScreen levelManagerScreen;
+	public LevelManagerScreen levelManagerScreen;
 	
 	/** Level manager screen GUI. */
-	LevelEditorScreen levelEditorScreen;
+	public LevelEditorScreen levelEditorScreen;
 	
 	/** Level manager screen GUI. */
-	AbstractScreen activeScreen;
+	public AbstractScreen activeScreen;
 	
 	/**
 	 * 
@@ -32,6 +32,11 @@ public class LevelBuilderApplication extends JFrame{
 	 */
 	public LevelBuilderApplication(SWLevelBuilder model){
 		this.model = model;
+		this.mainScreen = new LBMainScreen(this);
+		this.levelManagerScreen = new LevelManagerScreen(this);
+		this.levelEditorScreen = new LevelEditorScreen(this);
+		this.activeScreen = mainScreen;
+		this.getContentPane().add(activeScreen);
 	}
 	
 	/**

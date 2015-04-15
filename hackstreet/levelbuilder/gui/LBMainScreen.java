@@ -22,8 +22,5 @@ public class LBMainScreen extends AbstractScreen{
 		JButton btnLevelManagement = new JButton("Level Management");
 		btnLevelManagement.setBounds(195, 370, 400, 100);
 		add(btnLevelManagement);
-
-
-
 	}
 }
