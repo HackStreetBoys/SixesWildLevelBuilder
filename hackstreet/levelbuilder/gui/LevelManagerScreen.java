@@ -93,9 +93,6 @@ public class LevelManagerScreen extends AbstractScreen{
 		btnLevel12.setOpaque(true);	
 		add(btnLevel12);
 
-		
-		
-		
 	
 	}
 
