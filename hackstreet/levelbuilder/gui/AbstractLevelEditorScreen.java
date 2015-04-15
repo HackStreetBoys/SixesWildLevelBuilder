@@ -1,4 +1,5 @@
 package hackstreet.levelbuilder.gui;
+import hackstreet.levelbuilder.controller.LevelTypeComboController;
 import hackstreet.levelbuilder.controller.ToMainScreenController;
 
 import javax.swing.JCheckBox;
@@ -101,6 +102,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		JComboBox levelList = new JComboBox(levelStrings);
 		levelList.setSelectedIndex(0);
 		levelList.setBounds(17, 50, 120, 30);
+		levelList.addActionListener(new LevelTypeComboController(super.getApplication()));
 		add(levelList);
 		
 		JButton btnPreview = new JButton("Preview");
