@@ -9,18 +9,23 @@ import javax.swing.JLabel;
 
 import java.awt.Choice;
 import java.awt.Color;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 @SuppressWarnings("serial")
-public abstract class AbstractLevelEditorScreen extends AbstractScreen{
+public abstract class AbstractLevelEditorScreen extends AbstractScreen implements ItemListener{
+	
+	Boolean saved;
 
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
 		super(application, "Level Editor");
-
+		saved = false;
 		setLayout(null);
 		
 		JCheckBox chckbxSwitchTiles = new JCheckBox("Switch Tiles");
 		chckbxSwitchTiles.setBounds(642, 249, 128, 23);
 		add(chckbxSwitchTiles);
+		chckbxSwitchTiles.addItemListener(this);
 		
 		JCheckBox chckbxResetBoard = new JCheckBox("Reset Board");
 		chckbxResetBoard.setBounds(642, 284, 128, 23);
@@ -92,6 +97,10 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		levelList.setSelectedIndex(0);
 		levelList.setBounds(40, 40, 120, 30);
 		add(levelList);
+		
 
+	}
+	public void itemStateChanged(ItemEvent e) {
+	    saved = false;
 	}
 }
