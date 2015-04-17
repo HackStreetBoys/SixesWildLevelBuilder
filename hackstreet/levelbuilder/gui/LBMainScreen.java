@@ -6,6 +6,12 @@ import hackstreet.levelbuilder.controller.ToNewLevelController;
 
 import javax.swing.JButton;
 
+
+/**
+ * Main Screen of LevelBuilder
+ * @author Himanshu
+ */
+
 @SuppressWarnings("serial")
 public class LBMainScreen extends AbstractScreen{
 	public LBMainScreen(LevelBuilderApplication application) {

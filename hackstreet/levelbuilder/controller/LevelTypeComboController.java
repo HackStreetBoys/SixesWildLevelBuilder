@@ -16,6 +16,10 @@ public class LevelTypeComboController implements ActionListener{
 
 	LevelBuilderApplication application;
 	
+	public LevelTypeComboController(LevelBuilderApplication application) {
+		this.application = application;
+	}
+	
 	/**
 	 * Takes in a String from the LevelEditor's JComboBox,
 	 * and uses it to change the kind of AbstractLevelConfig being used.
