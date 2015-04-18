@@ -10,15 +10,6 @@ import javax.swing.JLabel;
 
 import java.awt.Choice;
 import java.awt.Color;
-<<<<<<< HEAD
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-
-@SuppressWarnings("serial")
-public abstract class AbstractLevelEditorScreen extends AbstractScreen implements ItemListener{
-	
-	Boolean saved;
-=======
 import java.awt.Graphics;
 
 import javax.swing.JTextField;
@@ -32,18 +23,16 @@ import javax.swing.JToggleButton;
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 	private JTextField txtAllowedMoves;
 	private JTextField txtLevelname;
->>>>>>> d1bde006c993c66205f0137dbe62b282c335000d
 
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
 		super(application, "Level Editor");
-		saved = false;
+
 		setLayout(null);
 		
 		JCheckBox chckbxSwitchTiles = new JCheckBox("Switch Tiles");
 		chckbxSwitchTiles.setBounds(642, 249, 128, 23);
 		chckbxSwitchTiles.setBackground(new Color(0,0,0,0));
 		add(chckbxSwitchTiles);
-		chckbxSwitchTiles.addItemListener(this);
 		
 		JCheckBox chckbxResetBoard = new JCheckBox("Reset Board");
 		chckbxResetBoard.setBounds(642, 284, 128, 23);
@@ -124,12 +113,6 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		levelList.addActionListener(new LevelTypeComboController(super.getApplication()));
 		add(levelList);
 		
-<<<<<<< HEAD
-
-	}
-	public void itemStateChanged(ItemEvent e) {
-	    saved = false;
-=======
 		JButton btnPreview = new JButton("Preview");
 		btnPreview.setBounds(670, 500, 100, 50);
 		add(btnPreview);
@@ -177,6 +160,5 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		super.paintComponent(g);
 		g.setColor(Color.black);
 		g.drawLine(175,0,175,600);
->>>>>>> d1bde006c993c66205f0137dbe62b282c335000d
 	}
 }
