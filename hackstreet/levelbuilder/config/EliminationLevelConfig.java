@@ -6,9 +6,12 @@ public class EliminationLevelConfig extends AbstractLevelConfig{
 	
 	public EliminationLevelConfig(){
 		super();
+		this.Type = "Elimination"; // Needed for Serialization and FileIO
+
 	}
 	
 	public EliminationLevelConfig(AbstractLevelConfig levelConfig){
 		super(levelConfig);
+		this.Type = "Elimination"; // Needed for Serialization and FileIO
 	}
 }

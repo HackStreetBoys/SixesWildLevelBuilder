@@ -1,9 +1,13 @@
 package hackstreet.levelbuilder.config;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+//author Ben Bianchi
 public abstract class AbstractLevelConfig{
 	
+	protected String Type; // Added so that we can load files. It is protected b/c sub classes need to know this information;
 	private String name;
 	private int height;
 	private int width;
@@ -24,12 +28,18 @@ public abstract class AbstractLevelConfig{
 	private int pointsStar1;
 	private int pointsStar2;
 	private int pointsStar3;
+	public File File;
+	
 	
 	/**
 	 * Empty constructor, for when the level type is unknown.
 	 */
 	public AbstractLevelConfig(){
 		// empty
+		this.name = "New Level";
+		this.height = this.width = 9;
+		this.Type = "Puzzle";
+		
 	}
 	
 	/**
@@ -38,6 +48,7 @@ public abstract class AbstractLevelConfig{
 	 * @param levelConfig is the input file used to copy data.
 	 */
 	public AbstractLevelConfig(AbstractLevelConfig levelConfig){
+		Type = levelConfig.Type;
 		name = levelConfig.name;
 		height = levelConfig.height;
 		width = levelConfig.width;
@@ -58,12 +69,18 @@ public abstract class AbstractLevelConfig{
 		pointsStar1 = levelConfig.pointsStar1;
 		pointsStar2 = levelConfig.pointsStar2;
 		pointsStar3 = levelConfig.pointsStar3;
+		
+		
 	}
 	
 	public int getNumShuffle() {
 		return numShuffle;
 	}
-
+	
+	public String getType()
+	{
+		return this.Type;
+	}
 	public void setNumShuffle(int numShuffle) {
 		this.numShuffle = numShuffle;
 	}
@@ -90,6 +107,12 @@ public abstract class AbstractLevelConfig{
 
 	public void setNumHint(int numHint) {
 		this.numHint = numHint;
+	}
+	public String getJSON()
+	{
+
+		Gson gson = new Gson();
+		return gson.toJson(this);
 	}
 
 }

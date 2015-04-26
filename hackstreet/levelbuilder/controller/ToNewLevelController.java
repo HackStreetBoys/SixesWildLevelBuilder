@@ -12,6 +12,7 @@ public class ToNewLevelController implements ActionListener {
 	
 	public ToNewLevelController(LevelBuilderApplication application){
 		this.application = application;
+		
 	}
 	
 	@Override

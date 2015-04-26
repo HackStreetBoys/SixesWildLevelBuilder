@@ -1,5 +1,8 @@
 package hackstreet.levelbuilder.gui;
+import hackstreet.levelbuilder.config.AbstractLevelConfig;
+import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.controller.LevelTypeComboController;
+import hackstreet.levelbuilder.controller.SaveButtonController;
 import hackstreet.levelbuilder.controller.ToMainScreenController;
 
 import javax.swing.JCheckBox;
@@ -23,10 +26,11 @@ import javax.swing.JToggleButton;
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 	private JTextField txtAllowedMoves;
 	private JTextField txtLevelname;
-
+	public AbstractLevelConfig level;
+	
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
 		super(application, "Level Editor");
-
+		
 		setLayout(null);
 		
 		JCheckBox chckbxSwitchTiles = new JCheckBox("Switch Tiles");
@@ -120,6 +124,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		JButton btnNewButton = new JButton("save");
 		btnNewButton.setBounds(300, 520, 80, 30);
 		add(btnNewButton);
+		btnNewButton.addActionListener(new SaveButtonController(super.getApplication().model));
 		
 		txtAllowedMoves = new JTextField();
 		txtAllowedMoves.setText("# Allowed moves");
@@ -153,7 +158,11 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		lblSpecialMovesToggle.setBounds(642, 221, 128, 16);
 		add(lblSpecialMovesToggle);
 
+		level = new PuzzleLevelConfig();
+		
+		
 	}
+
 	
 	@Override
 	public void paintComponent(Graphics g){
