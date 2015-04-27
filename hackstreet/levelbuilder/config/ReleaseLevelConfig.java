@@ -12,11 +12,11 @@ public class ReleaseLevelConfig extends AbstractLevelConfig{
 	
 	public ReleaseLevelConfig(){
 		super();
-		this.Type = "Elimination";  // Needed for Serialization and FileIO
+		this.Type = "Release";  // Needed for Serialization and FileIO
 	}
 	
 	public ReleaseLevelConfig(AbstractLevelConfig levelConfig){
 		super(levelConfig);
-		this.Type = "Elimination";  // Needed for Serialization and FileIO
+		this.Type = "Release";  // Needed for Serialization and FileIO
 	}
 }

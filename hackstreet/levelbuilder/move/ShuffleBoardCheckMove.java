@@ -2,6 +2,10 @@ package hackstreet.levelbuilder.move;
 
 public class ShuffleBoardCheckMove implements IMove{
 
+	public ShuffleBoardCheckMove(){
+		
+	}
+	
 	@Override
 	public void doMove() {
 		// TODO Auto-generated method stub
