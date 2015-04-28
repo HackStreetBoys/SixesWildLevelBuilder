@@ -1,6 +1,6 @@
 package tests;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.EliminationLevelConfig;
 import hackstreet.levelbuilder.config.LightningLevelConfig;
@@ -11,11 +11,8 @@ import hackstreet.levelbuilder.config.SavedLevelData;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 import hackstreet.levelbuilder.main.SplashScreen;
 
-import org.junit.Test;
-
 public class FileIOTests {
-
-	@Test
+	
 	public void test() {
 		
 		SWLevelBuilder sw = new SWLevelBuilder();

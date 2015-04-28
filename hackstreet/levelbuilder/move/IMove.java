@@ -10,10 +10,10 @@ public interface IMove {
 	/**
 	 * Do a move - the opposite of IMove.undoMove()
 	 */
-	void doMove();
+	boolean doMove();
 	
 	/**
 	 * Undo a move - the opposite of IMove.doMove()
 	 */
-	void undoMove();
+	boolean undoMove();
 }
