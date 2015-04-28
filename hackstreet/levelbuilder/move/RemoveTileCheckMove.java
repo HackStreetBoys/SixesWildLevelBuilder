@@ -10,8 +10,9 @@ public class RemoveTileCheckMove implements IMove{
 	
 	SWLevelBuilder model;
 	JCheckBox checkBox;
-	boolean before;
-	boolean after;
+//	boolean before;
+//	boolean after;
+// Didn't use before and after. They were over complicating things
 	
 	public RemoveTileCheckMove(SWLevelBuilder model, JCheckBox checkBox) {
 		this.model = model;
@@ -19,13 +20,46 @@ public class RemoveTileCheckMove implements IMove{
 	}
 	
 	@Override
-	public void doMove() {
-		checkBox.setActionCommand("disable");
+	public boolean doMove() {
+		if(checkBox.isEnabled()){
+		checkBox.setEnabled(false);
+//		checkBox.setActionCommand("disable");
+// This is the alternate way of doing it
+		return true;
+		}
+		
+		else if(!(checkBox.isEnabled())){
+			checkBox.setEnabled(true);
+//			checkBox.setActionCommand("disable");
+	// This is the alternate way of doing it
+			return true;
+		}
+		
+		else{
+			return false;
+		}
+		
 	}
 
 	@Override
-	public void undoMove() {
-		checkBox.setActionCommand("enable");
+	public boolean undoMove() {
+			if (checkBox.isEnabled()){
+			checkBox.setEnabled(false);
+//			checkBox.setActionCommand("disable");
+	// This is the alternate way of doing it
+			return true;
+		}
+			
+		else if(!(checkBox.isEnabled())){
+			checkBox.setEnabled(true);
+	//		checkBox.setActionCommand("disable");
+	// This is the alternate way of doing it
+			return true;
+		}
+			
+		else{
+			return false;
+		}
 	}
 
 }

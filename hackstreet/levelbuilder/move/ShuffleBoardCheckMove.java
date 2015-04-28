@@ -7,15 +7,15 @@ public class ShuffleBoardCheckMove implements IMove{
 	}
 	
 	@Override
-	public void doMove() {
+	public boolean doMove() {
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 	@Override
-	public void undoMove() {
+	public boolean undoMove() {
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 }

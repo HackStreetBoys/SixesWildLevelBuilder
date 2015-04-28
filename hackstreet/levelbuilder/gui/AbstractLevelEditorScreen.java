@@ -48,7 +48,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		chckbxAi.setBackground(new Color(0,0,0,0));
 		add(chckbxAi);
 		
-		JCheckBox chckbxRemoveTile = new JCheckBox("Remove Title");
+		JCheckBox chckbxRemoveTile = new JCheckBox("Remove Tile");
 		chckbxRemoveTile.setBounds(642, 354, 128, 23);
 		chckbxRemoveTile.setBackground(new Color(0,0,0,0));
 		add(chckbxRemoveTile);
