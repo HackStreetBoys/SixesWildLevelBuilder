@@ -12,11 +12,12 @@ public abstract class AbstractLevelConfig{
 	private int height;
 	private int width;
 	private ArrayList<Location> nullLocations;
-	private double[] percentage = new double[6];
+	private double[] freqRatio = new double[6];
 	private int numShuffle;
 	private int numSwap;
 	private int numRemove;
 	private int numHint;
+	private double totalFreq;
 	private double freq1;
 	private double freq2;
 	private double freq3;
@@ -53,7 +54,7 @@ public abstract class AbstractLevelConfig{
 		height = levelConfig.height;
 		width = levelConfig.width;
 		nullLocations = levelConfig.nullLocations;
-		percentage = levelConfig.percentage;
+		freqRatio = levelConfig.freqRatio;
 		numShuffle = levelConfig.numShuffle;
 		numSwap = levelConfig.numSwap;
 		numRemove = levelConfig.numRemove;
@@ -64,6 +65,7 @@ public abstract class AbstractLevelConfig{
 		freq4 = levelConfig.freq4;
 		freq5 = levelConfig.freq5;
 		freq6 = levelConfig.freq6;
+		totalFreq = levelConfig.totalFreq;
 		freqMult2 = levelConfig.freqMult2;
 		freqMult3 = levelConfig.freqMult3;
 		pointsStar1 = levelConfig.pointsStar1;
@@ -108,6 +110,63 @@ public abstract class AbstractLevelConfig{
 	public void setNumHint(int numHint) {
 		this.numHint = numHint;
 	}
+	
+	public double getFreq1() {
+		return freq1;	
+	}
+	
+	public double getFreq2() {
+		return freq2;	
+	}
+	
+	public double getFreq3() {
+		return freq3;	
+	}
+	
+	public double getFreq4() {
+		return freq4;	
+	}
+	
+	public double getFreq5() {
+		return freq5;	
+	}
+	
+	public double getFreq6() {
+		return freq6;	
+	}
+	
+	public void setFreq1(double freq1) {
+		this.freq1 = freq1;
+	}
+	
+	public void setFreq2(double freq2) {
+		this.freq1 = freq2;
+	}
+	
+	public void setFreq3(double freq3) {
+		this.freq1 = freq3;
+	}
+	
+	public void setFreq4(double freq4) {
+		this.freq1 = freq4;
+	}
+	
+	public void setFreq5(double freq5) {
+		this.freq1 = freq5;
+	}
+	
+	public void setFreq6(double freq6) {
+		this.freq1 = freq6;
+	}
+	
+	public double getTotalFreq() {
+		return totalFreq;
+	}
+	
+	public void setTotalFreq(double totalFreq) {
+		this.totalFreq = totalFreq;
+	}
+	
 	public String getJSON()
 	{
 
