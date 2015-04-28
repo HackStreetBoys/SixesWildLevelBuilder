@@ -13,4 +13,20 @@ public class SavedLevelData {
 		config = l;
 	}
 	
+	public boolean setStars(int s)
+	{
+		if ( s > 3 || s < 0)
+			return false;
+		
+		starsEarned = s;
+		return true;
+		
+	}
+	
+	public boolean setUnlocked(boolean b)
+	{
+		this.isunlocked = b;
+		return true;
+	}
+	
 }

@@ -9,10 +9,12 @@ import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.config.SavedLevelData;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
+import hackstreet.levelbuilder.main.SplashScreen;
 
 public class FileIOTests {
 	
 	public void test() {
+		
 		SWLevelBuilder sw = new SWLevelBuilder();
 		
 		PuzzleLevelConfig plc = new PuzzleLevelConfig();
@@ -42,6 +44,7 @@ public class FileIOTests {
 		Location l = new Location(1,2);
 		
 		SavedLevelData sld = new SavedLevelData(rlc,true,1);
+		
 	}
 	
 
