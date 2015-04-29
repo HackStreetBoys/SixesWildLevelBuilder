@@ -7,25 +7,22 @@ import hackstreet.levelbuilder.main.SWLevelBuilder;
 public class HintCheckMove implements IMove{
 
 	SWLevelBuilder model;
-	boolean before;
-	//boolean after;
-	//Never used after
 	JCheckBox checkBox;
 	
-	public HintCheckMove(SWLevelBuilder model, boolean before, JCheckBox checkBox) {
+	public HintCheckMove(SWLevelBuilder model, JCheckBox checkBox) {
 		this.model = model;
-		this.before = before;
+		
 		this.checkBox = checkBox;
 	}
 	
 	@Override
 	public boolean doMove() {
-		if(before == true){
-			checkBox.setEnabled(false);
+		if(checkBox.isEnabled()){
+			model.getActiveLevel().setNumHint(1);
 			return true;
 		}
-		else if(before == false){
-			checkBox.setEnabled(true);
+		else if(checkBox.isEnabled()){
+			model.getActiveLevel().setNumHint(0);
 			return true;
 		}
 		else{
@@ -37,17 +34,23 @@ public class HintCheckMove implements IMove{
 	public boolean undoMove() {
 		//Pretty much just disables the checkbox is previously enables, same code as doMove() for now. Will have to investigate further
 		
-		if(before == true){
+		//!!Write logic for undoMove() in AbstractLevelConfig.java 
+		model.undoMove();
+		
+		if(checkBox.isEnabled()){
 			checkBox.setEnabled(false);
+			model.getActiveLevel().setNumHint(0);
 			return true;
 		}
-		else if(before == false){
+		else if(!(checkBox.isEnabled())){
 			checkBox.setEnabled(true);
+			model.getActiveLevel().setNumHint(1);
 			return true;
 		}
 		else{
-		return false;
+			return false;
 		}
 	}
+
 
 }

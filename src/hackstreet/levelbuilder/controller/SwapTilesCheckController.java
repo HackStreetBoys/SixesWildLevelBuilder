@@ -1,8 +1,11 @@
 package hackstreet.levelbuilder.controller;
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.move.SwapTilesCheckMove;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JCheckBox;
 
 public class SwapTilesCheckController implements ActionListener {
@@ -16,11 +19,9 @@ public class SwapTilesCheckController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JCheckBox checkBox = (JCheckBox)(e.getSource());
-		if (checkBox.isSelected()){
-			application.model.getActiveLevel().setNumSwap(1);
+		SwapTilesCheckMove move = new SwapTilesCheckMove(application.getModel(), checkBox);
+		if(move.doMove()){
+			application.getModel().logMove(move);     // Successful Move has been made and pushed to the stack
+			}
 		}
-		else{
-			application.model.getActiveLevel().setNumSwap(0);
-		}			
-	}
 }

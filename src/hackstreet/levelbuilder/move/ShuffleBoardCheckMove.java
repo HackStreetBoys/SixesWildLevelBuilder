@@ -16,38 +16,41 @@ public class ShuffleBoardCheckMove implements IMove{
 	
 	@Override
 	public boolean doMove() {
-		if(checkBox.isEnabled()) {
-			this.model.getActiveLevel().setNumShuffle(1);
+		if(checkBox.isEnabled()){
+			model.getActiveLevel().setNumShuffle(1);
 			return true;
 		}
 		
-		else if(!(checkBox.isEnabled())) {
-			this.model.getActiveLevel().setNumShuffle(0);
+		else if(!(checkBox.isEnabled())){
+			model.getActiveLevel().setNumShuffle(0);
 			return true;
 		}
 		
-		else {
+		else{
 			return false;
 		}
+		
 	}
 
 	@Override
 	public boolean undoMove() {
-		if(checkBox.isEnabled()){
+			
+		model.undoMove();
+		
+			if (checkBox.isEnabled()){
 			checkBox.setEnabled(false);
-			this.model.getActiveLevel().setNumShuffle(0);
+			model.getActiveLevel().setNumShuffle(0);
 			return true;
 		}
-		
-		else if (!(checkBox.isEnabled())){
+			
+		else if(!(checkBox.isEnabled())){
 			checkBox.setEnabled(true);
-			this.model.getActiveLevel().setNumShuffle(1);
+			model.getActiveLevel().setNumShuffle(1);
 			return true;
 		}
-		
-		else {
+			
+		else{
 			return false;
 		}
 	}
-
 }

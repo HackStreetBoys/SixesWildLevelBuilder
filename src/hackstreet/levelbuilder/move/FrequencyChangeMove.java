@@ -8,7 +8,6 @@ import hackstreet.levelbuilder.main.SWLevelBuilder;
 public class FrequencyChangeMove extends AbstractLevelConfig implements IMove {
 
 	SWLevelBuilder model;
-	int before;
 	int after;
 	JSlider slider;
 	int number;

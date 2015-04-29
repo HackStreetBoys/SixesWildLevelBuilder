@@ -1,8 +1,10 @@
 package hackstreet.levelbuilder.controller;
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.move.ShuffleBoardCheckMove;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JCheckBox;
 
 public class ShuffleBoardCheckController implements ActionListener {
@@ -16,11 +18,9 @@ public class ShuffleBoardCheckController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JCheckBox checkBox = (JCheckBox)(e.getSource());
-		if (checkBox.isSelected()){
-			application.model.getActiveLevel().setNumShuffle(1);
+		ShuffleBoardCheckMove move = new ShuffleBoardCheckMove(application.getModel(), checkBox);
+		if(move.doMove()){
+			application.getModel().logMove(move);     // Successful Move has been made and pushed to the stack
+			}
 		}
-		else{
-			application.model.getActiveLevel().setNumShuffle(0);
-		}			
-	}
 }

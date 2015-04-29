@@ -4,51 +4,53 @@ import hackstreet.levelbuilder.main.SWLevelBuilder;
 
 import javax.swing.JCheckBox;
 
-public class SwitchTilesCheckMove implements IMove{
+public class SwapTilesCheckMove implements IMove{
 
 	SWLevelBuilder model;
 	JCheckBox checkBox;
 	
-	public SwitchTilesCheckMove(SWLevelBuilder model, JCheckBox checkBox) {
+	public SwapTilesCheckMove(SWLevelBuilder model, JCheckBox checkBox) {
 		this.model = model;
 		this.checkBox = checkBox;
 	}
 	
 	@Override
 	public boolean doMove() {
-		if(checkBox.isEnabled()) {
-			this.model.getActiveLevel().setNumSwap(1);
+		if(checkBox.isEnabled()){
+			model.getActiveLevel().setNumSwap(1);
 			return true;
 		}
 		
-		else if(checkBox.isEnabled()) {
-			this.model.getActiveLevel().setNumSwap(1);
+		else if(!(checkBox.isEnabled())){
+			model.getActiveLevel().setNumSwap(0);
 			return true;
 		}
 		
-		else {
+		else{
 			return false;
 		}
+		
 	}
 
 	@Override
 	public boolean undoMove() {
-		if(checkBox.isEnabled()){
+			
+		model.undoMove();
+		
+			if (checkBox.isEnabled()){
 			checkBox.setEnabled(false);
-			this.model.getActiveLevel().setNumSwap(0);
+			model.getActiveLevel().setNumSwap(0);
 			return true;
 		}
-		
-		else if (!(checkBox.isEnabled())){
+			
+		else if(!(checkBox.isEnabled())){
 			checkBox.setEnabled(true);
-			this.model.getActiveLevel().setNumSwap(1);
+			model.getActiveLevel().setNumSwap(1);
 			return true;
 		}
-		
-		else {
+			
+		else{
 			return false;
 		}
-
 	}
-
 }

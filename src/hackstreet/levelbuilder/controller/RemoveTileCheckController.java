@@ -1,8 +1,11 @@
 package hackstreet.levelbuilder.controller;
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.move.RemoveTileCheckMove;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JCheckBox;
 
 public class RemoveTileCheckController implements ActionListener {
@@ -16,11 +19,9 @@ public class RemoveTileCheckController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JCheckBox checkBox = (JCheckBox)(e.getSource());
-		if (checkBox.isSelected()){
-			application.model.getActiveLevel().setNumRemove(1);
+		RemoveTileCheckMove move = new RemoveTileCheckMove(application.getModel(), checkBox);
+		if(move.doMove()){
+			application.getModel().logMove(move);     // Successful Move has been made and pushed to the stack
+			}
 		}
-		else{
-			application.model.getActiveLevel().setNumRemove(0);
-		}			
-	}
 }
