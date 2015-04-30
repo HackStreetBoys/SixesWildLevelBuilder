@@ -36,7 +36,17 @@ public class SWLevelBuilder {
 	 * Empty constructor
 	 */
 	public SWLevelBuilder(){
-		// empty
+		this.createFakeLevel();
+	}
+	
+	private void createFakeLevel(){
+		this.activeLevel = new PuzzleLevelConfig();
+		this.activeLevel.setFreq1(.2);
+		this.activeLevel.setFreq2(.2);
+		this.activeLevel.setFreq3(.2);
+		this.activeLevel.setFreq4(.2);
+		this.activeLevel.setFreq5(.1);
+		this.activeLevel.setFreq6(.1);
 	}
 	
 	/**
@@ -148,16 +158,18 @@ public class SWLevelBuilder {
 	 * Undoes the IMove on top of the undoStack, and places it
 	 * on top of the redoStack.
 	 */
-	public void undoMove(){
-		
+	public void undoMove(IMove move){
+		this.undoStack.pop();
+		this.redoStack.push(move);
 	}
 	
 	/**
 	 * Does the IMove on top of the redoStack, and places it
 	 * on top of the undoStack without clearing the redoStack.
 	 */
-	public void redoMove(){
-		
+	public void redoMove(IMove move){
+		this.undoStack.push(this.redoStack.pop());
+		this.redoStack.clear();
 	}
 
 	public AbstractLevelConfig getActiveLevel() {

@@ -66,13 +66,6 @@ public class LevelBuilderApplication extends JFrame{
 	}
 	
 	/**
-	 * Display the Level Preview Screen.
-	 */
-	public void enterPassiveGameScreen() {
-		enterScreen(new PassiveGameScreen(this));	
-	}	
-	
-	/**
 	 * Private helper that displays an AbstractScreen
 	 * and repaints the application.
 	 */

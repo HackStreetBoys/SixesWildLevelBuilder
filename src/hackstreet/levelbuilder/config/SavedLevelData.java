@@ -1,16 +1,18 @@
 package hackstreet.levelbuilder.config;
 
+import java.io.File;
+
 	
 public class SavedLevelData {
-	AbstractLevelConfig config;
+	File fileConfig;
 	boolean isunlocked;
 	int starsEarned;
 	
-	public  SavedLevelData(AbstractLevelConfig l, boolean unlocked, int starsearned)
+	public  SavedLevelData(File l, boolean unlocked, int starsearned)
 	{
 		this.isunlocked = unlocked;
 		this.starsEarned = starsearned;
-		config = l;
+		fileConfig = l;
 	}
 	
 	public boolean setStars(int s)

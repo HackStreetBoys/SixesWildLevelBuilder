@@ -1,31 +1,32 @@
 package hackstreet.levelbuilder.controller;
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.gui.PassiveGameScreen;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 /**
  * On button press, go to Passive Game Screen.
- * @author Nicholas
+ * @author Himanshu
  */
 public class PreviewButtonController implements ActionListener{
 
 	LevelBuilderApplication application;
-	
-	/**
-	 * Constructor
-	 * @param application
-	 */
+		
 	public PreviewButtonController(LevelBuilderApplication application){
-		this.application = application;
+			this.application = application;
 	}
-	
-	/**
-	 * On button press, go to Passive Game Screen.
-	 */
+		
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		application.enterPassiveGameScreen();
+		JFrame frame = new JFrame("Level Preview");
+		frame.setSize(540,540);
+		frame.setLocation(100,100);
+		frame.getContentPane().add(new PassiveGameScreen(this.application));
+		frame.setVisible(true);
 	}
-
 }
+

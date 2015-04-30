@@ -35,7 +35,7 @@ public class HintCheckMove implements IMove{
 		//Pretty much just disables the checkbox is previously enables, same code as doMove() for now. Will have to investigate further
 		
 		//!!Write logic for undoMove() in AbstractLevelConfig.java 
-		model.undoMove();
+		model.undoMove(this);
 		
 		if(checkBox.isEnabled()){
 			checkBox.setEnabled(false);

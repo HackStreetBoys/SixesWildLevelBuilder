@@ -2,18 +2,22 @@ package hackstreet.levelbuilder.gui;
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.controller.LevelTypeComboController;
+import hackstreet.levelbuilder.controller.PreviewButtonController;
 import hackstreet.levelbuilder.controller.SaveButtonController;
 import hackstreet.levelbuilder.controller.ToMainScreenController;
 
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
 
 import java.awt.Choice;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 
 import javax.swing.JTextField;
 
@@ -106,8 +110,15 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		label_5.setBounds(20, 350, 18, 16);
 		add(label_5);
 		
-		GridView grid = new GridView();
+		JPanel grid = new JPanel();
+		grid.setLayout(new GridLayout(9,9));
 		grid.setBounds(250,100,300,300);
+		for(int x=0;x<9;x++){
+			for(int y=0;y<9;y++){
+				JButton button = new JButton("");
+				grid.add(button,new Dimension(x,y));
+			}
+		}
 		add(grid);
 		
 		String[] levelStrings = { "Puzzle", "Elimination", "Lightning", "Release" };
@@ -119,6 +130,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		
 		JButton btnPreview = new JButton("Preview");
 		btnPreview.setBounds(670, 500, 100, 50);
+		btnPreview.addActionListener(new PreviewButtonController(application));
 		add(btnPreview);
 		
 		JButton btnNewButton = new JButton("save");

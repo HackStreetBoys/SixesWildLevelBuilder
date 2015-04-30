@@ -1,13 +1,10 @@
 package hackstreet.levelbuilder.gui;
 
-import hackstreet.levelbuilder.config.Location;
-import hackstreet.levelbuilder.config.Slot;
 import hackstreet.levelbuilder.config.Tile;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.util.HashMap;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,16 +12,10 @@ import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class PassiveTileView extends JPanel{
-	private LevelBuilderApplication application;
 
-	private Slot modelContainer;
 	private Tile tile;
-
-	private boolean selected;
-
-	public PassiveTileView(LevelBuilderApplication application, Slot modelContainer, Tile tile){
-		this.application = application;
-		this.modelContainer = modelContainer;
+	
+	public PassiveTileView(Tile tile){
 		this.tile = tile;
 
 		JLabel value = new JLabel(tile.getValue() + "");
@@ -39,10 +30,6 @@ public class PassiveTileView extends JPanel{
 
 	public Tile getTile(){
 		return this.tile;
-	}
-
-	public void setSelected(boolean selected){
-		this.selected = selected;
 	}
 
 	private void setBackgroundColor(){
@@ -69,47 +56,6 @@ public class PassiveTileView extends JPanel{
 			g.setFont(new Font("Serif",Font.BOLD,10));
 			g.drawString(mult + "x", super.getWidth()-15,super.getHeight()-5);
 		}
-		this.renderSelectionGraphic(g);
-		this.renderBordering(g);
-	}
-
-	private void renderSelectionGraphic(Graphics g){
-		if(this.selected){
-			int total = 0;
-			for(Slot slot:application.getModel().getActiveLevel().getSelectedSlots())
-				total += slot.getTile().getValue();
-
-			if(total<6)
-				g.setColor(new Color(255,255,255));
-			else if(total==6)
-				g.setColor(new Color(0,255,0));
-			else
-				g.setColor(new Color(255,0,0));
-
-			int thickness = 3; //pixels
-			for(int n=0;n<thickness;n++){
-				g.drawRect(0+n,0+n,super.getWidth()-n*2-1,super.getHeight()-n*2-1);
-			}
-			g.setColor(Color.black);
-			g.drawRect(0+thickness,0+thickness,super.getWidth()-thickness*2-1,super.getHeight()-thickness*2-1);
-		}
-	}
-
-	private void renderBordering(Graphics g){
-		g.setColor(Color.black);
-		HashMap<Location,Slot> board = application.getModel().getActiveLevel().getBoard();
-		Slot up = board.get(this.modelContainer.getLoc().pullNearbyLocation(0,-1));
-		Slot right = board.get(this.modelContainer.getLoc().pullNearbyLocation(1,0));
-		Slot down = board.get(this.modelContainer.getLoc().pullNearbyLocation(0,1));
-		Slot left = board.get(this.modelContainer.getLoc().pullNearbyLocation(-1,0));
-		if(up == null)
-			g.drawLine(0, 0, super.getWidth(), 0);
-		if(right == null)
-			g.drawLine(super.getWidth()-1, 0, super.getWidth()-1, super.getHeight()-1);
-		if(down == null)
-			g.drawLine(0, super.getHeight()-1, super.getWidth()-1, super.getHeight()-1);
-		if(left == null)
-			g.drawLine(0, 0, 0, super.getHeight()-1);
 	}
 
 }

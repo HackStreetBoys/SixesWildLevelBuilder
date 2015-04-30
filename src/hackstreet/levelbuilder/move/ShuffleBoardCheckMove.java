@@ -35,7 +35,7 @@ public class ShuffleBoardCheckMove implements IMove{
 	@Override
 	public boolean undoMove() {
 			
-		model.undoMove();
+		model.undoMove(this);
 		
 			if (checkBox.isEnabled()){
 			checkBox.setEnabled(false);

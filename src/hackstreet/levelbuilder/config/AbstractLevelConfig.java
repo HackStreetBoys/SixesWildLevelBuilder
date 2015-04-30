@@ -2,9 +2,14 @@ package hackstreet.levelbuilder.config;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
-//author Ben Bianchi
+
+/**
+ * @author Ben, Himanshu
+ */
+
 public abstract class AbstractLevelConfig{
 	
 	protected String Type; // Added so that we can load files. It is protected b/c sub classes need to know this information;
@@ -12,7 +17,8 @@ public abstract class AbstractLevelConfig{
 	private int height;
 	private int width;
 	private ArrayList<Location> nullLocations;
-	private double[] freqRatio = new double[6];
+	private HashMap <Location, Slot> board;
+	private double[] percentage = new double[6];
 	private int numShuffle;
 	private int numSwap;
 	private int numRemove;
@@ -40,7 +46,18 @@ public abstract class AbstractLevelConfig{
 		this.name = "New Level";
 		this.height = this.width = 9;
 		this.Type = "Puzzle";
-		
+		this.totalFreq = 0;
+		this.freq1 = 0;
+		this.freq2 = 0;
+		this.freq3 = 0;
+		this.freq4 = 0;
+		this.freq5 = 0;
+		this.freq6 = 0;
+		this.freqMult2 = 0;
+		this.freqMult3 = 0;
+		this.pointsStar1 = 0;
+		this.pointsStar2 = 0;
+		this.pointsStar3 = 0;
 	}
 	
 	/**
@@ -54,7 +71,7 @@ public abstract class AbstractLevelConfig{
 		height = levelConfig.height;
 		width = levelConfig.width;
 		nullLocations = levelConfig.nullLocations;
-		freqRatio = levelConfig.freqRatio;
+		percentage = levelConfig.percentage;
 		numShuffle = levelConfig.numShuffle;
 		numSwap = levelConfig.numSwap;
 		numRemove = levelConfig.numRemove;
@@ -71,8 +88,7 @@ public abstract class AbstractLevelConfig{
 		pointsStar1 = levelConfig.pointsStar1;
 		pointsStar2 = levelConfig.pointsStar2;
 		pointsStar3 = levelConfig.pointsStar3;
-		
-		
+		board = levelConfig.board;	
 	}
 	
 	public int getNumShuffle() {
@@ -140,23 +156,23 @@ public abstract class AbstractLevelConfig{
 	}
 	
 	public void setFreq2(double freq2) {
-		this.freq1 = freq2;
+		this.freq2 = freq2;
 	}
 	
 	public void setFreq3(double freq3) {
-		this.freq1 = freq3;
+		this.freq3 = freq3;
 	}
 	
 	public void setFreq4(double freq4) {
-		this.freq1 = freq4;
+		this.freq4 = freq4;
 	}
 	
 	public void setFreq5(double freq5) {
-		this.freq1 = freq5;
+		this.freq5 = freq5;
 	}
 	
 	public void setFreq6(double freq6) {
-		this.freq1 = freq6;
+		this.freq6 = freq6;
 	}
 	
 	public double getTotalFreq() {
@@ -172,6 +188,57 @@ public abstract class AbstractLevelConfig{
 
 		Gson gson = new Gson();
 		return gson.toJson(this);
+	}
+	
+	public int generateRandomMultiplier(){
+		//	double mult2Freq = this.getSavedLevelData().getLevelConfig().getFreqMult2();
+		//		double mult3Freq = this.getSavedLevelData().getLevelConfig().getFreqMult3();
+
+		return 1;
+	}
+	
+	public int generateRandomValue() {
+		double r = Math.random();
+
+		if (r < freq1)
+			return 1;
+		else if (r < freq1 + freq2)
+			return 2;
+		else if (r < freq1+freq2+freq3)
+			return 3;
+		else if (r < freq1+freq2+freq3+freq4)
+			return 4;
+		else if (r < freq1+freq2+freq3+freq4+freq5)
+			return 5;
+		else
+			return 6;
+	}
+		
+	public void populateBoard(){
+		// go over each column
+		for (int col = 0; col < 9; col++) {
+
+			// repopulate each cell
+			for (int row = 0; row < 9; row++) {
+
+				Location loc = new Location(col,row);
+
+				// if slot is not inert and does not have tile, give it a new tile
+				if (!(board.get(loc) instanceof InertSlot) && !(board.get(loc).hasTile())) {
+
+					int val = this.generateRandomValue();
+					int mult = 1;
+					
+					Tile t = new Tile(val, mult);
+					board.get(loc).setTile(t);
+
+				}
+			}
+		}	
+	}
+	
+	public HashMap<Location, Slot> getBoard() {
+		return board;
 	}
 
 }
