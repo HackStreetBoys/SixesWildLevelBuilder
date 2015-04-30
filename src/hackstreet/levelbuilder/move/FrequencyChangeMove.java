@@ -1,5 +1,9 @@
 package hackstreet.levelbuilder.move;
 
+/**
+ * @author Himanshu
+ */
+
 import javax.swing.JSlider;
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;

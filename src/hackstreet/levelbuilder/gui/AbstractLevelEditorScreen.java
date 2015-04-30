@@ -1,6 +1,10 @@
 package hackstreet.levelbuilder.gui;
+
+
+
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.PuzzleLevelConfig;
+import hackstreet.levelbuilder.controller.ChangeSlotTypeController;
 import hackstreet.levelbuilder.controller.LevelTypeComboController;
 import hackstreet.levelbuilder.controller.PreviewButtonController;
 import hackstreet.levelbuilder.controller.SaveButtonController;
@@ -116,6 +120,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		for(int x=0;x<9;x++){
 			for(int y=0;y<9;y++){
 				JButton button = new JButton("");
+				button.addActionListener(new ChangeSlotTypeController(super.getApplication()));
 				grid.add(button,new Dimension(x,y));
 			}
 		}

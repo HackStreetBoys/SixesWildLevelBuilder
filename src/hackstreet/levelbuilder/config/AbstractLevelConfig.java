@@ -126,7 +126,11 @@ public abstract class AbstractLevelConfig{
 	public void setNumHint(int numHint) {
 		this.numHint = numHint;
 	}
-	
+
+	public ArrayList<Location> getNullLocations(){
+		return nullLocations;
+	}
+
 	public double getFreq1() {
 		return freq1;	
 	}
@@ -214,31 +218,4 @@ public abstract class AbstractLevelConfig{
 			return 6;
 	}
 		
-	public void populateBoard(){
-		// go over each column
-		for (int col = 0; col < 9; col++) {
-
-			// repopulate each cell
-			for (int row = 0; row < 9; row++) {
-
-				Location loc = new Location(col,row);
-
-				// if slot is not inert and does not have tile, give it a new tile
-				if (!(board.get(loc) instanceof InertSlot) && !(board.get(loc).hasTile())) {
-
-					int val = this.generateRandomValue();
-					int mult = 1;
-					
-					Tile t = new Tile(val, mult);
-					board.get(loc).setTile(t);
-
-				}
-			}
-		}	
-	}
-	
-	public HashMap<Location, Slot> getBoard() {
-		return board;
-	}
-
 }

@@ -1,5 +1,9 @@
 package hackstreet.levelbuilder.move;
 
+/**
+ * @author Himanshu
+ */
+
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
 import javax.swing.JCheckBox;

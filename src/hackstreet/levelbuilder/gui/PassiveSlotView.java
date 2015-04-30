@@ -1,7 +1,9 @@
 package hackstreet.levelbuilder.gui;
 
+/**
+ * @author Himanshu
+ */
 
-import hackstreet.levelbuilder.config.InertSlot;
 import hackstreet.levelbuilder.config.Location;
 import hackstreet.levelbuilder.config.Slot;
 

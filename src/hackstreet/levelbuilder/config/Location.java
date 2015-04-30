@@ -55,7 +55,8 @@ public class Location {
 	public ArrayList<Location> getRawAdjacentLocations() {	
 		ArrayList<Location> adjacentLocs = new ArrayList<Location>();
 		Location aboveLoc = new Location(this.x,this.y-1);
-		if(aboveLoc.isValid())
+		if(aboveLoc.
+				isValid())
 			adjacentLocs.add(aboveLoc);
 		
 		Location rightLoc = new Location(this.x+1,this.y);
