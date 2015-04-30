@@ -21,12 +21,12 @@ public class RemoveTileCheckMove implements IMove{
 	@Override
 	public boolean doMove() {
 		if(checkBox.isEnabled()){
-			model.getActiveLevel().setNumRemove(1);
+			model.getLevelConfig().setNumRemove(1);
 			return true;
 		}
 		
 		else if(!(checkBox.isEnabled())){
-			model.getActiveLevel().setNumRemove(0);
+			model.getLevelConfig().setNumRemove(0);
 			return true;
 		}
 		
@@ -43,13 +43,13 @@ public class RemoveTileCheckMove implements IMove{
 		
 			if (checkBox.isEnabled()){
 			checkBox.setEnabled(false);
-			model.getActiveLevel().setNumRemove(0);
+			model.getLevelConfig().setNumRemove(0);
 			return true;
 		}
 			
 		else if(!(checkBox.isEnabled())){
 			checkBox.setEnabled(true);
-			model.getActiveLevel().setNumRemove(1);
+			model.getLevelConfig().setNumRemove(1);
 			return true;
 		}
 			

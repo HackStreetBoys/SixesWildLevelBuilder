@@ -4,8 +4,9 @@ package hackstreet.levelbuilder.move;
  * @author Himanshu
  */
 
-import javax.swing.JButton;
+import java.awt.Color;
 
+import javax.swing.JButton;
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.Location;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
@@ -18,22 +19,53 @@ public class ChangeSlotTypeMove extends AbstractLevelConfig implements IMove {
 	
 	public ChangeSlotTypeMove(SWLevelBuilder model, JButton button) {
 		this.model = model;
+		this.button = button;
 		this.location = new Location(button.getLocation().x, button.getLocation().y); 
 	}
 	
 	@Override
 	public boolean doMove() {
-		if(button.isEnabled()){
-			model.getActiveLevel().getNullLocations().add(location);
-			button.setEnabled(false);
-			return true;
+			
+		if(model.getLevelConfig().getType() == "Release"){
+			if(button.getBackground() == Color.LIGHT_GRAY){
+				model.getLevelConfig().getNullLocations().add(location);
+				button.setBackground(Color.black);
+				return true;
+			}
+			else if(button.getBackground() == Color.black){
+				model.getLevelConfig().getNullLocations().remove(location);
+				model.getLevelConfig().getBucketLocations().add(location);
+				button.setBackground(Color.green);
+				return true;
+			}
+		
+			else if(button.getBackground() == Color.green){
+				model.getLevelConfig().getBucketLocations().remove(location);
+				model.getLevelConfig().getNullLocations().add(location);
+				button.setBackground(Color.LIGHT_GRAY);
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
-		else if(!(button.isEnabled())){
-			model.getActiveLevel().getNullLocations().remove(location);
-			button.setEnabled(true);
-			return true;
+		else if (model.getLevelConfig().getType() == "Puzzle" || model.getLevelConfig().getType() == "Elimination" || model.getLevelConfig().getType() == "Lightning") {		
+			if(button.getBackground() == Color.LIGHT_GRAY){
+				model.getLevelConfig().getNullLocations().add(location);
+				button.setBackground(Color.black);
+				return true;
+			}
+			else if(button.getBackground() == Color.black){
+				model.getLevelConfig().getNullLocations().remove(location);
+				button.setBackground(Color.LIGHT_GRAY);
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
-		else{
+		
+		else {
 			return false;
 		}
 	}

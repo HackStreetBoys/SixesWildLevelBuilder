@@ -26,7 +26,7 @@ public class GridView extends JPanel {
 		super.setLayout(new GridLayout(9,9));
 		super.setBackground(new Color(0,0,0,0));
 
-		AbstractLevelConfig config = application.getModel().getActiveLevel();
+		AbstractLevelConfig config = application.getModel().getLevelConfig();
 		double f1 = config.getFreq1();
 		double f2 = config.getFreq2();
 		double f3 = config.getFreq3();

@@ -22,11 +22,11 @@ public class HintCheckMove implements IMove{
 	@Override
 	public boolean doMove() {
 		if(checkBox.isEnabled()){
-			model.getActiveLevel().setNumHint(1);
+			model.getLevelConfig().setNumHint(1);
 			return true;
 		}
 		else if(checkBox.isEnabled()){
-			model.getActiveLevel().setNumHint(0);
+			model.getLevelConfig().setNumHint(0);
 			return true;
 		}
 		else{
@@ -43,12 +43,12 @@ public class HintCheckMove implements IMove{
 		
 		if(checkBox.isEnabled()){
 			checkBox.setEnabled(false);
-			model.getActiveLevel().setNumHint(0);
+			model.getLevelConfig().setNumHint(0);
 			return true;
 		}
 		else if(!(checkBox.isEnabled())){
 			checkBox.setEnabled(true);
-			model.getActiveLevel().setNumHint(1);
+			model.getLevelConfig().setNumHint(1);
 			return true;
 		}
 		else{

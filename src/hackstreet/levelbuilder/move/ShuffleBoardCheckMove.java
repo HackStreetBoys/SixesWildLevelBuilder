@@ -21,12 +21,12 @@ public class ShuffleBoardCheckMove implements IMove{
 	@Override
 	public boolean doMove() {
 		if(checkBox.isEnabled()){
-			model.getActiveLevel().setNumShuffle(1);
+			model.getLevelConfig().setNumShuffle(1);
 			return true;
 		}
 		
 		else if(!(checkBox.isEnabled())){
-			model.getActiveLevel().setNumShuffle(0);
+			model.getLevelConfig().setNumShuffle(0);
 			return true;
 		}
 		
@@ -43,13 +43,13 @@ public class ShuffleBoardCheckMove implements IMove{
 		
 			if (checkBox.isEnabled()){
 			checkBox.setEnabled(false);
-			model.getActiveLevel().setNumShuffle(0);
+			model.getLevelConfig().setNumShuffle(0);
 			return true;
 		}
 			
 		else if(!(checkBox.isEnabled())){
 			checkBox.setEnabled(true);
-			model.getActiveLevel().setNumShuffle(1);
+			model.getLevelConfig().setNumShuffle(1);
 			return true;
 		}
 			

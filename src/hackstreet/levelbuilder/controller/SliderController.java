@@ -4,21 +4,29 @@ package hackstreet.levelbuilder.controller;
  * @author Himanshu
  */
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.move.FrequencyChangeMove;
 
-public class SliderController implements ActionListener {
+public class SliderController implements ChangeListener {
 
 	LevelBuilderApplication application;
+	int number;
 	
-	public SliderController(LevelBuilderApplication application){
+	public SliderController(LevelBuilderApplication application,int number){
 		this.application = application;
+		this.number = number;
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		
+	public void stateChanged(ChangeEvent e) {
+		JSlider slider = (JSlider) (e.getSource());
+		FrequencyChangeMove move = new FrequencyChangeMove(application.getModel(), slider, number);
+		if(move.doMove()){
+			application.getModel().logMove(move);
+		}
 	}
 }

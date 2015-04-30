@@ -9,7 +9,6 @@ public class ReleaseLevelConfig extends AbstractLevelConfig{
 	ArrayList<Location> sixes;
 	ArrayList<Location> sixGoals;
 	
-	
 	public ReleaseLevelConfig(){
 		super();
 		this.Type = "Release";  // Needed for Serialization and FileIO

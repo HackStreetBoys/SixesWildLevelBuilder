@@ -1,13 +1,12 @@
 package hackstreet.levelbuilder.gui;
 
-
-
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.controller.ChangeSlotTypeController;
 import hackstreet.levelbuilder.controller.LevelTypeComboController;
 import hackstreet.levelbuilder.controller.PreviewButtonController;
 import hackstreet.levelbuilder.controller.SaveButtonController;
+import hackstreet.levelbuilder.controller.SliderController;
 import hackstreet.levelbuilder.controller.ToMainScreenController;
 
 import javax.swing.JCheckBox;
@@ -51,10 +50,10 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		chckbxResetBoard.setBackground(new Color(0,0,0,0));
 		add(chckbxResetBoard);
 		
-		JCheckBox chckbxAi = new JCheckBox("AI");
-		chckbxAi.setBounds(642, 319, 128, 23);
-		chckbxAi.setBackground(new Color(0,0,0,0));
-		add(chckbxAi);
+		JCheckBox chckbxAI = new JCheckBox("AI");
+		chckbxAI.setBounds(642, 319, 128, 23);
+		chckbxAI.setBackground(new Color(0,0,0,0));
+		add(chckbxAI);
 		
 		JCheckBox chckbxRemoveTile = new JCheckBox("Remove Tile");
 		chckbxRemoveTile.setBounds(642, 354, 128, 23);
@@ -66,53 +65,59 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		add(btnBack);
 		btnBack.addActionListener(new ToMainScreenController(super.getApplication()));
 		
-		JSlider slider = new JSlider();
-		slider.setBounds(40, 200, 100, 20);
-		add(slider);
-		
 		JSlider slider_1 = new JSlider();
-		slider_1.setBounds(40, 230, 100, 20);
+		slider_1.setBounds(40, 200, 100, 20);
+		slider_1.addChangeListener(new SliderController(application,1));
 		add(slider_1);
 		
 		JSlider slider_2 = new JSlider();
-		slider_2.setBounds(40, 260, 100, 20);
+		slider_2.setBounds(40, 230, 100, 20);
+		slider_2.addChangeListener(new SliderController(application,2));
 		add(slider_2);
 		
 		JSlider slider_3 = new JSlider();
-		slider_3.setBounds(40, 290, 100, 20);
+		slider_3.setBounds(40, 260, 100, 20);
+		slider_3.addChangeListener(new SliderController(application,3));
 		add(slider_3);
 		
 		JSlider slider_4 = new JSlider();
-		slider_4.setBounds(40, 320, 100, 20);
+		slider_4.setBounds(40, 290, 100, 20);
+		slider_4.addChangeListener(new SliderController(application,4));
 		add(slider_4);
 		
 		JSlider slider_5 = new JSlider();
-		slider_5.setBounds(40, 350, 100, 20);
+		slider_5.setBounds(40, 320, 100, 20);
+		slider_5.addChangeListener(new SliderController(application,5));
 		add(slider_5);
 		
-		JLabel label = new JLabel("1");
-		label.setBounds(20, 200, 18, 16);
-		add(label);
+		JSlider slider_6 = new JSlider();
+		slider_6.setBounds(40, 350, 100, 20);
+		slider_6.addChangeListener(new SliderController(application,6));
+		add(slider_6);
 		
-		JLabel label_1 = new JLabel("2");
-		label_1.setBounds(20, 230, 18, 16);
+		JLabel label_1 = new JLabel("1");
+		label_1.setBounds(20, 200, 18, 16);
 		add(label_1);
 		
-		JLabel label_2 = new JLabel("3");
-		label_2.setBounds(20, 260, 18, 16);
+		JLabel label_2 = new JLabel("2");
+		label_2.setBounds(20, 230, 18, 16);
 		add(label_2);
 		
-		JLabel label_3 = new JLabel("4");
-		label_3.setBounds(20, 290, 18, 16);
+		JLabel label_3 = new JLabel("3");
+		label_3.setBounds(20, 260, 18, 16);
 		add(label_3);
 		
-		JLabel label_4 = new JLabel("5");
-		label_4.setBounds(20, 320, 18, 16);
+		JLabel label_4 = new JLabel("4");
+		label_4.setBounds(20, 290, 18, 16);
 		add(label_4);
 		
-		JLabel label_5 = new JLabel("6");
-		label_5.setBounds(20, 350, 18, 16);
+		JLabel label_5 = new JLabel("5");
+		label_5.setBounds(20, 320, 18, 16);
 		add(label_5);
+		
+		JLabel label_6 = new JLabel("6");
+		label_6.setBounds(20, 350, 18, 16);
+		add(label_6);
 		
 		JPanel grid = new JPanel();
 		grid.setLayout(new GridLayout(9,9));
@@ -120,9 +125,11 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		for(int x=0;x<9;x++){
 			for(int y=0;y<9;y++){
 				JButton button = new JButton("");
+				button.setBackground(Color.LIGHT_GRAY);
 				button.addActionListener(new ChangeSlotTypeController(super.getApplication()));
 				grid.add(button,new Dimension(x,y));
 			}
+			
 		}
 		add(grid);
 		
@@ -186,5 +193,6 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		super.paintComponent(g);
 		g.setColor(Color.black);
 		g.drawLine(175,0,175,600);
+		
 	}
 }

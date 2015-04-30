@@ -28,6 +28,7 @@ public class LevelTypeComboController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		@SuppressWarnings("unchecked")
 		JComboBox<String> combo = (JComboBox<String>)e.getSource();
-        application.changeLevelConfigType((String)combo.getSelectedItem());   
+        application.changeLevelConfigType((String)combo.getSelectedItem());
+        application.model.getLevelConfig().setType((String)combo.getSelectedItem());
 	}
 }

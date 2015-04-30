@@ -9,12 +9,12 @@ public class PuzzleLevelEditorScreen extends AbstractLevelEditorScreen {
 	public PuzzleLevelEditorScreen(LevelBuilderApplication application) {
 		super(application);
 		
-		if (application.model.getActiveLevel() == null)
+		if (application.model.getLevelConfig() == null)
 		{
-			application.model.setActiveLevel(new PuzzleLevelConfig());
+			application.model.setLevelConfig(new PuzzleLevelConfig());
 		}
 		
-		application.model.setActiveLevel(application.model.getActiveLevel());
+		application.model.setLevelConfig(application.model.getLevelConfig());
 	}
 
 }

@@ -28,7 +28,7 @@ import hackstreet.levelbuilder.move.IMove;
 public class SWLevelBuilder {
 
 	
-	private AbstractLevelConfig activeLevel;
+	private AbstractLevelConfig levelConfig;
 	private Stack<IMove> undoStack = new Stack<IMove>();
 	private Stack<IMove> redoStack = new Stack<IMove>();
 	
@@ -40,13 +40,13 @@ public class SWLevelBuilder {
 	}
 	
 	private void createFakeLevel(){
-		this.activeLevel = new PuzzleLevelConfig();
-		this.activeLevel.setFreq1(.2);
-		this.activeLevel.setFreq2(.2);
-		this.activeLevel.setFreq3(.2);
-		this.activeLevel.setFreq4(.2);
-		this.activeLevel.setFreq5(.1);
-		this.activeLevel.setFreq6(.1);
+		this.levelConfig = new PuzzleLevelConfig();
+		this.levelConfig.setFreq1(.2);
+		this.levelConfig.setFreq2(.2);
+		this.levelConfig.setFreq3(.2);
+		this.levelConfig.setFreq4(.2);
+		this.levelConfig.setFreq5(.1);
+		this.levelConfig.setFreq6(.1);
 	}
 	
 	/**
@@ -57,15 +57,15 @@ public class SWLevelBuilder {
 		try	{
 			
 			
-		if (activeLevel.File == null) 	//This is for if the level has never been saved before.
+		if (levelConfig.File == null) 	//This is for if the level has never been saved before.
 										//Render a jFileChooser so that the user can choose where to save his files.
 			{
 			JFileChooser jfc = new JFileChooser();
 			jfc.showSaveDialog(null);
-			activeLevel.File = jfc.getSelectedFile();
+			levelConfig.File = jfc.getSelectedFile();
 			}
 		
-		File file = activeLevel.File;
+		File file = levelConfig.File;
 			 
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
@@ -76,7 +76,7 @@ public class SWLevelBuilder {
 			//Standard write to file
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(activeLevel.getJSON());
+			bw.write(levelConfig.getJSON());
 			bw.close();
 			//close stream.
  
@@ -127,17 +127,17 @@ public class SWLevelBuilder {
 		switch (type)
 		{
 		case "Lightning":
-			this.activeLevel = gson.fromJson(filebuffer, LightningLevelConfig.class);
+			this.levelConfig = gson.fromJson(filebuffer, LightningLevelConfig.class);
 			break;
 		case "Elimination":
-			this.activeLevel = gson.fromJson(filebuffer, EliminationLevelConfig.class);
+			this.levelConfig = gson.fromJson(filebuffer, EliminationLevelConfig.class);
 			break;
 		case "Puzzle":
-			this.activeLevel = gson.fromJson(filebuffer, PuzzleLevelConfig.class);
+			this.levelConfig = gson.fromJson(filebuffer, PuzzleLevelConfig.class);
 			break;
 			
 		case "Release":
-			this.activeLevel = gson.fromJson(filebuffer, ReleaseLevelConfig.class);
+			this.levelConfig = gson.fromJson(filebuffer, ReleaseLevelConfig.class);
 			break;
 			
 		}
@@ -172,11 +172,11 @@ public class SWLevelBuilder {
 		this.redoStack.clear();
 	}
 
-	public AbstractLevelConfig getActiveLevel() {
-		return activeLevel;
+	public AbstractLevelConfig getLevelConfig() {
+		return levelConfig;
 	}
 
-	public void setActiveLevel(AbstractLevelConfig activeLevel) {
-		this.activeLevel = activeLevel;
+	public void setLevelConfig(AbstractLevelConfig levelConfig) {
+		this.levelConfig = levelConfig;
 	}
 }

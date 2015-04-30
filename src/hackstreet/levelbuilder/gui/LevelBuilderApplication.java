@@ -88,11 +88,11 @@ public class LevelBuilderApplication extends JFrame{
 	}
 
 	public void setNumShuffle(int numShuffle) {
-		this.model.getActiveLevel().setNumShuffle(numShuffle);
+		this.model.getLevelConfig().setNumShuffle(numShuffle);
 	}
 	
 	public void setNumSwap(int numSwap) {
-		this.model.getActiveLevel().setNumShuffle(numSwap);
+		this.model.getLevelConfig().setNumShuffle(numSwap);
 	}
 	
 	public void setNumRemove(int numRemove) {
@@ -100,7 +100,7 @@ public class LevelBuilderApplication extends JFrame{
 	}
 		
 	public void setNumHint(int numHint) {
-		this.model.getActiveLevel().setNumRemove(numHint);
+		this.model.getLevelConfig().setNumRemove(numHint);
 	}
 	
 	public SWLevelBuilder getModel() {

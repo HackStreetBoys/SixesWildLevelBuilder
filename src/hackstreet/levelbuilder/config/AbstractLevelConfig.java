@@ -17,6 +17,7 @@ public abstract class AbstractLevelConfig{
 	private int height;
 	private int width;
 	private ArrayList<Location> nullLocations;
+	private ArrayList<Location> bucketLocations;
 	private HashMap <Location, Slot> board;
 	private double[] percentage = new double[6];
 	private int numShuffle;
@@ -24,6 +25,12 @@ public abstract class AbstractLevelConfig{
 	private int numRemove;
 	private int numHint;
 	private double totalFreq;
+	private double value1;
+	private double value2;
+	private double value3;
+	private double value4;
+	private double value5;
+	private double value6;
 	private double freq1;
 	private double freq2;
 	private double freq3;
@@ -37,7 +44,6 @@ public abstract class AbstractLevelConfig{
 	private int pointsStar3;
 	public File File;
 	
-	
 	/**
 	 * Empty constructor, for when the level type is unknown.
 	 */
@@ -47,12 +53,20 @@ public abstract class AbstractLevelConfig{
 		this.height = this.width = 9;
 		this.Type = "Puzzle";
 		this.totalFreq = 0;
+		this.nullLocations = new ArrayList<Location>();
+		this.bucketLocations = new ArrayList<Location>();
 		this.freq1 = 0;
 		this.freq2 = 0;
 		this.freq3 = 0;
 		this.freq4 = 0;
 		this.freq5 = 0;
 		this.freq6 = 0;
+		this.value1 = 0;
+		this.value2 = 0;
+		this.value3 = 0;
+		this.value4 = 0;
+		this.value5 = 0;
+		this.value6 = 0;
 		this.freqMult2 = 0;
 		this.freqMult3 = 0;
 		this.pointsStar1 = 0;
@@ -71,6 +85,7 @@ public abstract class AbstractLevelConfig{
 		height = levelConfig.height;
 		width = levelConfig.width;
 		nullLocations = levelConfig.nullLocations;
+		bucketLocations = levelConfig.bucketLocations;
 		percentage = levelConfig.percentage;
 		numShuffle = levelConfig.numShuffle;
 		numSwap = levelConfig.numSwap;
@@ -82,6 +97,12 @@ public abstract class AbstractLevelConfig{
 		freq4 = levelConfig.freq4;
 		freq5 = levelConfig.freq5;
 		freq6 = levelConfig.freq6;
+		value1 = levelConfig.value1;
+		value2 = levelConfig.value2;
+		value3 = levelConfig.value3;
+		value4 = levelConfig.value4;
+		value5 = levelConfig.value5;
+		value6 = levelConfig.value6;
 		totalFreq = levelConfig.totalFreq;
 		freqMult2 = levelConfig.freqMult2;
 		freqMult3 = levelConfig.freqMult3;
@@ -130,6 +151,11 @@ public abstract class AbstractLevelConfig{
 	public ArrayList<Location> getNullLocations(){
 		return nullLocations;
 	}
+	
+	public ArrayList<Location> getBucketLocations(){
+		return bucketLocations;
+	}
+	
 
 	public double getFreq1() {
 		return freq1;	
@@ -153,6 +179,25 @@ public abstract class AbstractLevelConfig{
 	
 	public double getFreq6() {
 		return freq6;	
+	}
+	
+	public double getValue1() {
+		return value1;	
+	}
+	public double getValue2() {
+		return value2;	
+	}
+	public double getValue3() {
+		return value3;	
+	}
+	public double getValue4() {
+		return value4;	
+	}
+	public double getValue5() {
+		return value5;	
+	}
+	public double getValue6() {
+		return value6;	
 	}
 	
 	public void setFreq1(double freq1) {
@@ -179,6 +224,25 @@ public abstract class AbstractLevelConfig{
 		this.freq6 = freq6;
 	}
 	
+	public double setValue1(double value1) {
+		return value1;	
+	}
+	public double setValue2(double value2) {
+		return value2;	
+	}
+	public double setValue3(double value3) {
+		return value3;	
+	}
+	public double setValue4(double value4) {
+		return value4;	
+	}
+	public double setValue5(double value5) {
+		return value5;	
+	}
+	public double setValue6(double value6) {
+		return value6;	
+	}
+
 	public double getTotalFreq() {
 		return totalFreq;
 	}
@@ -218,4 +282,8 @@ public abstract class AbstractLevelConfig{
 			return 6;
 	}
 		
+	public void setType(String type){
+		this.Type = type;
+	}
+	
 }

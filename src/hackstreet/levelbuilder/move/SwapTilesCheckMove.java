@@ -21,12 +21,12 @@ public class SwapTilesCheckMove implements IMove{
 	@Override
 	public boolean doMove() {
 		if(checkBox.isEnabled()){
-			model.getActiveLevel().setNumSwap(1);
+			model.getLevelConfig().setNumSwap(1);
 			return true;
 		}
 		
 		else if(!(checkBox.isEnabled())){
-			model.getActiveLevel().setNumSwap(0);
+			model.getLevelConfig().setNumSwap(0);
 			return true;
 		}
 		
@@ -43,13 +43,13 @@ public class SwapTilesCheckMove implements IMove{
 		
 			if (checkBox.isEnabled()){
 			checkBox.setEnabled(false);
-			model.getActiveLevel().setNumSwap(0);
+			model.getLevelConfig().setNumSwap(0);
 			return true;
 		}
 			
 		else if(!(checkBox.isEnabled())){
 			checkBox.setEnabled(true);
-			model.getActiveLevel().setNumSwap(1);
+			model.getLevelConfig().setNumSwap(1);
 			return true;
 		}
 			
