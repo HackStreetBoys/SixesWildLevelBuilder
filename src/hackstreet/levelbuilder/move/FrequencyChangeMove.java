@@ -21,8 +21,13 @@ public class FrequencyChangeMove extends AbstractLevelConfig implements IMove {
 	double freq4;
 	double freq5;
 	double freq6;
-	double totalFreq;
-	double[] freqRatio;
+	double val1;
+	double val2;
+	double val3;
+	double val4;
+	double val5;
+	double val6;
+	double totalVal;
 	
 	public FrequencyChangeMove(SWLevelBuilder model, JSlider slider, int number){
 		this.model = model;	
@@ -35,40 +40,40 @@ public class FrequencyChangeMove extends AbstractLevelConfig implements IMove {
 	public boolean doMove() {
 		//Once, slider stops moving, update the value
 		if(number == 1){
-			totalFreq = after + this.model.getLevelConfig().getFreq2() + this.model.getLevelConfig().getFreq3() + this.model.getLevelConfig().getFreq4() + this.model.getLevelConfig().getFreq5() + this.model.getLevelConfig().getFreq6();  
-			this.model.getLevelConfig().setTotalFreq(totalFreq);
-			this.model.getLevelConfig().setFreq1(after/totalFreq);
-			//Recalculate all frequencies. Used getValue1()
+			System.out.print(after);
+			val1 = model.getLevelConfig().getFreq1()*model.getLevelConfig().getTotalVal();
+			val2 = model.getLevelConfig().getFreq2()*model.getLevelConfig().getTotalVal();
+			val3 = model.getLevelConfig().getFreq3()*model.getLevelConfig().getTotalVal();
+			val4 = model.getLevelConfig().getFreq4()*model.getLevelConfig().getTotalVal();
+			val5 = model.getLevelConfig().getFreq5()*model.getLevelConfig().getTotalVal();
+			val6 = model.getLevelConfig().getFreq6()*model.getLevelConfig().getTotalVal();
+			totalVal = this.model.getLevelConfig().getTotalVal() - val1 + after;
+			model.getLevelConfig().setTotalVal(totalVal);
+			model.getLevelConfig().setFreq1(after/totalVal);
+			model.getLevelConfig().setFreq2(val2/totalVal);
+			model.getLevelConfig().setFreq3(val3/totalVal);
+			model.getLevelConfig().setFreq4(val4/totalVal);
+			model.getLevelConfig().setFreq5(val5/totalVal);
+			model.getLevelConfig().setFreq6(val6/totalVal);
 			return true;
 		}
 		else if(number == 2) {
-			totalFreq = this.model.getLevelConfig().getFreq1() + after + this.model.getLevelConfig().getFreq3() + this.model.getLevelConfig().getFreq4() + this.model.getLevelConfig().getFreq5() + this.model.getLevelConfig().getFreq6();  
-			this.model.getLevelConfig().setTotalFreq(totalFreq);
-			this.model.getLevelConfig().setFreq2(after/totalFreq);
+			
 			return true;
 		}
 		else if(number == 3) {
-			totalFreq = this.model.getLevelConfig().getFreq1() + this.model.getLevelConfig().getFreq2() + after + this.model.getLevelConfig().getFreq4() + this.model.getLevelConfig().getFreq5() + this.model.getLevelConfig().getFreq6();  
-			this.model.getLevelConfig().setTotalFreq(totalFreq);
-			this.model.getLevelConfig().setFreq3(after/totalFreq);
+			
 			return true;
 		}
 		else if(number == 4) {
-			totalFreq = this.model.getLevelConfig().getFreq1() + this.model.getLevelConfig().getFreq2() + this.model.getLevelConfig().getFreq3() + after + this.model.getLevelConfig().getFreq5() + this.model.getLevelConfig().getFreq6();  
-			this.model.getLevelConfig().setTotalFreq(totalFreq);
-			this.model.getLevelConfig().setFreq4(after/totalFreq);
+			
 			return true;
 		}
 		else if(number == 5) {
-			totalFreq = this.model.getLevelConfig().getFreq1() + this.model.getLevelConfig().getFreq2() + this.model.getLevelConfig().getFreq3() + this.model.getLevelConfig().getFreq4() + after + this.model.getLevelConfig().getFreq6();  
-			this.model.getLevelConfig().setTotalFreq(totalFreq);
-			this.model.getLevelConfig().setFreq5(after/totalFreq);
 			return true;
 		}
 		else if(number == 6) {
-			totalFreq = this.model.getLevelConfig().getFreq1() + this.model.getLevelConfig().getFreq2() + this.model.getLevelConfig().getFreq3() + this.model.getLevelConfig().getFreq4() + this.model.getLevelConfig().getFreq5() + after;  
-			this.model.getLevelConfig().setTotalFreq(totalFreq);
-			this.model.getLevelConfig().setFreq6(after/totalFreq);
+		
 			return true;
 		}
 		else {
