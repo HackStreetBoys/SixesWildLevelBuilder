@@ -66,31 +66,43 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		btnBack.addActionListener(new ToMainScreenController(super.getApplication()));
 		
 		JSlider slider_1 = new JSlider();
+		slider_1.setMaximum(100);
+		slider_1.setMinimum(0);
 		slider_1.setBounds(40, 200, 100, 20);
 		slider_1.addChangeListener(new SliderController(application,1));
 		add(slider_1);
 		
 		JSlider slider_2 = new JSlider();
+		slider_2.setMaximum(100);
+		slider_2.setMinimum(0);
 		slider_2.setBounds(40, 230, 100, 20);
 		slider_2.addChangeListener(new SliderController(application,2));
 		add(slider_2);
 		
 		JSlider slider_3 = new JSlider();
+		slider_3.setMaximum(100);
+		slider_3.setMinimum(0);
 		slider_3.setBounds(40, 260, 100, 20);
 		slider_3.addChangeListener(new SliderController(application,3));
 		add(slider_3);
 		
 		JSlider slider_4 = new JSlider();
+		slider_4.setMaximum(100);
+		slider_4.setMinimum(0);
 		slider_4.setBounds(40, 290, 100, 20);
 		slider_4.addChangeListener(new SliderController(application,4));
 		add(slider_4);
 		
 		JSlider slider_5 = new JSlider();
+		slider_5.setMaximum(100);
+		slider_5.setMinimum(0);
 		slider_5.setBounds(40, 320, 100, 20);
 		slider_5.addChangeListener(new SliderController(application,5));
 		add(slider_5);
 		
 		JSlider slider_6 = new JSlider();
+		slider_6.setMaximum(100);
+		slider_6.setMinimum(0);
 		slider_6.setBounds(40, 350, 100, 20);
 		slider_6.addChangeListener(new SliderController(application,6));
 		add(slider_6);
