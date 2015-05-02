@@ -166,27 +166,27 @@ public abstract class AbstractLevelConfig{
 	}
 
 	public void setFreq1(double freq1) {
-		this.freq1 = freq1;
+		this.freq1 = freq1/100;
 	}
 	
 	public void setFreq2(double freq2) {
-		this.freq2 = freq2;
+		this.freq2 = freq2/100;
 	}
 	
 	public void setFreq3(double freq3) {
-		this.freq3 = freq3;
+		this.freq3 = freq3/100;
 	}
 	
 	public void setFreq4(double freq4) {
-		this.freq4 = freq4;
+		this.freq4 = freq4/100;
 	}
 	
 	public void setFreq5(double freq5) {
-		this.freq5 = freq5;
+		this.freq5 = freq5/100;
 	}
 	
 	public void setFreq6(double freq6) {
-		this.freq6 = freq6;
+		this.freq6 = freq6/100;
 	}	
 
 	public double getTotalVal() {
