@@ -7,11 +7,11 @@ package hackstreet.levelbuilder.move;
 import javax.swing.JSlider;
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
-import hackstreet.levelbuilder.main.SWLevelBuilder;
-
+import hackstreet.levelbuilder.gui.AbstractLevelEditorScreen;
+import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 public class FrequencyChangeMove extends AbstractLevelConfig implements IMove {
 
-	SWLevelBuilder model;
+	LevelBuilderApplication application;
 	int after;
 	JSlider slider;
 	int number;
@@ -21,16 +21,15 @@ public class FrequencyChangeMove extends AbstractLevelConfig implements IMove {
 	double freq4;
 	double freq5;
 	double freq6;
-	double val1;
-	double val2;
-	double val3;
-	double val4;
-	double val5;
-	double val6;
-	double totalVal;
+	int val1;
+	int val2;
+	int val3;
+	int val4;
+	int val5;
+	int val6;
 	
-	public FrequencyChangeMove(SWLevelBuilder model, JSlider slider, int number){
-		this.model = model;	
+	public FrequencyChangeMove(LevelBuilderApplication application, JSlider slider, int number){
+		this.application = application;
 		this.slider = slider;
 		this.after = slider.getValue();
 		this.number = number;
@@ -38,48 +37,31 @@ public class FrequencyChangeMove extends AbstractLevelConfig implements IMove {
 	
 	@Override
 	public boolean doMove() {
-		//Once, slider stops moving, update the value
-		if(number == 1){
-			System.out.print(after);
-			val1 = model.getLevelConfig().getFreq1()*model.getLevelConfig().getTotalVal();
-			val2 = model.getLevelConfig().getFreq2()*model.getLevelConfig().getTotalVal();
-			val3 = model.getLevelConfig().getFreq3()*model.getLevelConfig().getTotalVal();
-			val4 = model.getLevelConfig().getFreq4()*model.getLevelConfig().getTotalVal();
-			val5 = model.getLevelConfig().getFreq5()*model.getLevelConfig().getTotalVal();
-			val6 = model.getLevelConfig().getFreq6()*model.getLevelConfig().getTotalVal();
-			totalVal = this.model.getLevelConfig().getTotalVal() - val1 + after;
-			model.getLevelConfig().setTotalVal(totalVal);
-			model.getLevelConfig().setFreq1(after/totalVal);
-			model.getLevelConfig().setFreq2(val2/totalVal);
-			model.getLevelConfig().setFreq3(val3/totalVal);
-			model.getLevelConfig().setFreq4(val4/totalVal);
-			model.getLevelConfig().setFreq5(val5/totalVal);
-			model.getLevelConfig().setFreq6(val6/totalVal);
-			return true;
-		}
-		else if(number == 2) {
-			
-			return true;
-		}
-		else if(number == 3) {
-			
-			return true;
-		}
-		else if(number == 4) {
-			
-			return true;
-		}
-		else if(number == 5) {
-			return true;
-		}
-		else if(number == 6) {
+		AbstractLevelEditorScreen screen = (AbstractLevelEditorScreen)application.getActiveScreen();
+		this.val1 = screen.getSliderValue(1);
+		this.val2 = screen.getSliderValue(2);
+		this.val3 = screen.getSliderValue(3);
+		this.val4 = screen.getSliderValue(4);
+		this.val5 = screen.getSliderValue(5);
+		this.val6 = screen.getSliderValue(6);
 		
-			return true;
-		}
-		else {
-			return false;
-		}
+		double total = val1+val2+val3+val4+val5+val6;
 		
+		this.freq1 = val1/total;
+		this.freq2 = val2/total;
+		this.freq3 = val3/total;
+		this.freq4 = val4/total;
+		this.freq5 = val5/total;
+		this.freq6 = val6/total;
+		
+		AbstractLevelConfig config = application.getModel().getLevelConfig();
+		config.setFreq1(freq1);
+		config.setFreq2(freq2);
+		config.setFreq3(freq3);
+		config.setFreq4(freq4);
+		config.setFreq5(freq5);
+		config.setFreq6(freq6);
+		return true;
 	}
 
 	@Override

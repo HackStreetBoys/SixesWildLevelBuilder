@@ -96,7 +96,7 @@ public class LevelBuilderApplication extends JFrame{
 	}
 	
 	public void setNumRemove(int numRemove) {
-		
+		this.model.getLevelConfig().setNumRemove(numRemove);
 	}
 		
 	public void setNumHint(int numHint) {
@@ -105,6 +105,10 @@ public class LevelBuilderApplication extends JFrame{
 	
 	public SWLevelBuilder getModel() {
 		return model;
+	}
+	
+	public AbstractScreen getActiveScreen(){
+		return this.activeScreen;
 	}
 	
 }

@@ -3,8 +3,6 @@ package hackstreet.levelbuilder.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import hackstreet.levelbuilder.config.AbstractLevelConfig;
-import hackstreet.levelbuilder.config.EliminationLevelConfig;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
 public class SaveButtonController implements ActionListener{

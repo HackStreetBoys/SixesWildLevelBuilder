@@ -12,6 +12,7 @@ import javax.swing.JWindow;
  * @author timpetri
  * Class for splash screens, most code found online
  */
+@SuppressWarnings("serial")
 public class SplashScreen extends JWindow {
 
 	private int duration;

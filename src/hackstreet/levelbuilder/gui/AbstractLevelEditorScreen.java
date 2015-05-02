@@ -1,6 +1,7 @@
 package hackstreet.levelbuilder.gui;
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
+import hackstreet.levelbuilder.config.Location;
 import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.controller.ChangeSlotTypeController;
 import hackstreet.levelbuilder.controller.LevelTypeComboController;
@@ -16,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
 
-import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -24,17 +24,19 @@ import java.awt.GridLayout;
 
 import javax.swing.JTextField;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JToggleButton;
-
 @SuppressWarnings("serial")
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 	private JTextField txtAllowedMoves;
 	private JTextField txtLevelname;
+	JSlider slider_1;
+	JSlider slider_2;
+	JSlider slider_3;
+	JSlider slider_4;
+	JSlider slider_5;
+	JSlider slider_6;
 	public AbstractLevelConfig level;
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
 		super(application, "Level Editor");
 		
@@ -65,32 +67,44 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		add(btnBack);
 		btnBack.addActionListener(new ToMainScreenController(super.getApplication()));
 		
-		JSlider slider_1 = new JSlider();
+		slider_1 = new JSlider();
+		slider_1.setMaximum(100);
+		slider_1.setMinimum(0);
 		slider_1.setBounds(40, 200, 100, 20);
 		slider_1.addChangeListener(new SliderController(application,1));
 		add(slider_1);
 		
-		JSlider slider_2 = new JSlider();
+		slider_2 = new JSlider();
+		slider_2.setMaximum(100);
+		slider_2.setMinimum(0);
 		slider_2.setBounds(40, 230, 100, 20);
 		slider_2.addChangeListener(new SliderController(application,2));
 		add(slider_2);
 		
-		JSlider slider_3 = new JSlider();
+		slider_3 = new JSlider();
+		slider_3.setMaximum(100);
+		slider_3.setMinimum(0);
 		slider_3.setBounds(40, 260, 100, 20);
 		slider_3.addChangeListener(new SliderController(application,3));
 		add(slider_3);
 		
-		JSlider slider_4 = new JSlider();
+		slider_4 = new JSlider();
+		slider_4.setMaximum(100);
+		slider_4.setMinimum(0);
 		slider_4.setBounds(40, 290, 100, 20);
 		slider_4.addChangeListener(new SliderController(application,4));
 		add(slider_4);
 		
-		JSlider slider_5 = new JSlider();
+		slider_5 = new JSlider();
+		slider_5.setMaximum(100);
+		slider_5.setMinimum(0);
 		slider_5.setBounds(40, 320, 100, 20);
 		slider_5.addChangeListener(new SliderController(application,5));
 		add(slider_5);
 		
-		JSlider slider_6 = new JSlider();
+		slider_6 = new JSlider();
+		slider_6.setMaximum(100);
+		slider_6.setMinimum(0);
 		slider_6.setBounds(40, 350, 100, 20);
 		slider_6.addChangeListener(new SliderController(application,6));
 		add(slider_6);
@@ -126,7 +140,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 			for(int y=0;y<9;y++){
 				JButton button = new JButton("");
 				button.setBackground(Color.LIGHT_GRAY);
-				button.addActionListener(new ChangeSlotTypeController(super.getApplication()));
+				button.addActionListener(new ChangeSlotTypeController(super.getApplication(),new Location(x,y)));
 				grid.add(button,new Dimension(x,y));
 			}
 			
@@ -187,6 +201,20 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		
 	}
 
+	public int getSliderValue(int number){
+		if(number==1)
+			return slider_1.getValue();
+		else if(number==2)
+			return slider_2.getValue();
+		else if(number==3)
+			return slider_3.getValue();
+		else if(number==4)
+			return slider_4.getValue();
+		else if(number==5)
+			return slider_5.getValue();
+		else
+			return slider_6.getValue();
+	}
 	
 	@Override
 	public void paintComponent(Graphics g){

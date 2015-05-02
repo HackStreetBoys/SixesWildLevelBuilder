@@ -27,12 +27,6 @@ public abstract class AbstractLevelConfig{
 	private int numRemove;
 	private int numHint;
 	private double totalVal;
-//	private double value1;
-//	private double value2;
-//	private double value3;
-//	private double value4;
-//	private double value5;
-//	private double value6;
 	private double freq1;
 	private double freq2;
 	private double freq3;
@@ -63,12 +57,6 @@ public abstract class AbstractLevelConfig{
 		this.freq4 = 0;
 		this.freq5 = 0;
 		this.freq6 = 0;
-//		this.value1 = 0;
-//		this.value2 = 0;
-//		this.value3 = 0;
-//		this.value4 = 0;
-//		this.value5 = 0;
-//		this.value6 = 0;
 		this.freqMult2 = 0;
 		this.freqMult3 = 0;
 		this.pointsStar1 = 0;
@@ -99,12 +87,6 @@ public abstract class AbstractLevelConfig{
 		freq4 = levelConfig.freq4;
 		freq5 = levelConfig.freq5;
 		freq6 = levelConfig.freq6;
-//		value1 = levelConfig.value1;
-//		value2 = levelConfig.value2;
-//		value3 = levelConfig.value3;
-//		value4 = levelConfig.value4;
-//		value5 = levelConfig.value5;
-//		value6 = levelConfig.value6;
 		totalVal = levelConfig.totalVal;
 		freqMult2 = levelConfig.freqMult2;
 		freqMult3 = levelConfig.freqMult3;
@@ -182,26 +164,7 @@ public abstract class AbstractLevelConfig{
 	public double getFreq6() {
 		return freq6;	
 	}
-	
-//	public double getValue1() {
-//		return value1;	
-//	}
-//	public double getValue2() {
-//		return value2;	
-//	}
-//	public double getValue3() {
-//		return value3;	
-//	}
-//	public double getValue4() {
-//		return value4;	
-//	}
-//	public double getValue5() {
-//		return value5;	
-//	}
-//	public double getValue6() {
-//		return value6;	
-//	}
-//	
+
 	public void setFreq1(double freq1) {
 		this.freq1 = freq1;
 	}

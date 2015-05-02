@@ -5,6 +5,7 @@ package hackstreet.levelbuilder.gui;
  */
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
+import hackstreet.levelbuilder.config.InertSlot;
 import hackstreet.levelbuilder.config.Location;
 import hackstreet.levelbuilder.config.Slot;
 import hackstreet.levelbuilder.config.Tile;
@@ -21,21 +22,22 @@ import javax.swing.JPanel;
 public class GridView extends JPanel {
 
 	List<PassiveSlotView> slotList;
-	
+
 	public GridView(LevelBuilderApplication application){
 		super.setLayout(new GridLayout(9,9));
 		super.setBackground(new Color(0,0,0,0));
 
 		AbstractLevelConfig config = application.getModel().getLevelConfig();
+		List<Location> inertSlots = config.getNullLocations();
 		double f1 = config.getFreq1();
 		double f2 = config.getFreq2();
 		double f3 = config.getFreq3();
 		double f4 = config.getFreq4();
 		double f5 = config.getFreq5();
-		
+
 		System.out.println(f1+","+f2+","+f3+","+f4+","+f5);
-		for(int y=0; y<9; y++){
-			for(int x=0; x<9; x++){
+		for(int x=0; x<9; x++){
+			for(int y=0; y<9; y++){
 				double rand = Math.random();
 				Tile tile = null;
 				if(rand<f1)
@@ -50,15 +52,22 @@ public class GridView extends JPanel {
 					tile = new Tile(5,1);
 				else
 					tile = new Tile(6,1);
-				
-				Slot slot = new Slot(new Location(x,y));
-				slot.setTile(tile);
-				PassiveSlotView slotView = new PassiveSlotView(application,slot);
+
+				Location loc = new Location(x,y);
+				Slot slot = null;
+				if(inertSlots.contains(loc)){
+					slot = new InertSlot(loc);
+				}
+				else{
+					slot = new Slot(loc);
+					slot.setTile(tile);
+				}
+				PassiveSlotView slotView = new PassiveSlotView(slot);
 				super.add(slotView, new Dimension(x,y));
 			}
 		}
 	}
-	
+
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);

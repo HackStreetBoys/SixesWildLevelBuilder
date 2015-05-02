@@ -17,10 +17,10 @@ public class ChangeSlotTypeMove extends AbstractLevelConfig implements IMove {
 	JButton button;
 	Location location;
 	
-	public ChangeSlotTypeMove(SWLevelBuilder model, JButton button) {
+	public ChangeSlotTypeMove(SWLevelBuilder model, JButton button, Location location) {
 		this.model = model;
 		this.button = button;
-		this.location = new Location(button.getLocation().x, button.getLocation().y); 
+		this.location = location;
 	}
 	
 	@Override

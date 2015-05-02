@@ -4,6 +4,7 @@ import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 
 
 
+@SuppressWarnings("serial")
 public class PuzzleLevelEditorScreen extends AbstractLevelEditorScreen {
 
 	public PuzzleLevelEditorScreen(LevelBuilderApplication application) {

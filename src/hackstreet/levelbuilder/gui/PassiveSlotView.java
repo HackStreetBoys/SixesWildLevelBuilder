@@ -9,21 +9,18 @@ import hackstreet.levelbuilder.config.Slot;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.HashMap;
 
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class PassiveSlotView extends JPanel{
 
-	private LevelBuilderApplication application;
 	private Slot slot;
 	private PassiveTileView tileView;
 
-	public PassiveSlotView(LevelBuilderApplication application, Slot slot){
-		this.application = application;
+	public PassiveSlotView(Slot slot){
 		this.slot = slot;
-		super.setLayout(null);
+		this.setLayout(null);
 		super.setBackground(new Color(0,0,0,0));
 
 		refreshTileView();
@@ -33,8 +30,6 @@ public class PassiveSlotView extends JPanel{
 		if(slot.getTile() == null)
 			return;
 		this.tileView = new PassiveTileView(slot.getTile());
-		this.tileView.setSize(48,48);
-		this.tileView.setLocation(1,1);
 		super.removeAll();
 		super.add(tileView);
 	}
@@ -48,6 +43,10 @@ public class PassiveSlotView extends JPanel{
 		super.paintComponent(g);
 		g.setColor(Color.black);
 		g.drawRect(0,0, super.getWidth()-1, super.getHeight()-1);
+		if(this.tileView != null){
+			this.tileView.setLocation(0,0);
+			this.tileView.setSize(super.getSize());
+		}
 	}
 
 	public boolean equals(Object o){

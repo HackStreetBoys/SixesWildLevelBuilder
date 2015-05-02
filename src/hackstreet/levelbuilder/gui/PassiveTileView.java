@@ -60,6 +60,7 @@ public class PassiveTileView extends JPanel{
 			g.setFont(new Font("Serif",Font.BOLD,10));
 			g.drawString(mult + "x", super.getWidth()-15,super.getHeight()-5);
 		}
+		g.drawRect(0,0, super.getWidth()-1, super.getHeight()-1);
 	}
 
 }
