@@ -1,7 +1,6 @@
 package hackstreet.levelbuilder.gui;
 
 import hackstreet.levelbuilder.config.SavedLevelData;
-
 import hackstreet.levelbuilder.controller.RemoveLevelController;
 import hackstreet.levelbuilder.controller.SelectManageLevelController;
 import hackstreet.levelbuilder.controller.ToMainScreenSaveManifestController;
@@ -10,7 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Type;
-
+import java.util.ArrayList;
 
 import hackstreet.levelbuilder.controller.SelectManageLevelController;
 import hackstreet.levelbuilder.controller.manager.AssignLevelController;
@@ -20,7 +19,6 @@ import hackstreet.levelbuilder.controller.transport.ToMainScreenController;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -70,7 +68,9 @@ public class LevelManagerScreen extends AbstractScreen{
 		btnBack.addActionListener(new ToMainScreenSaveManifestController(application));
 		add(btnBack);
 		int x = 200;
-		System.out.println(application.levelData.size());
+		if (application.levelData == null)
+			application.levelData = new ArrayList<SavedLevelData>();
+//		System.out.println(application.levelData.size());
 		for (int i = 0; i < 10; i++)
 		{
 			//Build the first column of buttons in the level manager
