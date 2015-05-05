@@ -1,5 +1,8 @@
 package hackstreet.levelbuilder.controller;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.move.ChangeTimeLimitMove;
 
@@ -7,22 +10,26 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class ChangeTimeLimitController implements ChangeListener{
+public class ChangeTimeLimitController implements KeyListener{
 	LevelBuilderApplication application;
-	int seconds;
-	
-	public ChangeTimeLimitController(LevelBuilderApplication application, int seconds){
+
+	public ChangeTimeLimitController(LevelBuilderApplication application){
 		this.application = application;
-		this.seconds = seconds;
 	}
 
 	@Override
-	public void stateChanged(ChangeEvent e) {
+	public void keyPressed(KeyEvent e) {}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
 		JTextField textField = (JTextField) (e.getSource());
-		ChangeTimeLimitMove move = new ChangeTimeLimitMove(application.getModel(), textField, seconds);
+		ChangeTimeLimitMove move = new ChangeTimeLimitMove(application.getModel(), textField);
 		if(move.doMove()){
 			application.getModel().logMove(move);     // Successful Move has been made and pushed to the stack
 		}
 	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {}
 
 }

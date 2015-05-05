@@ -4,8 +4,9 @@ package hackstreet.levelbuilder.gui;
  * @author Himanshu
  */
 
-import hackstreet.levelbuilder.config.Location;
-import hackstreet.levelbuilder.config.Slot;
+import hackstreet.levelbuilder.elements.BucketSlot;
+import hackstreet.levelbuilder.elements.Location;
+import hackstreet.levelbuilder.elements.Slot;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -46,6 +47,12 @@ public class PassiveSlotView extends JPanel{
 		if(this.tileView != null){
 			this.tileView.setLocation(0,0);
 			this.tileView.setSize(super.getSize());
+		}
+		if(this.slot instanceof BucketSlot){
+			g.setColor(new Color(0,0,0,50));
+			g.fillRect(0,0,getWidth(),getHeight());
+			g.setColor(new Color(255,255,255,50));
+			g.fillOval(getWidth()/4, getHeight()/4, getWidth()/2, getWidth()/2);
 		}
 	}
 

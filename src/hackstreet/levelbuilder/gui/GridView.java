@@ -5,15 +5,18 @@ package hackstreet.levelbuilder.gui;
  */
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
-import hackstreet.levelbuilder.config.InertSlot;
-import hackstreet.levelbuilder.config.Location;
-import hackstreet.levelbuilder.config.Slot;
-import hackstreet.levelbuilder.config.Tile;
+import hackstreet.levelbuilder.config.ReleaseLevelConfig;
+import hackstreet.levelbuilder.elements.BucketSlot;
+import hackstreet.levelbuilder.elements.InertSlot;
+import hackstreet.levelbuilder.elements.Location;
+import hackstreet.levelbuilder.elements.Slot;
+import hackstreet.levelbuilder.elements.Tile;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -28,6 +31,13 @@ public class GridView extends JPanel {
 		super.setBackground(new Color(0,0,0,0));
 
 		AbstractLevelConfig config = application.getModel().getLevelConfig();
+		List<Location> bucketSlots = new ArrayList<Location>();
+		List<Location> sixSlots = new ArrayList<Location>();
+		if(config instanceof ReleaseLevelConfig){
+			ReleaseLevelConfig rConfig = (ReleaseLevelConfig)config;
+			bucketSlots = rConfig.getBucketLocations();
+			sixSlots = rConfig.getSixLocations();
+		}
 		List<Location> inertSlots = config.getNullLocations();
 		double f1 = config.getFreq1();
 		double f2 = config.getFreq2();
@@ -66,13 +76,19 @@ public class GridView extends JPanel {
 					mult = 2;
 				else 
 					mult = 3;
+
+				Location loc = new Location(x,y);
+				if(sixSlots.contains(loc))
+					value = 6;
 				
 				tile = new Tile(value, mult);
 				
-				Location loc = new Location(x,y);
 				Slot slot = null;
 				if(inertSlots.contains(loc)){
 					slot = new InertSlot(loc);
+				}
+				else if(bucketSlots.contains(loc)){
+					slot = new BucketSlot(loc);
 				}
 				else{
 					slot = new Slot(loc);

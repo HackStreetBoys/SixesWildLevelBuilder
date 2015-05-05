@@ -1,4 +1,4 @@
-package hackstreet.levelbuilder.main;
+package hackstreet.levelbuilder;
 import java.awt.*;
 
 import javax.swing.BorderFactory;

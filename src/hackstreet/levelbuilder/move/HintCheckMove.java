@@ -6,7 +6,7 @@ package hackstreet.levelbuilder.move;
 
 import javax.swing.JCheckBox;
 
-import hackstreet.levelbuilder.main.SWLevelBuilder;
+import hackstreet.levelbuilder.SWLevelBuilder;
 
 public class HintCheckMove implements IMove{
 

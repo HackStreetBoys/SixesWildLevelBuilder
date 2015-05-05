@@ -8,10 +8,9 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
-import hackstreet.levelbuilder.config.AbstractLevelConfig;
-import hackstreet.levelbuilder.config.Location;
+import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.config.ReleaseLevelConfig;
-import hackstreet.levelbuilder.main.SWLevelBuilder;
+import hackstreet.levelbuilder.elements.Location;
 
 public class ChangeSlotTypeMove implements IMove {
 

@@ -34,8 +34,10 @@ public class RemoveLevelController implements ActionListener {
 			System.out.println(i);
 			application.levelButtons.get(i).setText(
 					application.levelData.get(i+1).getLevelConfig().getName());
+					
 			application.levelButtons.get(i+1).setText("");
 		}
+		application.levelData.remove(application.levelData.size()-1);
 		
 
 		application.repaint();

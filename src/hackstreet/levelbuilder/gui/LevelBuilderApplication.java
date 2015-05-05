@@ -29,8 +29,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.config.SavedLevelData;
-import hackstreet.levelbuilder.main.SWLevelBuilder;
+import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
+import hackstreet.levelbuilder.gui.editor.PuzzleLevelEditorScreen;
+import hackstreet.levelbuilder.gui.editor.ReleaseLevelEditorScreen;
 
 /**
  * Primary GUI class which extends JFrame and displays screens.
@@ -115,8 +118,15 @@ public class LevelBuilderApplication extends JFrame{
 		this.model = model;
 		this.mainScreen = new LBMainScreen(this);
 		this.levelManagerScreen = new LevelManagerScreen(this);
-		this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
 		this.activeScreen = mainScreen;
+		if(this.model.getLevelConfig().getType() == "Puzzle")
+			this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
+		else if(this.model.getLevelConfig().getType() == "Release")
+			this.levelEditorScreen = new ReleaseLevelEditorScreen(this);
+		else if(this.model.getLevelConfig().getType() == "Lightning")
+			this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
+		else if(this.model.getLevelConfig().getType() == "Elimination")
+			this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
 		
 		this.getContentPane().add(activeScreen);
 		this.setSize(800, 600);
@@ -237,5 +247,12 @@ public class LevelBuilderApplication extends JFrame{
 		
 	}
 	
+	public void setLevelEditorScreen(AbstractLevelEditorScreen screen){
+		this.enterScreen(screen);
+	}
+	
+	public AbstractLevelEditorScreen getLevelEditorScreen(){
+		return this.levelEditorScreen;
+	}
 	
 }

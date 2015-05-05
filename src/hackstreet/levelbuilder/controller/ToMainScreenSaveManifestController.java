@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 
+
+/**
+ * @author Ben
+ */
+
+
 public class ToMainScreenSaveManifestController implements ActionListener {
 	LevelBuilderApplication application;
 	

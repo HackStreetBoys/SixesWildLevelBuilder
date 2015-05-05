@@ -1,5 +1,7 @@
 package hackstreet.levelbuilder.config;
 
+import hackstreet.levelbuilder.elements.Location;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class ReleaseLevelConfig extends AbstractLevelConfig {
 		this.sixLocations = new ArrayList<Location>();
 		this.bucketLocations = new ArrayList<Location>();
 	}
+	
 	
 	public ReleaseLevelConfig(int numMoves,AbstractLevelConfig config){
 		super("Release",config);
@@ -44,4 +47,5 @@ public class ReleaseLevelConfig extends AbstractLevelConfig {
 	public int getNumMoves() {
 		return numMoves;
 	}
+	
 }
