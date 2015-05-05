@@ -6,14 +6,6 @@ import java.awt.event.ActionListener;
 import hackstreet.levelbuilder.config.SavedLevelData;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 
-
-
-
-/**
- * @author Ben
- */
-
-
 public class MoveUpController implements ActionListener{
 	
 	LevelBuilderApplication application;

@@ -18,16 +18,21 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+
+
+
+
+
+
+
+
+
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
 
-/**
- * @author Ben
- */
+
 public class AssignLevelController implements ActionListener{
 	
 
@@ -71,25 +76,9 @@ public class AssignLevelController implements ActionListener{
 		AbstractLevelConfig obj ;
 //Insert
 		JsonParser parser = new JsonParser();
-		JsonObject attr = null;
-		try
-		{
-		attr = parser.parse(filebuffer).getAsJsonObject();
-		}
-		catch (JsonSyntaxException e)
-		{
-			JOptionPane.showMessageDialog(null, "Your Level file is corrupted. Unable to add.", "Error", JOptionPane.INFORMATION_MESSAGE);
-			return;
-		}
-		
-		if (attr.get("Type") == null)
-		{
-			JOptionPane.showMessageDialog(null, "Your Level file is corrupted. Unable to add.", "Error", JOptionPane.INFORMATION_MESSAGE);
-			return;
-		}
-			
-			
-			String type = attr.get("Type").getAsString();
+
+		JsonObject attr = parser.parse(filebuffer).getAsJsonObject();
+		String type = attr.get("Type").getAsString();
 
 		System.out.println("Loading Config");
 
@@ -110,7 +99,6 @@ public class AssignLevelController implements ActionListener{
 //End
 		if (application.getSelectedLevel() > application.levelData.size()-1 )
 		{
-			System.out.println(obj.getFile());
 			application.levelData.add(new SavedLevelData(obj));
 			application.levelButtons.get(application.getSelectedLevel()).setText( obj.getName() );
 		}
@@ -121,9 +109,7 @@ public class AssignLevelController implements ActionListener{
 				application.levelData.add(null);
 				application.levelButtons.get(i).setText("");
 			}
-			
-			
-			application.levelData.set(application.getSelectedLevel(), new SavedLevelData(gson.fromJson(filebuffer, AbstractLevelConfig.class)));
+			application.levelData.set(application.getSelectedLevel(), gson.fromJson(filebuffer, SavedLevelData.class));
 			
 //			application.levelButtons.get(application.getSelectedLevel()).setText(application.levelData.get(application.getSelectedLevel()).getLevelConfig().getName());
 			
