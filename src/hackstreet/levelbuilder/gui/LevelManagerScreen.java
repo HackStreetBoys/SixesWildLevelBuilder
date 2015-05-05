@@ -1,17 +1,25 @@
 package hackstreet.levelbuilder.gui;
+import hackstreet.levelbuilder.config.SavedLevelData;
 import hackstreet.levelbuilder.controller.AssignLevelController;
 import hackstreet.levelbuilder.controller.MoveDownController;
 import hackstreet.levelbuilder.controller.MoveUpController;
+import hackstreet.levelbuilder.controller.RemoveLevelController;
 import hackstreet.levelbuilder.controller.SelectManageLevelController;
 import hackstreet.levelbuilder.controller.ToMainScreenController;
+import hackstreet.levelbuilder.controller.ToMainScreenSaveManifestController;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Type;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 
 
 /**
@@ -45,11 +53,13 @@ public class LevelManagerScreen extends AbstractScreen{
 		
 		JButton btnRemove = new JButton("Remove");
 		btnRemove.setBounds(20, 270, 135, 50);
+		btnRemove.addActionListener(new RemoveLevelController(application));
 		add(btnRemove);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(20, 500, 135, 40);
-		btnBack.addActionListener(new ToMainScreenController(application));
+		
+		btnBack.addActionListener(new ToMainScreenSaveManifestController(application));
 		add(btnBack);
 		int x = 200;
 		System.out.println(application.levelData.size());
@@ -97,6 +107,8 @@ public class LevelManagerScreen extends AbstractScreen{
 	}
 	
 
+
+	
 
 	@Override
 	public void paintComponent(Graphics g){

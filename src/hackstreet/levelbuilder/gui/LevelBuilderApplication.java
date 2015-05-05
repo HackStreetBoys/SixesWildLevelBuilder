@@ -1,13 +1,18 @@
 package hackstreet.levelbuilder.gui;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.util.ArrayList;
 
+import hackstreet.levelbuilder.config.*;
+
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -18,7 +23,10 @@ import javax.swing.WindowConstants;
 
 
 
+
+
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import hackstreet.levelbuilder.config.SavedLevelData;
@@ -79,6 +87,8 @@ public class LevelBuilderApplication extends JFrame{
 				while ((line = reader.readLine()) != null) {
 					filebuffer += line;
 				}
+				reader.close();
+				in.close();
 			} catch (IOException x) {
 				System.err.println(x);
 			}
@@ -88,13 +98,15 @@ public class LevelBuilderApplication extends JFrame{
 			java.lang.reflect.Type cType = new TypeToken<ArrayList<SavedLevelData>>() {}.getType();
 
 
-			levelData = gson.fromJson(filebuffer,cType);
-			levelData= gson.fromJson(filebuffer, cType);
 
+			levelData= gson.fromJson(filebuffer, cType);
+			if (levelData != null)
+			{
 			for (int i = 0; i < levelData.size();i++)
 			{
 				levelData.get(i).getLevelConfig();
 				//Make sure all levelData level configs are loaded.
+			}
 			}
 		}
 			//
@@ -188,6 +200,40 @@ public class LevelBuilderApplication extends JFrame{
 	public void setSelectedLevel(Integer i) {
 		SelectedLevelIndex = i;
 		// TODO Auto-generated method stub
+		
+	}
+
+	public void saveLevelData() {
+	
+		//Write to manifest file.
+		String json;
+		Gson gson = new GsonBuilder().registerTypeAdapter(SavedLevelData.class, new ManifestSerializer()).setPrettyPrinting().create();//.registerTypeAdapter(ArrayList.class, new ManifestSerializer()).setPrettyPrinting().create();
+		
+		for (int i = 0 ; i < levelData.size() -1; i++)
+		{
+			levelData.get(i).file = new File("/data/"+levelData.get(i).file.getName());
+		}
+	
+		//Parent corresponds to getting out of the SixesWildLevelBuilder
+		File Parent = new File(System.getProperty("user.dir")).getParentFile();
+		//After we have the parent path, point to the manifest.json
+		File manifestFile = new File(Parent.toPath() + "/SixesWild/data/manifest.json");
+	
+		try	{
+
+				//Standard write to file
+				FileWriter fw = new FileWriter(manifestFile.getAbsoluteFile());
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(	gson.toJson(levelData));
+				bw.close();
+				//close stream.
+	 
+				System.out.println("Succesfully Wrote to file.");
+	 
+			} 
+			catch (IOException e){
+				e.printStackTrace();
+			}
 		
 	}
 	

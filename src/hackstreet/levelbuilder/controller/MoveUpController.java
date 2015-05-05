@@ -47,6 +47,7 @@ public class MoveUpController implements ActionListener{
 		application.levelButtons.get(application.getSelectedLevel()).setText(temp);
 		application.setSelectedLevel(application.getSelectedLevel()-1);
 		application.repaint();
+		application.saveLevelData();
 	}
 	
 

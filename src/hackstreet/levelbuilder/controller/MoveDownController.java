@@ -51,8 +51,9 @@ public class MoveDownController implements ActionListener{
 		
 	
 		application.repaint();
-		
+		application.saveLevelData();
 		
 	}
+	
 
 }
