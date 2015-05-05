@@ -15,8 +15,9 @@ public class Location {
 	int y;
 	
 	public Location(int x, int y){
-		this.x = x;
-		this.y = y;
+		//Flip flop x and y to be uniform with row/column notation in SixesWild Game
+		this.x = y;
+		this.y = x;
 	}
 	
 	public int getX(){
