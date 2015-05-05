@@ -221,7 +221,7 @@ public class LevelBuilderApplication extends JFrame{
 		
 		for (int i = 0 ; i < levelData.size() -1; i++)
 		{
-			levelData.get(i).file = new File("/data/"+levelData.get(i).file.getName());
+			levelData.get(i).file = new File("/data/"+levelData.get(i).getLevelConfig().getFile().getName());
 		}
 	
 		//Parent corresponds to getting out of the SixesWildLevelBuilder
