@@ -15,7 +15,7 @@ public class ToNewLevelController implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
-		
+		application.model.setupDefaultLevel();
 		application.enterLevelEditorScreen();
 	}
 	
