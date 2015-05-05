@@ -48,7 +48,10 @@ public class LevelBuilderApplication extends JFrame{
 
 	private Integer SelectedLevelIndex;
 	
+	/**The main campaign for the game**/
 	public ArrayList<SavedLevelData> levelData;
+	
+	/** LevelManager buttons, easier to manage in here **/
 	public ArrayList<JButton> levelButtons;
 	
 	/**
