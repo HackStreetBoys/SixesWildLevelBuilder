@@ -1,11 +1,13 @@
 package hackstreet.levelbuilder.move;
 
-import hackstreet.levelbuilder.config.AbstractLevelConfig;
+import hackstreet.levelbuilder.config.EliminationLevelConfig;
+import hackstreet.levelbuilder.config.PuzzleLevelConfig;
+import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
 import javax.swing.JTextField;
 
-public class ChangeNumMovesMove extends AbstractLevelConfig implements IMove {
+public class ChangeNumMovesMove implements IMove {
 	SWLevelBuilder model;
 	JTextField textField;
 	int numMoves;
@@ -18,8 +20,23 @@ public class ChangeNumMovesMove extends AbstractLevelConfig implements IMove {
 	
 	@Override
 	public boolean doMove() {
-		if(model.getLevelConfig().getType() == "Puzzle" || model.getLevelConfig().getType() == "Elimination" || model.getLevelConfig().getType() == "Release"){
-			model.getLevelConfig().setNumMoves(numMoves);
+		if(model.getLevelConfig().getType() == "Puzzle"){
+			PuzzleLevelConfig config = (PuzzleLevelConfig) model.getLevelConfig();
+			config.setNumMoves(numMoves);
+			String moves = "" + numMoves ;
+			textField.setText(moves);
+			return true;
+		}
+		else if(model.getLevelConfig().getType() == "Elimination"){
+			EliminationLevelConfig config = (EliminationLevelConfig) model.getLevelConfig();
+			config.setNumMoves(numMoves);
+			String moves = "" + numMoves ;
+			textField.setText(moves);
+			return true;
+		}
+		else if(model.getLevelConfig().getType() == "Release"){
+			ReleaseLevelConfig config = (ReleaseLevelConfig) model.getLevelConfig();
+			config.setNumMoves(numMoves);
 			String moves = "" + numMoves ;
 			textField.setText(moves);
 			return true;

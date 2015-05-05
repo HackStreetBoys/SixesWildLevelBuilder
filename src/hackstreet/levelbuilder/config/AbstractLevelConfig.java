@@ -1,36 +1,34 @@
 package hackstreet.levelbuilder.config;
 
+import hackstreet.levelbuilder.config.Location;
+
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.swing.Icon;
 
 import com.google.gson.Gson;
 
 /**
- * @author Ben, Himanshu
+ * Storage for all of the information saved about a level in SixesWildLevelBuilder.
+ * This class should be nearly identical to its twin in the LevelBuilder.
+ * @author Himanshu, Pat, Nicholas
+ *
  */
+public class AbstractLevelConfig {
 
-public abstract class AbstractLevelConfig{
-	
-	//!!!PROPERLY CALCULATE PERCENTAGE 
-	
 	protected String Type; // Added so that we can load files. It is protected b/c sub classes need to know this information;
 	private String name;
-	private int height;
-	private int width;
 	private ArrayList<Location> nullLocations;
-	private ArrayList<Location> bucketLocations;
-	private ArrayList<Location> sixLocations;
-	private HashMap <Location, Slot> board;
-	private double[] percentage = new double[6];
 	private int numShuffle;
 	private int numSwap;
 	private int numRemove;
 	private int numHint;
+<<<<<<< HEAD
 
 	private double totalVal;
+=======
+>>>>>>> 9f1e17ba24ed1671a122e79338ec7a0da4cb4dd1
 	private double freq1;
 	private double freq2;
 	private double freq3;
@@ -46,8 +44,9 @@ public abstract class AbstractLevelConfig{
 	public File File;
 	
 	/**
-	 * Empty constructor, for when the level type is unknown.
+	 * 
 	 */
+<<<<<<< HEAD
 	public AbstractLevelConfig(){
 		// empty
 		this.name = "New Level";
@@ -105,16 +104,59 @@ public abstract class AbstractLevelConfig{
 		pointsStar2 = levelConfig.pointsStar2;
 		pointsStar3 = levelConfig.pointsStar3;
 		board = levelConfig.board;	
+=======
+	public AbstractLevelConfig(String type){
+		this.Type = type;
+		nullLocations = new ArrayList<Location>();
 	}
 	
+	public AbstractLevelConfig(String type, AbstractLevelConfig other){
+		this.Type = type;
+		this.name = other.name;
+		this.nullLocations = other.nullLocations;
+		this.numShuffle = other.numShuffle;
+		this.numSwap = other.numSwap;
+		this.numRemove = other.numRemove;
+		this.numHint = other.numHint;
+		this.freq1 = other.freq1;
+		this.freq2 = other.freq2;
+		this.freq3 = other.freq3;
+		this.freq4 = other.freq4;
+		this.freq5 = other.freq5;
+		this.freq6 = other.freq6;
+		this.freqMult1 = other.freqMult1;
+		this.freqMult2 = other.freqMult2;
+		this.freqMult3 = other.freqMult3;
+		this.pointsStar1 = other.pointsStar1;
+		this.pointsStar2 = other.pointsStar2;
+		this.pointsStar3 = other.pointsStar3;
+		this.File = other.File;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ArrayList<Location> getNullLocations() {
+		if (nullLocations == null)
+			return new ArrayList<Location>();
+		return nullLocations;
+>>>>>>> 9f1e17ba24ed1671a122e79338ec7a0da4cb4dd1
+	}
+
+	public void setNullLocations(
+			ArrayList<Location> nullLocations) {
+		this.nullLocations = nullLocations;
+	}
+
 	public int getNumShuffle() {
 		return numShuffle;
 	}
-	
-	public String getType()
-	{
-		return this.Type;
-	}
+
 	public void setNumShuffle(int numShuffle) {
 		this.numShuffle = numShuffle;
 	}
@@ -126,7 +168,7 @@ public abstract class AbstractLevelConfig{
 	public void setNumSwap(int numSwap) {
 		this.numSwap = numSwap;
 	}
-	
+
 	public int getNumRemove() {
 		return numRemove;
 	}
@@ -143,105 +185,121 @@ public abstract class AbstractLevelConfig{
 		this.numHint = numHint;
 	}
 
-	public ArrayList<Location> getNullLocations(){
-		return nullLocations;
-	}
-	
-
 	public double getFreq1() {
-		return freq1;	
-	}
-	
-	public double getFreq2() {
-		return freq2;	
-	}
-	
-	public double getFreq3() {
-		return freq3;	
-	}
-	
-	public double getFreq4() {
-		return freq4;	
-	}
-	
-	public double getFreq5() {
-		return freq5;	
-	}
-	
-	public double getFreq6() {
-		return freq6;	
+		return freq1;
 	}
 
 	public void setFreq1(double freq1) {
-		this.freq1 = freq1/100;
-	}
-	
-	public void setFreq2(double freq2) {
-		this.freq2 = freq2/100;
-	}
-	
-	public void setFreq3(double freq3) {
-		this.freq3 = freq3/100;
-	}
-	
-	public void setFreq4(double freq4) {
-		this.freq4 = freq4/100;
-	}
-	
-	public void setFreq5(double freq5) {
-		this.freq5 = freq5/100;
-	}
-	
-	public void setFreq6(double freq6) {
-		this.freq6 = freq6/100;
-	}	
-	
-	public double getFreqMult1(){
-		return this.freqMult1;
+		this.freq1 = freq1;
 	}
 
-	public void setFreqMult1(double freqMult1){
+	public double getFreq2() {
+		return freq2;
+	}
+
+	public void setFreq2(double freq2) {
+		this.freq2 = freq2;
+	}
+
+	public double getFreq3() {
+		return freq3;
+	}
+
+	public void setFreq3(double freq3) {
+		this.freq3 = freq3;
+	}
+
+	public double getFreq4() {
+		return freq4;
+	}
+
+	public void setFreq4(double freq4) {
+		this.freq4 = freq4;
+	}
+
+	public double getFreq5() {
+		return freq5;
+	}
+
+	public void setFreq5(double freq5) {
+		this.freq5 = freq5;
+	}
+
+	public double getFreq6() {
+		return freq6;
+	}
+
+	public void setFreq6(double freq6) {
+		this.freq6 = freq6;
+	}
+
+	public double getFreqMult1() {
+		return freqMult1;
+	}
+
+	public void setFreqMult1(double freqMult1) {
 		this.freqMult1 = freqMult1;
 	}
-
-	public double getFreqMult2(){
-		return this.freqMult2;
+	
+	public double getFreqMult2() {
+		return freqMult2;
 	}
 
-	public void setFreqMult2(double freqMult2){
+	public void setFreqMult2(double freqMult2) {
 		this.freqMult2 = freqMult2;
 	}
-	
-	public double getFreqMult3(){
-		return this.freqMult3;
+
+	public double getFreqMult3() {
+		return freqMult3;
 	}
 
-	public void setFreqMult3(double freqMult3){
+	public void setFreqMult3(double freqMult3) {
 		this.freqMult3 = freqMult3;
 	}
-	
-	public double getTotalVal() {
-		return totalVal;
+
+	public int getPointsStar1() {
+		return pointsStar1;
 	}
-	
-	public void setTotalVal(double totalVal) {
-		this.totalVal = totalVal;
+
+	public void setPointsStar1(int pointsStar1) {
+		this.pointsStar1 = pointsStar1;
 	}
-	
-	public ArrayList<Location> getBucketLocations() {
-		return this.bucketLocations;
+
+	public int getPointsStar2() {
+		return pointsStar2;
 	}
-	
-	public ArrayList<Location> getSixLocations() {
-		return this.sixLocations;
+
+	public void setPointsStar2(int pointsStar2) {
+		this.pointsStar2 = pointsStar2;
 	}
-	
+
+	public int getPointsStar3() {
+		return pointsStar3;
+	}
+
+	public void setPointsStar3(int pointsStar3) {
+		this.pointsStar3 = pointsStar3;
+	}
+
+	public File getFile() {
+		return File;
+	}
+
+	public void setFile(File file) {
+		File = file;
+	}
+
+	public String getType() {
+		return this.Type;
+	}
+
 	public String getJSON()
 	{
 
 		Gson gson = new Gson();
 		return gson.toJson(this);
 	}
+<<<<<<< HEAD
 	
 	public int generateRandomValue() {
 		double r = Math.random();
@@ -270,4 +328,6 @@ public abstract class AbstractLevelConfig{
 	
 
 	
+=======
+>>>>>>> 9f1e17ba24ed1671a122e79338ec7a0da4cb4dd1
 }

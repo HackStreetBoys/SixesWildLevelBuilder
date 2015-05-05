@@ -38,7 +38,7 @@ public class SWLevelBuilder {
 	}
 	
 	private void createFakeLevel(){
-		this.levelConfig = new PuzzleLevelConfig();
+		this.levelConfig = new PuzzleLevelConfig(50);
 		this.levelConfig.setFreq1(.2);
 		this.levelConfig.setFreq2(.2);
 		this.levelConfig.setFreq3(.2);

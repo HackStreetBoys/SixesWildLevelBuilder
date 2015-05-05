@@ -7,11 +7,13 @@ package hackstreet.levelbuilder.move;
 import java.awt.Color;
 
 import javax.swing.JButton;
+
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.Location;
+import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
-public class ChangeSlotTypeMove extends AbstractLevelConfig implements IMove {
+public class ChangeSlotTypeMove implements IMove {
 
 	SWLevelBuilder model;
 	JButton button;
@@ -27,28 +29,28 @@ public class ChangeSlotTypeMove extends AbstractLevelConfig implements IMove {
 	public boolean doMove() {
 			
 		if(model.getLevelConfig().getType() == "Release"){
+			ReleaseLevelConfig config = (ReleaseLevelConfig)model.getLevelConfig();
 			if(button.getBackground() == Color.LIGHT_GRAY){
-				model.getLevelConfig().getNullLocations().add(location);
+				config.getNullLocations().add(location);
 				button.setBackground(Color.black);
 				return true;
 			}
 			else if(button.getBackground() == Color.black){
-				model.getLevelConfig().getNullLocations().remove(location);
-				model.getLevelConfig().getBucketLocations().add(location);
+				config.getNullLocations().remove(location);
+				config.getBucketLocations().add(location);
 				button.setBackground(Color.green);
 				return true;
 			}
 		
 			else if(button.getBackground() == Color.green){
-				model.getLevelConfig().getBucketLocations().remove(location);
-				model.getLevelConfig().getSixLocations().add(location);
+				config.getBucketLocations().remove(location);
+				config.getSixLocations().add(location);
 				button.setBackground(Color.pink);
 				return true;
 			}
-			
 			else if(button.getBackground() == Color.pink){
-				model.getLevelConfig().getSixLocations().remove(location);
-				model.getLevelConfig().getNullLocations().remove(location);
+				config.getSixLocations().remove(location);
+				config.getNullLocations().remove(location);
 				button.setBackground(Color.LIGHT_GRAY);
 				return true;
 			}

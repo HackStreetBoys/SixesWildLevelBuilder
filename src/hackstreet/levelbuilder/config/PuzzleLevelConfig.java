@@ -1,16 +1,30 @@
 package hackstreet.levelbuilder.config;
 
-public class PuzzleLevelConfig extends AbstractLevelConfig{
-
-	int numMoves;
+/**
+ * 
+ * @author Pat, Himanshu
+ *
+ */
+public class PuzzleLevelConfig extends AbstractLevelConfig {
 	
-	public PuzzleLevelConfig(){
-		super();
-		this.Type = "Puzzle";  // Needed for Serialization and FileIO
+	private int numMoves;
+	
+	public PuzzleLevelConfig(int numMoves){
+		super("Puzzle");
+		this.Type = "Puzzle";
+		this.numMoves = numMoves;
 	}
 	
-	public PuzzleLevelConfig(PuzzleLevelConfig levelConfig){
-		super(levelConfig);
-		this.Type = "Puzzle";  // Needed for Serialization and FileIOs
+	public PuzzleLevelConfig(int numMoves,AbstractLevelConfig config){
+		super("Puzzle",config);
+		this.numMoves = numMoves;
+	}
+	
+	public void setNumMoves(int numMoves){
+		this.numMoves = numMoves;
+	}
+	
+	public int getNumMoves() {
+		return numMoves;
 	}
 }
