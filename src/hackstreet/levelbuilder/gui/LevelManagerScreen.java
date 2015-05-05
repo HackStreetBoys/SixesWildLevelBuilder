@@ -1,14 +1,13 @@
 package hackstreet.levelbuilder.gui;
-import hackstreet.levelbuilder.controller.AssignLevelController;
-import hackstreet.levelbuilder.controller.MoveDownController;
-import hackstreet.levelbuilder.controller.MoveUpController;
+
 import hackstreet.levelbuilder.controller.SelectManageLevelController;
-import hackstreet.levelbuilder.controller.ToMainScreenController;
-import hackstreet.levelbuilder.main.SWLevelBuilder;
+import hackstreet.levelbuilder.controller.manager.AssignLevelController;
+import hackstreet.levelbuilder.controller.manager.MoveDownController;
+import hackstreet.levelbuilder.controller.manager.MoveUpController;
+import hackstreet.levelbuilder.controller.transport.ToMainScreenController;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;

@@ -1,4 +1,4 @@
-package hackstreet.levelbuilder.controller;
+package hackstreet.levelbuilder.controller.manager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

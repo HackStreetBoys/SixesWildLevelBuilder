@@ -7,14 +7,13 @@ package hackstreet.levelbuilder.move;
 import javax.swing.JSlider;
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
-import hackstreet.levelbuilder.gui.AbstractLevelEditorScreen;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
 public class FrequencyChangeMove implements IMove {
 
 	LevelBuilderApplication application;
 	int after;
 	JSlider slider;
-	int number;
 	double freq1;
 	double freq2;
 	double freq3;
@@ -28,11 +27,10 @@ public class FrequencyChangeMove implements IMove {
 	int val5;
 	int val6;
 	
-	public FrequencyChangeMove(LevelBuilderApplication application, JSlider slider, int number){
+	public FrequencyChangeMove(LevelBuilderApplication application, JSlider slider){
 		this.application = application;
 		this.slider = slider;
 		this.after = slider.getValue();
-		this.number = number;
 	}
 	
 	@Override
@@ -44,6 +42,7 @@ public class FrequencyChangeMove implements IMove {
 		this.val4 = screen.getFrequencySliderValue(4);
 		this.val5 = screen.getFrequencySliderValue(5);
 		this.val6 = screen.getFrequencySliderValue(6);
+		
 		
 		double total = val1+val2+val3+val4+val5+val6;
 		

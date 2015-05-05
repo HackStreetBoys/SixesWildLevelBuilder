@@ -1,8 +1,8 @@
 package hackstreet.levelbuilder.gui;
 
-import hackstreet.levelbuilder.controller.ToEditLevelController;
-import hackstreet.levelbuilder.controller.ToLevelManagerController;
-import hackstreet.levelbuilder.controller.ToNewLevelController;
+import hackstreet.levelbuilder.controller.transport.ToEditLevelController;
+import hackstreet.levelbuilder.controller.transport.ToLevelManagerController;
+import hackstreet.levelbuilder.controller.transport.ToNewLevelController;
 
 import javax.swing.JButton;
 

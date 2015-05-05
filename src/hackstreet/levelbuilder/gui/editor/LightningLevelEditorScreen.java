@@ -1,6 +1,10 @@
-package hackstreet.levelbuilder.gui;
+package hackstreet.levelbuilder.gui.editor;
 
 import hackstreet.levelbuilder.config.LightningLevelConfig;
+import hackstreet.levelbuilder.controller.ChangeTimeLimitController;
+import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.gui.TextFieldUI;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -13,6 +17,15 @@ public class LightningLevelEditorScreen extends AbstractLevelEditorScreen {
 	
 	public LightningLevelEditorScreen(LevelBuilderApplication application) {
 		super(application);
+		this.initialize(application);
+	}
+	
+	public LightningLevelEditorScreen(LevelBuilderApplication application, AbstractLevelEditorScreen editor){
+		super(application,editor);
+		this.initialize(application);
+	}
+	
+	public void initialize(LevelBuilderApplication application) {
 		
 		if (application.model.getLevelConfig() == null)
 		{
@@ -20,12 +33,14 @@ public class LightningLevelEditorScreen extends AbstractLevelEditorScreen {
 		}
 		
 		txtTimeLimit = new JTextField();
-		txtTimeLimit.setText("Time limit (seconds)");
+		txtTimeLimit.setUI(new TextFieldUI("Time limit (seconds)",new Color(100,100,100)));
 		txtTimeLimit.setBounds(20, 82, 134, 28);
-		add(txtTimeLimit);
 		txtTimeLimit.setColumns(10);
+		txtTimeLimit.addKeyListener(new ChangeTimeLimitController(application));
+		add(txtTimeLimit);
 		
 		application.model.setLevelConfig(application.model.getLevelConfig());
+		super.slider_6.setEnabled(true);
 	}	
 	
 	@Override

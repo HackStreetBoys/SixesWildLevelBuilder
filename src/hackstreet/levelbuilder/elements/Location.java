@@ -1,4 +1,4 @@
-package hackstreet.levelbuilder.config;
+package hackstreet.levelbuilder.elements;
 
 /**
  * @author Himanshu

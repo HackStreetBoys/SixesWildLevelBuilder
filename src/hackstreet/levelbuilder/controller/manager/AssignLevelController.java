@@ -1,4 +1,4 @@
-package hackstreet.levelbuilder.controller;
+package hackstreet.levelbuilder.controller.manager;
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 
@@ -11,8 +11,6 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 
 import javax.swing.JFileChooser;
-
-import com.google.gson.Gson;
 
 public class AssignLevelController implements ActionListener{
 	

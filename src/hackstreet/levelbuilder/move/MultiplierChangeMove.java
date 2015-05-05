@@ -3,8 +3,8 @@ package hackstreet.levelbuilder.move;
 import javax.swing.JSlider;
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
-import hackstreet.levelbuilder.gui.AbstractLevelEditorScreen;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
+import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
 
 public class MultiplierChangeMove implements IMove {
 

@@ -1,6 +1,6 @@
 package hackstreet.levelbuilder.config;
 
-import hackstreet.levelbuilder.config.Location;
+import hackstreet.levelbuilder.elements.Location;
 
 import java.io.File;
 import java.util.ArrayList;

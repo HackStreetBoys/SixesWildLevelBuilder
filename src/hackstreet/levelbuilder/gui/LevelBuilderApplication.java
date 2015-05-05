@@ -18,11 +18,16 @@ import javax.swing.WindowConstants;
 
 
 
+
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.config.SavedLevelData;
-import hackstreet.levelbuilder.main.SWLevelBuilder;
+import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
+import hackstreet.levelbuilder.gui.editor.PuzzleLevelEditorScreen;
+import hackstreet.levelbuilder.gui.editor.ReleaseLevelEditorScreen;
 
 /**
  * Primary GUI class which extends JFrame and displays screens.

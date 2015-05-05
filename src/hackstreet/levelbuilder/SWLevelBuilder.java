@@ -1,4 +1,4 @@
-package hackstreet.levelbuilder.main;
+package hackstreet.levelbuilder;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

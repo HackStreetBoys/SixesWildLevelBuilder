@@ -24,7 +24,7 @@ public class FrequencySliderController implements ChangeListener {
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSlider slider = (JSlider) (e.getSource());
-		FrequencyChangeMove move = new FrequencyChangeMove(application, slider, number);
+		FrequencyChangeMove move = new FrequencyChangeMove(application, slider);
 		if(move.doMove()){
 			application.getModel().logMove(move);
 		}
