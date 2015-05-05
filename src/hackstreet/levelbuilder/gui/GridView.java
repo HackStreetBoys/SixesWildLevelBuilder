@@ -29,11 +29,11 @@ public class GridView extends JPanel {
 
 		AbstractLevelConfig config = application.getModel().getLevelConfig();
 		List<Location> inertSlots = config.getNullLocations();
-		double f1 = config.getFreq1()*100;
-		double f2 = config.getFreq2()*100;
-		double f3 = config.getFreq3()*100;
-		double f4 = config.getFreq4()*100;
-		double f5 = config.getFreq5()*100;
+		double f1 = config.getFreq1();
+		double f2 = config.getFreq2();
+		double f3 = config.getFreq3();
+		double f4 = config.getFreq4();
+		double f5 = config.getFreq5();
 		double fMult1 = config.getFreqMult1();
 		double fMult2 = config.getFreqMult2();
 //		double fMult3 = config.getFreqMult3()*100;
