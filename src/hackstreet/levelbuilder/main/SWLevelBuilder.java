@@ -45,6 +45,9 @@ public class SWLevelBuilder {
 		this.levelConfig.setFreq4(.2);
 		this.levelConfig.setFreq5(.1);
 		this.levelConfig.setFreq6(.1);
+		this.levelConfig.setFreqMult1(0.5);
+		this.levelConfig.setFreqMult2(0.25);
+		this.levelConfig.setFreqMult3(0.25);
 	}
 	
 	/**
@@ -53,8 +56,7 @@ public class SWLevelBuilder {
 	public void saveLevel(){
 		//It is important to try the following lines of code, we may load a null file or something that will break the system.
 		try	{
-			
-			
+		
 		if (levelConfig.File == null) 	//This is for if the level has never been saved before.
 										//Render a jFileChooser so that the user can choose where to save his files.
 			{
@@ -65,7 +67,7 @@ public class SWLevelBuilder {
 		
 		File file = levelConfig.File;
 			 
-			// if file doesnt exists, then create it
+			// if file doesn't exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
 			}

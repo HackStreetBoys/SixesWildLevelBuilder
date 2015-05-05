@@ -34,24 +34,41 @@ public class GridView extends JPanel {
 		double f3 = config.getFreq3()*100;
 		double f4 = config.getFreq4()*100;
 		double f5 = config.getFreq5()*100;
-
+		double fMult1 = config.getFreqMult1();
+		double fMult2 = config.getFreqMult2();
+//		double fMult3 = config.getFreqMult3()*100;
+		
+		int value; //Frequency of tile values
+		int mult; //Frequency of tile multipliers
+		
 		for(int x=0; x<9; x++){
 			for(int y=0; y<9; y++){
 				double rand = Math.random();
 				Tile tile = null;
 				if(rand<f1)
-					tile = new Tile(1,1);
+					value = 1;
 				else if(rand<f1+f2)
-					tile = new Tile(2,1);
+					value = 2;
 				else if(rand<f1+f2+f3)
-					tile = new Tile(3,1);
+					value = 3;
 				else if(rand<f1+f2+f3+f4)
-					tile = new Tile(4,1);
+					value = 4;
 				else if(rand<f1+f2+f3+f4+f5)
-					tile = new Tile(5,1);
+					value = 5;
 				else
-					tile = new Tile(6,1);
+					value = 6;
 
+				double rand2 = Math.random();
+				
+				if(rand2<fMult1)
+					mult = 1;
+				else if(rand2<fMult1+fMult2)
+					mult = 2;
+				else 
+					mult = 3;
+				
+				tile = new Tile(value, mult);
+				
 				Location loc = new Location(x,y);
 				Slot slot = null;
 				if(inertSlots.contains(loc)){

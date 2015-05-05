@@ -5,9 +5,10 @@ import hackstreet.levelbuilder.config.Location;
 import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.controller.ChangeSlotTypeController;
 import hackstreet.levelbuilder.controller.LevelTypeComboController;
+import hackstreet.levelbuilder.controller.MultiplierSliderController;
 import hackstreet.levelbuilder.controller.PreviewButtonController;
 import hackstreet.levelbuilder.controller.SaveButtonController;
-import hackstreet.levelbuilder.controller.SliderController;
+import hackstreet.levelbuilder.controller.FrequencySliderController;
 import hackstreet.levelbuilder.controller.ToMainScreenController;
 
 import javax.swing.JCheckBox;
@@ -34,6 +35,9 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 	JSlider slider_4;
 	JSlider slider_5;
 	JSlider slider_6;
+	JSlider slider_mult1;
+	JSlider slider_mult2;
+	JSlider slider_mult3;
 	public AbstractLevelConfig level;
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -70,68 +74,101 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		slider_1 = new JSlider();
 		slider_1.setMaximum(100);
 		slider_1.setMinimum(0);
-		slider_1.setBounds(40, 200, 100, 20);
-		slider_1.addChangeListener(new SliderController(application,1));
+		slider_1.setBounds(40, 150, 100, 20);
+		slider_1.addChangeListener(new FrequencySliderController(application,1));
 		add(slider_1);
 		
 		slider_2 = new JSlider();
 		slider_2.setMaximum(100);
 		slider_2.setMinimum(0);
-		slider_2.setBounds(40, 230, 100, 20);
-		slider_2.addChangeListener(new SliderController(application,2));
+		slider_2.setBounds(40, 180, 100, 20);
+		slider_2.addChangeListener(new FrequencySliderController(application,2));
 		add(slider_2);
 		
 		slider_3 = new JSlider();
 		slider_3.setMaximum(100);
 		slider_3.setMinimum(0);
-		slider_3.setBounds(40, 260, 100, 20);
-		slider_3.addChangeListener(new SliderController(application,3));
+		slider_3.setBounds(40, 210, 100, 20);
+		slider_3.addChangeListener(new FrequencySliderController(application,3));
 		add(slider_3);
 		
 		slider_4 = new JSlider();
 		slider_4.setMaximum(100);
 		slider_4.setMinimum(0);
-		slider_4.setBounds(40, 290, 100, 20);
-		slider_4.addChangeListener(new SliderController(application,4));
+		slider_4.setBounds(40, 240, 100, 20);
+		slider_4.addChangeListener(new FrequencySliderController(application,4));
 		add(slider_4);
 		
 		slider_5 = new JSlider();
 		slider_5.setMaximum(100);
 		slider_5.setMinimum(0);
-		slider_5.setBounds(40, 320, 100, 20);
-		slider_5.addChangeListener(new SliderController(application,5));
+		slider_5.setBounds(40, 270, 100, 20);
+		slider_5.addChangeListener(new FrequencySliderController(application,5));
 		add(slider_5);
 		
 		slider_6 = new JSlider();
 		slider_6.setMaximum(100);
 		slider_6.setMinimum(0);
-		slider_6.setBounds(40, 350, 100, 20);
-		slider_6.addChangeListener(new SliderController(application,6));
+		slider_6.setBounds(40, 300, 100, 20);
+		slider_6.addChangeListener(new FrequencySliderController(application,6));
 		add(slider_6);
 		
+		slider_mult1 = new JSlider();
+		slider_mult1.setMaximum(100);
+		slider_mult1.setMinimum(0);
+		slider_mult1.setBounds(40, 350, 100, 20);
+		slider_mult1.addChangeListener(new MultiplierSliderController(application,1));
+		add(slider_mult1);
+
+		slider_mult2 = new JSlider();
+		slider_mult2.setMaximum(100);
+		slider_mult2.setMinimum(0);
+		slider_mult2.setBounds(40, 380, 100, 20);
+		slider_mult2.addChangeListener(new MultiplierSliderController(application,2));
+		add(slider_mult2);
+		
+		slider_mult3 = new JSlider();
+		slider_mult3.setMaximum(100);
+		slider_mult3.setMinimum(0);
+		slider_mult3.setBounds(40, 410, 100, 20);
+		slider_mult3.addChangeListener(new MultiplierSliderController(application,3));
+		add(slider_mult3);
+		
 		JLabel label_1 = new JLabel("1");
-		label_1.setBounds(20, 200, 18, 16);
+		label_1.setBounds(20, 150, 18, 16);
 		add(label_1);
 		
 		JLabel label_2 = new JLabel("2");
-		label_2.setBounds(20, 230, 18, 16);
+		label_2.setBounds(20, 180, 18, 16);
 		add(label_2);
 		
 		JLabel label_3 = new JLabel("3");
-		label_3.setBounds(20, 260, 18, 16);
+		label_3.setBounds(20, 210, 18, 16);
 		add(label_3);
 		
 		JLabel label_4 = new JLabel("4");
-		label_4.setBounds(20, 290, 18, 16);
+		label_4.setBounds(20, 240, 18, 16);
 		add(label_4);
 		
 		JLabel label_5 = new JLabel("5");
-		label_5.setBounds(20, 320, 18, 16);
+		label_5.setBounds(20, 270, 18, 16);
 		add(label_5);
 		
 		JLabel label_6 = new JLabel("6");
-		label_6.setBounds(20, 350, 18, 16);
+		label_6.setBounds(20, 300, 18, 16);
 		add(label_6);
+		
+		JLabel label_mult1 = new JLabel("No Bonus");
+		label_mult1.setBounds(20, 350, 18, 16);
+		add(label_mult1);
+	
+		JLabel label_mult2 = new JLabel("2x Multiplier");
+		label_mult2.setBounds(20, 380, 18, 16);
+		add(label_mult2);
+
+		JLabel label_mult3 = new JLabel("3x Multiplier");
+		label_mult3.setBounds(20, 410, 18, 16);
+		add(label_mult3);
 		
 		JPanel grid = new JPanel();
 		grid.setLayout(new GridLayout(9,9));
@@ -170,9 +207,13 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		add(txtAllowedMoves);
 		txtAllowedMoves.setColumns(10);
 		
-		JLabel lblTileFrequnecy = new JLabel("Tile frequency");
-		lblTileFrequnecy.setBounds(17, 172, 117, 16);
-		add(lblTileFrequnecy);
+		JLabel lblTileFrequency = new JLabel("Tile frequency");
+		lblTileFrequency.setBounds(17, 122, 117, 16);
+		add(lblTileFrequency);
+		
+		JLabel lblMultiplierFrequency = new JLabel("Multiplier frequency");
+		lblMultiplierFrequency.setBounds(17, 330, 117, 16);
+		add(lblMultiplierFrequency);
 		
 		txtLevelname = new JTextField();
 		txtLevelname.setText("Set level name");
@@ -201,7 +242,7 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		
 	}
 
-	public int getSliderValue(int number){
+	public int getFrequencySliderValue(int number){
 		if(number==1)
 			return slider_1.getValue();
 		else if(number==2)
@@ -214,6 +255,15 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 			return slider_5.getValue();
 		else
 			return slider_6.getValue();
+	}
+	
+	public int getMultiplierSliderValue(int number){
+		if(number==1)
+			return slider_mult1.getValue();
+		else if(number==2)
+			return slider_mult2.getValue();
+		else 
+			return slider_mult3.getValue();
 	}
 	
 	@Override

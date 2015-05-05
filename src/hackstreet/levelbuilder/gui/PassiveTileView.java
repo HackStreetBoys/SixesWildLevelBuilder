@@ -55,11 +55,12 @@ public class PassiveTileView extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.black);
-		if(this.tile.getMultiplier()>1){
+		System.out.print(this.tile.getMultiplier());
+//		if(this.tile.getMultiplier()>1&&this.tile.getValue()!=6){
 			int mult = this.tile.getMultiplier();
 			g.setFont(new Font("Serif",Font.BOLD,10));
 			g.drawString(mult + "x", super.getWidth()-15,super.getHeight()-5);
-		}
+//		}
 		g.drawRect(0,0, super.getWidth()-1, super.getHeight()-1);
 	}
 
