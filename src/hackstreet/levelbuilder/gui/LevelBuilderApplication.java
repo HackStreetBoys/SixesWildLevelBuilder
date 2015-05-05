@@ -1,12 +1,32 @@
 package hackstreet.levelbuilder.gui;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+
+
+
+
+
+
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import hackstreet.levelbuilder.config.SavedLevelData;
 import hackstreet.levelbuilder.main.SWLevelBuilder;
 
 /**
  * Primary GUI class which extends JFrame and displays screens.
- * @author Nicholas
+ * @author Nicholas, Ben
  */
 @SuppressWarnings("serial")
 public class LevelBuilderApplication extends JFrame{
@@ -25,12 +45,54 @@ public class LevelBuilderApplication extends JFrame{
 	
 	/** Level manager screen GUI. */
 	private AbstractScreen activeScreen;
+
+	private Integer SelectedLevelIndex;
+	
+	public ArrayList<SavedLevelData> levelData;
+	public ArrayList<JButton> levelButtons;
 	
 	/**
 	 * 
 	 * @param model
 	 */
 	public LevelBuilderApplication(SWLevelBuilder model){
+		File Parent = new File(System.getProperty("user.dir")).getParentFile();
+		File manifestFile = new File(Parent.toPath() + "/SixesWild/data/manifest.json");
+		
+		Gson gson = new Gson();
+		
+		String filebuffer = "";
+		
+		if ( manifestFile.exists() == true ){
+
+
+			try (InputStream in = Files.newInputStream(manifestFile.toPath());
+					BufferedReader reader =
+							new BufferedReader(new InputStreamReader(in))) {
+				String line = null;
+				while ((line = reader.readLine()) != null) {
+					filebuffer += line;
+				}
+			} catch (IOException x) {
+				System.err.println(x);
+			}
+
+
+			java.lang.reflect.Type cType = new TypeToken<ArrayList<SavedLevelData>>() {}.getType();
+
+
+			levelData = gson.fromJson(filebuffer,cType);
+			levelData= gson.fromJson(filebuffer, cType);
+
+			for (int i = 0; i < levelData.size();i++)
+			{
+				levelData.get(i).getLevelConfig();
+
+			}
+		}
+			//
+		
+		levelButtons = new ArrayList<JButton>();
 		this.model = model;
 		this.mainScreen = new LBMainScreen(this);
 		this.levelManagerScreen = new LevelManagerScreen(this);
@@ -110,5 +172,17 @@ public class LevelBuilderApplication extends JFrame{
 	public AbstractScreen getActiveScreen(){
 		return this.activeScreen;
 	}
+
+	public Integer getSelectedLevel() {
+		// TODO Auto-generated method stub
+		return SelectedLevelIndex;
+	}
+
+	public void setSelectedLevel(Integer i) {
+		SelectedLevelIndex = i;
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 }

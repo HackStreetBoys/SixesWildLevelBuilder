@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.Icon;
+
 import com.google.gson.Gson;
 
 /**
@@ -237,6 +239,10 @@ public abstract class AbstractLevelConfig{
 		
 	public void setType(String type){
 		this.Type = type;
+	}
+
+	public String getName() {
+		return this.name;
 	}
 	
 }
