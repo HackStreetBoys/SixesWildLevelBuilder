@@ -9,7 +9,7 @@ public class PuzzleLevelConfig extends AbstractLevelConfig{
 		this.Type = "Puzzle";  // Needed for Serialization and FileIO
 	}
 	
-	public PuzzleLevelConfig(AbstractLevelConfig levelConfig){
+	public PuzzleLevelConfig(PuzzleLevelConfig levelConfig){
 		super(levelConfig);
 		this.Type = "Puzzle";  // Needed for Serialization and FileIOs
 	}

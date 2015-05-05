@@ -20,6 +20,7 @@ public abstract class AbstractLevelConfig{
 	private int width;
 	private ArrayList<Location> nullLocations;
 	private ArrayList<Location> bucketLocations;
+	private ArrayList<Location> sixLocations;
 	private HashMap <Location, Slot> board;
 	private double[] percentage = new double[6];
 	private int numShuffle;
@@ -50,7 +51,6 @@ public abstract class AbstractLevelConfig{
 		this.Type = "Puzzle";
 		this.totalVal = 0;
 		this.nullLocations = new ArrayList<Location>();
-		this.bucketLocations = new ArrayList<Location>();
 		this.freq1 = 0;
 		this.freq2 = 0;
 		this.freq3 = 0;
@@ -62,6 +62,8 @@ public abstract class AbstractLevelConfig{
 		this.pointsStar1 = 0;
 		this.pointsStar2 = 0;
 		this.pointsStar3 = 0;
+		this.bucketLocations = new ArrayList<Location>();
+		this.sixLocations = new ArrayList<Location>();
 	}
 	
 	/**
@@ -76,6 +78,7 @@ public abstract class AbstractLevelConfig{
 		width = levelConfig.width;
 		nullLocations = levelConfig.nullLocations;
 		bucketLocations = levelConfig.bucketLocations;
+		sixLocations = levelConfig.sixLocations;
 		percentage = levelConfig.percentage;
 		numShuffle = levelConfig.numShuffle;
 		numSwap = levelConfig.numSwap;
@@ -136,10 +139,6 @@ public abstract class AbstractLevelConfig{
 		return nullLocations;
 	}
 	
-	public ArrayList<Location> getBucketLocations(){
-		return bucketLocations;
-	}
-	
 
 	public double getFreq1() {
 		return freq1;	
@@ -195,6 +194,14 @@ public abstract class AbstractLevelConfig{
 	
 	public void setTotalVal(double totalVal) {
 		this.totalVal = totalVal;
+	}
+	
+	public ArrayList<Location> getBucketLocations() {
+		return this.bucketLocations;
+	}
+	
+	public ArrayList<Location> getSixLocations() {
+		return this.sixLocations;
 	}
 	
 	public String getJSON()

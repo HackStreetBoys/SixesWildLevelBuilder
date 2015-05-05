@@ -41,7 +41,14 @@ public class ChangeSlotTypeMove extends AbstractLevelConfig implements IMove {
 		
 			else if(button.getBackground() == Color.green){
 				model.getLevelConfig().getBucketLocations().remove(location);
-				model.getLevelConfig().getNullLocations().add(location);
+				model.getLevelConfig().getSixLocations().add(location);
+				button.setBackground(Color.pink);
+				return true;
+			}
+			
+			else if(button.getBackground() == Color.pink){
+				model.getLevelConfig().getSixLocations().remove(location);
+				model.getLevelConfig().getNullLocations().remove(location);
 				button.setBackground(Color.LIGHT_GRAY);
 				return true;
 			}

@@ -14,8 +14,9 @@ public class ReleaseLevelConfig extends AbstractLevelConfig{
 		this.Type = "Release";  // Needed for Serialization and FileIO
 	}
 	
-	public ReleaseLevelConfig(AbstractLevelConfig levelConfig){
+	public ReleaseLevelConfig(ReleaseLevelConfig levelConfig){
 		super(levelConfig);
-		this.Type = "Release";  // Needed for Serialization and FileIO
+		this.Type = "Release";  // Needed for Serialization and FileIO	
 	}
+	
 }

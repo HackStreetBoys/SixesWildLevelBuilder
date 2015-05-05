@@ -13,4 +13,5 @@ public class LightningLevelConfig extends AbstractLevelConfig{
 		super(levelConfig);
 		this.Type = "Lightning";
 	}
+	
 }
