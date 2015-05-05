@@ -59,7 +59,10 @@ public class LevelBuilderApplication extends JFrame{
 	 * @param model
 	 */
 	public LevelBuilderApplication(SWLevelBuilder model){
+		
+		//Parent corresponds to getting out of the SixesWildLevelBuilder
 		File Parent = new File(System.getProperty("user.dir")).getParentFile();
+		//After we have the parent path, point to the manifest.json
 		File manifestFile = new File(Parent.toPath() + "/SixesWild/data/manifest.json");
 		
 		Gson gson = new Gson();
@@ -81,6 +84,7 @@ public class LevelBuilderApplication extends JFrame{
 			}
 
 
+			//Allow Gson to load an arraylist
 			java.lang.reflect.Type cType = new TypeToken<ArrayList<SavedLevelData>>() {}.getType();
 
 
@@ -90,7 +94,7 @@ public class LevelBuilderApplication extends JFrame{
 			for (int i = 0; i < levelData.size();i++)
 			{
 				levelData.get(i).getLevelConfig();
-
+				//Make sure all levelData level configs are loaded.
 			}
 		}
 			//

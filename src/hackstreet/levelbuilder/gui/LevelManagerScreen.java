@@ -26,7 +26,7 @@ public class LevelManagerScreen extends AbstractScreen{
 		super(application, "Level Manager Screen");
 		
 		setLayout(null);			
-		
+		/* Setup functionality buttons*/
 		JButton btnAssign = new JButton("Assign");
 		btnAssign.setBounds(20, 120, 135, 50);
 		btnAssign.addActionListener(new AssignLevelController(application) );
@@ -52,17 +52,19 @@ public class LevelManagerScreen extends AbstractScreen{
 		btnBack.addActionListener(new ToMainScreenController(application));
 		add(btnBack);
 		int x = 200;
+		System.out.println(application.levelData.size());
 		for (int i = 0; i < 10; i++)
 		{
+			//Build the first column of buttons in the level manager
 			String name="";
 			JLabel label = new JLabel( (i+ 1) + "");
 			label.setBounds(x, 80 +(35 *i) + 40, 180, 30);
 			add(label);
 
-			if (application.levelData.size() < (i+10))
+			if (application.levelData.size() < i+1)
 				name="";
 			else
-				name = application.levelData.get(i+10).getLevelConfig().getName();
+				name = application.levelData.get(i).getLevelConfig().getName();
 			application.levelButtons.add(new JButton(name) );
 
 			
@@ -75,6 +77,7 @@ public class LevelManagerScreen extends AbstractScreen{
 		
 		for (int i = 0; i < 10; i++)
 		{
+			//Build the second column of buttons in the level manager
 			String name="";
 			JLabel label = new JLabel( 10 +(i+ 1) + "");
 			label.setBounds(420, 80 +(35 *i) + 40, 180, 30);
