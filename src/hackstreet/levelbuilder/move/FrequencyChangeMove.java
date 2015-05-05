@@ -38,12 +38,12 @@ public class FrequencyChangeMove extends AbstractLevelConfig implements IMove {
 	@Override
 	public boolean doMove() {
 		AbstractLevelEditorScreen screen = (AbstractLevelEditorScreen)application.getActiveScreen();
-		this.val1 = screen.getSliderValue(1);
-		this.val2 = screen.getSliderValue(2);
-		this.val3 = screen.getSliderValue(3);
-		this.val4 = screen.getSliderValue(4);
-		this.val5 = screen.getSliderValue(5);
-		this.val6 = screen.getSliderValue(6);
+		this.val1 = screen.getFrequencySliderValue(1);
+		this.val2 = screen.getFrequencySliderValue(2);
+		this.val3 = screen.getFrequencySliderValue(3);
+		this.val4 = screen.getFrequencySliderValue(4);
+		this.val5 = screen.getFrequencySliderValue(5);
+		this.val6 = screen.getFrequencySliderValue(6);
 		
 		double total = val1+val2+val3+val4+val5+val6;
 		

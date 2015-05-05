@@ -35,6 +35,7 @@ public abstract class AbstractLevelConfig{
 	private double freq4;
 	private double freq5;
 	private double freq6;
+	private double freqMult1;
 	private double freqMult2;
 	private double freqMult3;
 	private int pointsStar1;
@@ -58,6 +59,7 @@ public abstract class AbstractLevelConfig{
 		this.freq4 = 0;
 		this.freq5 = 0;
 		this.freq6 = 0;
+		this.freqMult1 = 0;
 		this.freqMult2 = 0;
 		this.freqMult3 = 0;
 		this.pointsStar1 = 0;
@@ -94,6 +96,7 @@ public abstract class AbstractLevelConfig{
 		freq6 = levelConfig.freq6;
 		numMoves = levelConfig.numMoves;
 		totalVal = levelConfig.totalVal;
+		freqMult1 = levelConfig.freqMult1;
 		freqMult2 = levelConfig.freqMult2;
 		freqMult3 = levelConfig.freqMult3;
 		pointsStar1 = levelConfig.pointsStar1;
@@ -190,7 +193,31 @@ public abstract class AbstractLevelConfig{
 	public void setFreq6(double freq6) {
 		this.freq6 = freq6/100;
 	}	
+	
+	public double getFreqMult1(){
+		return this.freqMult1;
+	}
 
+	public void setFreqMult1(double freqMult1){
+		this.freqMult1 = freqMult1;
+	}
+
+	public double getFreqMult2(){
+		return this.freqMult2;
+	}
+
+	public void setFreqMult2(double freqMult2){
+		this.freqMult2 = freqMult2;
+	}
+	
+	public double getFreqMult3(){
+		return this.freqMult3;
+	}
+
+	public void setFreqMult3(double freqMult3){
+		this.freqMult3 = freqMult3;
+	}
+	
 	public double getTotalVal() {
 		return totalVal;
 	}
@@ -212,13 +239,6 @@ public abstract class AbstractLevelConfig{
 
 		Gson gson = new Gson();
 		return gson.toJson(this);
-	}
-	
-	public int generateRandomMultiplier(){
-		//	double mult2Freq = this.getSavedLevelData().getLevelConfig().getFreqMult2();
-		//		double mult3Freq = this.getSavedLevelData().getLevelConfig().getFreqMult3();
-
-		return 1;
 	}
 	
 	public int generateRandomValue() {
