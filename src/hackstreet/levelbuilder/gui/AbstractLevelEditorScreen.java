@@ -25,6 +25,12 @@ import java.awt.GridLayout;
 
 import javax.swing.JTextField;
 
+/**
+ * 
+ * @author Pat, Himanshu
+ *
+ */
+
 @SuppressWarnings("serial")
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 	private JTextField txtAllowedMoves;
@@ -237,8 +243,8 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		lblSpecialMovesToggle.setBounds(642, 221, 128, 16);
 		add(lblSpecialMovesToggle);
 
-		level = new PuzzleLevelConfig();
-		
+		level = new PuzzleLevelConfig(50);
+		//numMoves is 50 initially
 		
 	}
 

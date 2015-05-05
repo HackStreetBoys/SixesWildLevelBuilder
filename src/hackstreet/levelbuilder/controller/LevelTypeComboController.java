@@ -1,5 +1,9 @@
 package hackstreet.levelbuilder.controller;
 
+import hackstreet.levelbuilder.config.EliminationLevelConfig;
+import hackstreet.levelbuilder.config.LightningLevelConfig;
+import hackstreet.levelbuilder.config.PuzzleLevelConfig;
+import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 
 import java.awt.event.ActionEvent;
@@ -29,6 +33,15 @@ public class LevelTypeComboController implements ActionListener{
 		@SuppressWarnings("unchecked")
 		JComboBox<String> combo = (JComboBox<String>)e.getSource();
         application.changeLevelConfigType((String)combo.getSelectedItem());
-        application.model.getLevelConfig().setType((String)combo.getSelectedItem());
+        String type = (String)combo.getSelectedItem();
+        if(type.equals("Elimination"))
+        	application.model.setLevelConfig(new EliminationLevelConfig(50,application.model.getLevelConfig()));
+        if(type.equals("Release"))
+        	application.model.setLevelConfig(new ReleaseLevelConfig(50,application.model.getLevelConfig()));
+        if(type.equals("Lightning"))
+        	application.model.setLevelConfig(new LightningLevelConfig(60,application.model.getLevelConfig()));
+        if(type.equals("Puzzle"))
+        	application.model.setLevelConfig(new PuzzleLevelConfig(50,application.model.getLevelConfig()));
+
 	}
 }
