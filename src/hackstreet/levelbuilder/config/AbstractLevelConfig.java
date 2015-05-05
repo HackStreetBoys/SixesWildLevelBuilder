@@ -27,6 +27,7 @@ public abstract class AbstractLevelConfig{
 	private int numSwap;
 	private int numRemove;
 	private int numHint;
+	private int numMoves;
 	private double totalVal;
 	private double freq1;
 	private double freq2;
@@ -62,6 +63,7 @@ public abstract class AbstractLevelConfig{
 		this.pointsStar1 = 0;
 		this.pointsStar2 = 0;
 		this.pointsStar3 = 0;
+		this.numMoves = 50;
 		this.bucketLocations = new ArrayList<Location>();
 		this.sixLocations = new ArrayList<Location>();
 	}
@@ -90,6 +92,7 @@ public abstract class AbstractLevelConfig{
 		freq4 = levelConfig.freq4;
 		freq5 = levelConfig.freq5;
 		freq6 = levelConfig.freq6;
+		numMoves = levelConfig.numMoves;
 		totalVal = levelConfig.totalVal;
 		freqMult2 = levelConfig.freqMult2;
 		freqMult3 = levelConfig.freqMult3;
@@ -237,6 +240,14 @@ public abstract class AbstractLevelConfig{
 		
 	public void setType(String type){
 		this.Type = type;
+	}
+	
+	public int getNumMoves(){
+		return this.numMoves;
+	}
+	
+	public void setNumMoves(int numMoves){
+		this.numMoves = numMoves;
 	}
 	
 }
