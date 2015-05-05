@@ -2,10 +2,6 @@ package hackstreet.levelbuilder.config;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.swing.Icon;
-
 import com.google.gson.Gson;
 
 /**
@@ -14,7 +10,6 @@ import com.google.gson.Gson;
 
 public abstract class AbstractLevelConfig{
 	
-	//!!!PROPERLY CALCULATE PERCENTAGE 
 	
 	protected String Type; // Added so that we can load files. It is protected b/c sub classes need to know this information;
 	private String name;
@@ -22,8 +17,6 @@ public abstract class AbstractLevelConfig{
 	private int width;
 	private ArrayList<Location> nullLocations;
 
-	private HashMap <Location, Slot> board;
-	private double[] percentage = new double[6];
 	private int numShuffle;
 	private int numSwap;
 	private int numRemove;
@@ -48,7 +41,6 @@ public abstract class AbstractLevelConfig{
 	 * Empty constructor, for when the level type is unknown.
 	 */
 	public AbstractLevelConfig(String type){
-		// empty
 		this.Type = type;
 		this.name = "New Level";
 		this.height = this.width = 9;
@@ -68,8 +60,6 @@ public abstract class AbstractLevelConfig{
 		this.pointsStar2 = 0;
 		this.pointsStar3 = 0;
 
-
-
 	}
 	
 	/**
@@ -83,9 +73,6 @@ public abstract class AbstractLevelConfig{
 		height = levelConfig.height;
 		width = levelConfig.width;
 		nullLocations = levelConfig.nullLocations;
-
-
-		percentage = levelConfig.percentage;
 		numShuffle = levelConfig.numShuffle;
 		numSwap = levelConfig.numSwap;
 		numRemove = levelConfig.numRemove;
@@ -104,7 +91,6 @@ public abstract class AbstractLevelConfig{
 		pointsStar1 = levelConfig.pointsStar1;
 		pointsStar2 = levelConfig.pointsStar2;
 		pointsStar3 = levelConfig.pointsStar3;
-		board = levelConfig.board;	
 	}
 	
 	public int getNumShuffle() {
@@ -226,10 +212,7 @@ public abstract class AbstractLevelConfig{
 	
 	public void setTotalVal(double totalVal) {
 		this.totalVal = totalVal;
-	}
-	
-
-	
+	}	
 
 	public String getJSON()
 	{
@@ -238,23 +221,6 @@ public abstract class AbstractLevelConfig{
 		return gson.toJson(this);
 	}
 	
-	public int generateRandomValue() {
-		double r = Math.random();
-
-		if (r < freq1)
-			return 1;
-		else if (r < freq1 + freq2)
-			return 2;
-		else if (r < freq1+freq2+freq3)
-			return 3;
-		else if (r < freq1+freq2+freq3+freq4)
-			return 4;
-		else if (r < freq1+freq2+freq3+freq4+freq5)
-			return 5;
-		else
-			return 6;
-	}
-		
 	public void setType(String type){
 		this.Type = type;
 	}
