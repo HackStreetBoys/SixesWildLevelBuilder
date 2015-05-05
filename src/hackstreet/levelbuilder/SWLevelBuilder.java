@@ -74,7 +74,7 @@ public class SWLevelBuilder {
 
 			
 			//Standard write to file
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			FileWriter fw = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(levelConfig.getJSON());
 			bw.close();

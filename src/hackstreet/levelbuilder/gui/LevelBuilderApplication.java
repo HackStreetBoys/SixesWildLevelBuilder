@@ -14,7 +14,9 @@ import hackstreet.levelbuilder.config.*;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+
 
 
 
@@ -216,7 +218,14 @@ public class LevelBuilderApplication extends JFrame{
 	public void saveLevelData() {
 	
 		//Write to manifest file.
-		String json;
+		
+		if (levelData.size()==0)
+		{
+			JOptionPane.showMessageDialog(null, "You have no levels in your level data. You will be unable to play any games.", "Error: No Levels", JOptionPane.INFORMATION_MESSAGE);	
+		}
+		
+		levelData.get(0).setUnlocked(true);
+		
 		Gson gson = new GsonBuilder().registerTypeAdapter(SavedLevelData.class, new ManifestSerializer()).setPrettyPrinting().create();//.registerTypeAdapter(ArrayList.class, new ManifestSerializer()).setPrettyPrinting().create();
 		
 		for (int i = 0 ; i < levelData.size() -1; i++)
