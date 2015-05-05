@@ -22,6 +22,7 @@ public class ReleaseLevelConfig extends AbstractLevelConfig {
 		this.bucketLocations = new ArrayList<Location>();
 	}
 	
+	
 	public ReleaseLevelConfig(int numMoves,AbstractLevelConfig config){
 		super("Release",config);
 		this.numMoves = numMoves;
@@ -44,4 +45,5 @@ public class ReleaseLevelConfig extends AbstractLevelConfig {
 	public int getNumMoves() {
 		return numMoves;
 	}
+	
 }

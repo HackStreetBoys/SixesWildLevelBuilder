@@ -13,7 +13,7 @@ import com.google.gson.Gson;
  * @author Himanshu, Pat, Nicholas
  *
  */
-public class AbstractLevelConfig {
+public abstract class AbstractLevelConfig {
 
 	protected String Type; // Added so that we can load files. It is protected b/c sub classes need to know this information;
 	private String name;
