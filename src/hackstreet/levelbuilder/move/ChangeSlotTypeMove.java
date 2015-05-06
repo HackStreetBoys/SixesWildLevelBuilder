@@ -9,6 +9,7 @@ import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.elements.Location;
 
 /**
+ * Change type of slot in level editor
  * @author Himanshu, Ben
  */
 
