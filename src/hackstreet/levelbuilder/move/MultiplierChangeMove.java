@@ -7,6 +7,7 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
 
 /**
+ * Change frequencies of multipliers
  * @author Himanshu
  */
 
