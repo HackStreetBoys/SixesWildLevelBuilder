@@ -58,6 +58,8 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 	@SuppressWarnings("rawtypes")
 	JComboBox levelList;
 	public AbstractLevelConfig level;
+
+
 	private JCheckBox chckbxSwitchTiles;
 	private JCheckBox chckbxResetBoard;
 	private JCheckBox chckbxAI;
@@ -425,6 +427,22 @@ star3.setText(application.model.getLevelConfig().getPointsStar3()+"");
 		g.setColor(Color.black);
 		g.drawLine(175,0,175,600);
 
+	}
+	
+	public JCheckBox getChckbxSwitchTiles() {
+		return chckbxSwitchTiles;
+	}
+
+	public JCheckBox getChckbxResetBoard() {
+		return chckbxResetBoard;
+	}
+
+	public JCheckBox getChckbxAI() {
+		return chckbxAI;
+	}
+
+	public JCheckBox getChckbxRemoveTile() {
+		return chckbxRemoveTile;
 	}
 	
 

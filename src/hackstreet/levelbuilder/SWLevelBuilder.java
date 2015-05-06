@@ -183,4 +183,12 @@ public class SWLevelBuilder {
 	public void setLevelConfig(AbstractLevelConfig levelConfig) {
 		this.levelConfig = levelConfig;
 	}
+	
+	public Stack<IMove> getUndoStack() {
+		return undoStack;
+	}
+
+	public Stack<IMove> getRedoStack() {
+		return redoStack;
+	}
 }
