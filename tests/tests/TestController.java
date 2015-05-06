@@ -28,6 +28,7 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
 import hackstreet.levelbuilder.move.ChangeTimeLimitMove;
 import hackstreet.levelbuilder.move.HintCheckMove;
+import hackstreet.levelbuilder.move.MultiplierChangeMove;
 import hackstreet.levelbuilder.move.RemoveTileCheckMove;
 import hackstreet.levelbuilder.move.ShuffleBoardCheckMove;
 import hackstreet.levelbuilder.move.SwapTilesCheckMove;
@@ -239,6 +240,12 @@ public class TestController {
 		try{
 			FrequencySliderController fsc = new FrequencySliderController(application, 1); 
 			fsc.stateChanged(null);
+		}
+		catch(Exception e){}
+		
+		try{
+			MultiplierChangeMove m = new MultiplierChangeMove(application, null, 1); 
+			m.doMove();
 		}
 		catch(Exception e){}
 		
