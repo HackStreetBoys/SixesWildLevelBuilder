@@ -3,7 +3,7 @@ package hackstreet.levelbuilder.config;
 /**
  * Configuration class for the lightning level type.
  * 
- * @author Tim 
+ * @author Himanshu 
  *
  */
 public class LightningLevelConfig extends AbstractLevelConfig{
