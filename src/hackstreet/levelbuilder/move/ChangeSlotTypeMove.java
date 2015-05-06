@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.move;
 
-/**
- * @author Himanshu, Ben
- */
-
 import java.awt.Color;
 
 import javax.swing.JButton;
@@ -11,6 +7,10 @@ import javax.swing.JButton;
 import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.elements.Location;
+
+/**
+ * @author Himanshu, Ben
+ */
 
 public class ChangeSlotTypeMove implements IMove {
 
