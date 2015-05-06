@@ -1,7 +1,5 @@
 #SixesWildLevelBuilder
 
-Level Builder for SixesWild
-
 Make Levels here and play them in Sixes Wild!
 
 ##Create Level 
