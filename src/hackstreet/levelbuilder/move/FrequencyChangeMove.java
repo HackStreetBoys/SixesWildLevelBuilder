@@ -7,6 +7,7 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
 
 /**
+ * Change frequencies fo 1...6 tiles
  * @author Himanshu, Pat
  */
 
