@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.controller;
 
-/**
- * @author Himanshu
- */
-
 import hackstreet.levelbuilder.elements.Location;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.move.ChangeSlotTypeMove;
