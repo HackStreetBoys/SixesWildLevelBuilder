@@ -53,6 +53,7 @@ public class PuzzleLevelEditorScreen extends AbstractLevelEditorScreen {
 		txtAllowedMoves.setUI(new TextFieldUI("# Allowed moves",new Color(100,100,100)));
 		txtAllowedMoves.setBounds(20, 82, 134, 28);
 		txtAllowedMoves.setColumns(10);
+		txtAllowedMoves.addKeyListener(new ChangeNumMovesController(application));
 		if (application.model.getLevelConfig() instanceof PuzzleLevelConfig)
 		{
 			PuzzleLevelConfig lvlc = (PuzzleLevelConfig) application.model.getLevelConfig();
