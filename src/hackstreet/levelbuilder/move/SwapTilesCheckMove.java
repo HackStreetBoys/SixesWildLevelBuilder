@@ -1,12 +1,13 @@
 package hackstreet.levelbuilder.move;
 
-/**
- * @author Himanshu
- */
-
 import hackstreet.levelbuilder.SWLevelBuilder;
 
 import javax.swing.JCheckBox;
+
+/**
+ * Swap tiles special move
+ * @author Himanshu
+ */
 
 public class SwapTilesCheckMove implements IMove{
 
