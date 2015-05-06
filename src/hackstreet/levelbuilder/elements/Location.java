@@ -1,7 +1,9 @@
 package hackstreet.levelbuilder.elements;
 
 /**
- * @author Himanshu
+ * Location on a 9*9 board of slots.
+ * 
+ * @author Nick
  */
 
 import java.util.ArrayList;

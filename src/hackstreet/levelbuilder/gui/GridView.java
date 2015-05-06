@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.gui;
 
-/**
- * @author Himanshu
- */
-
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.elements.BucketSlot;
@@ -22,8 +18,15 @@ import java.util.List;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
+/**
+ * Panel that holds the game play board.
+ * 
+ * @author Pat, Himanshu
+ *
+ */
 public class GridView extends JPanel {
-
+	
+	/** Views for all slots on board.*/
 	List<PassiveSlotView> slotList;
 
 	public GridView(LevelBuilderApplication application){

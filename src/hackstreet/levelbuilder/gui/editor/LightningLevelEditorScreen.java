@@ -11,7 +11,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JTextField;
-
+/**
+ *  Class for editing levels of lightning type.
+ * 
+ * @author Pat, Himanshu, Ben
+ *
+ */
 @SuppressWarnings("serial")
 public class LightningLevelEditorScreen extends AbstractLevelEditorScreen {
 

@@ -1,8 +1,5 @@
 package hackstreet.levelbuilder.gui;
 
-/**
- * @author Himanshu
- */
 
 import hackstreet.levelbuilder.elements.Tile;
 
@@ -15,6 +12,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
+/**
+ * 
+ * @author Himanshu, Pat
+ *
+ */
 public class PassiveTileView extends JPanel{
 
 	private Tile tile;

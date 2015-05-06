@@ -1,7 +1,7 @@
 package hackstreet.levelbuilder.elements;
 
 /**
- * 
+ * Slot that can not contain a tile.
  * @author Himanshu
  *
  */

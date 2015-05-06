@@ -6,7 +6,12 @@ import java.awt.Graphics;
 import javax.swing.plaf.basic.BasicTextFieldUI;
 import javax.swing.text.JTextComponent;
 
-
+/**
+ * Class that allows displaying hints in textboxes.
+ * 
+ * @author Pat 
+ *
+ */
 public class TextFieldUI extends BasicTextFieldUI {
 
 	private String hint;

@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.gui;
 
-/**
- * @author Himanshu
- */
-
 import hackstreet.levelbuilder.elements.BucketSlot;
 import hackstreet.levelbuilder.elements.Location;
 import hackstreet.levelbuilder.elements.Slot;
@@ -14,6 +10,13 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
+
+/**
+ * View for slot used to display an example board.
+ * 
+ * @author Pat, Himanshu
+ *
+ */
 public class PassiveSlotView extends JPanel{
 
 	private Slot slot;

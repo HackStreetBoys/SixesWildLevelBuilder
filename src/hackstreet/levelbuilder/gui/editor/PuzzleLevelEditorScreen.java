@@ -12,11 +12,11 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.TextFieldUI;
 
 /**
+ *  Class for editing levels of puzzle type.
  * 
- * @author Himanshu, Ben
+ * @author Pat, Himanshu, Ben
  *
  */
-
 @SuppressWarnings("serial")
 public class PuzzleLevelEditorScreen extends AbstractLevelEditorScreen {
 

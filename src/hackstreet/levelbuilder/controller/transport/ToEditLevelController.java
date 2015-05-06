@@ -23,6 +23,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * Controller for switching to level editor sreen.
+ * 
+ * @author Pat
+ *
+ */
 public class ToEditLevelController implements ActionListener {
 	LevelBuilderApplication application;
 	
