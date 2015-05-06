@@ -6,9 +6,9 @@ import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import javax.swing.JTextField;
 
 /**
- * @author Himanshu
- * /
-
+ * Change number of points for 1,2,3 stars
+ * @author Himanshu, Pat
+ */
 public class ChangeStarPointsMove implements IMove {
 	SWLevelBuilder model;
 	JTextField textField;
