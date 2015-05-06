@@ -5,6 +5,7 @@ import javax.swing.JCheckBox;
 import hackstreet.levelbuilder.SWLevelBuilder;
 
 /**
+ * Shuffle board special move
  * @author Himanshu
  */
 
