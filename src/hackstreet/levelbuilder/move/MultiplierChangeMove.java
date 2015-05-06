@@ -6,6 +6,10 @@ import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
 
+/**
+ * @author Himanshu
+ */
+
 public class MultiplierChangeMove implements IMove {
 
 	LevelBuilderApplication application;
