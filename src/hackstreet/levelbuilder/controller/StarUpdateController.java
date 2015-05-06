@@ -20,8 +20,7 @@ public class StarUpdateController implements KeyListener{
 		this.number = number;
 	}
 
-	@Override
-	public void keyPressed(KeyEvent e) {}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -32,7 +31,22 @@ public class StarUpdateController implements KeyListener{
 		}
 	}
 
+
+
 	@Override
-	public void keyTyped(KeyEvent arg0) {}
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }

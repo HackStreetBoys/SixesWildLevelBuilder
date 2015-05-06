@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public abstract class AbstractScreen extends JPanel{
 
-	private LevelBuilderApplication application;
+	protected LevelBuilderApplication application;
 	private JLabel title;
 	
 	public AbstractScreen(LevelBuilderApplication application, String title){

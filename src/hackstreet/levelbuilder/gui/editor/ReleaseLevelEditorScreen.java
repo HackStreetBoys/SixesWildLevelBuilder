@@ -2,8 +2,10 @@ package hackstreet.levelbuilder.gui.editor;
 
 import java.awt.Color;
 
+import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.controller.ChangeNumMovesController;
+import hackstreet.levelbuilder.controller.LevelTypeComboController;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.TextFieldUI;
 
@@ -22,6 +24,9 @@ public class ReleaseLevelEditorScreen extends AbstractLevelEditorScreen {
 	public ReleaseLevelEditorScreen(LevelBuilderApplication application, AbstractLevelEditorScreen editor){
 		super(application,editor);
 		this.initialize(application);
+		this.levelList.setSelectedIndex(3);
+		
+
 	}
 
 	private void initialize(LevelBuilderApplication application){
@@ -30,18 +35,21 @@ public class ReleaseLevelEditorScreen extends AbstractLevelEditorScreen {
 			application.model.setLevelConfig(config);
 			super.level = config;
 		}
-
+		
 		txtAllowedMoves = new JTextField();
 		txtAllowedMoves.setUI(new TextFieldUI("# Allowed moves",new Color(100,100,100)));
 		txtAllowedMoves.setBounds(20, 82, 134, 28);
 		txtAllowedMoves.setColumns(10);
+		ReleaseLevelConfig lvlc = (ReleaseLevelConfig) application.model.getLevelConfig();
+		txtAllowedMoves.setText(lvlc.getNumMoves()+"");
 		txtAllowedMoves.addKeyListener(new ChangeNumMovesController(application));
 		add(txtAllowedMoves);
 		
 		application.model.setLevelConfig(super.level);
 
 		super.slider_6.setValue(0);
-		super.slider_6.setEnabled(false);
+		super.slider_6.setEnabled(false);		
+		levelList.addItemListener(new LevelTypeComboController(application));
 	}
 	
 }

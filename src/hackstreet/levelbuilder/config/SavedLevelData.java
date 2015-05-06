@@ -48,8 +48,12 @@ public class SavedLevelData {
 
 		if (config == null) {
 			File tempfile = new File(System.getProperty("user.dir")).getParentFile();
+			
+			System.out.println(file.toPath());
 			file = new File( tempfile.toPath()+"/SixesWild/"+file.toPath() );
 			String filebuffer = "";
+				
+			
 			System.out.println(file.toPath()+" exists? "+file.exists());
 			
 			try {

@@ -18,7 +18,8 @@ public class SaveButtonController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		model.saveLevel();
+		
+		model.saveLevel(model.getLevelConfig());
 		
 		
 		

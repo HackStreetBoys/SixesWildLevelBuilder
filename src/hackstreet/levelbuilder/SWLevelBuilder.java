@@ -53,19 +53,21 @@ public class SWLevelBuilder {
 	/**
 	 * 
 	 */
-	public void saveLevel(){
+	public void saveLevel(AbstractLevelConfig config){
 		//It is important to try the following lines of code, we may load a null file or something that will break the system.
 		try	{
 		
-		if (levelConfig.File == null) 	//This is for if the level has never been saved before.
+		if (config.File == null) 	//This is for if the level has never been saved before.
 										//Render a jFileChooser so that the user can choose where to save his files.
 			{
 			JFileChooser jfc = new JFileChooser();
+			jfc.setCurrentDirectory(new File(System.getProperty("user.dir")));
 			jfc.showSaveDialog(null);
-			levelConfig.File = jfc.getSelectedFile();
+			
+			config.File = jfc.getSelectedFile();
 			}
 		
-		File file = levelConfig.File;
+		File file = config.File;
 			 
 			// if file doesn't exists, then create it
 			if (!file.exists()) {
@@ -76,11 +78,11 @@ public class SWLevelBuilder {
 			//Standard write to file
 			FileWriter fw = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(levelConfig.getJSON());
+			bw.write(config.getJSON());
 			bw.close();
 			//close stream.
  
-			System.out.println("Succesfully Wrote to file.");
+			System.out.println("Succesfully Wrote to file.\n"+levelConfig.getJSON());
  
 		} 
 		catch (IOException e){
@@ -93,10 +95,11 @@ public class SWLevelBuilder {
 	/**
 	 * 
 	 */
-	public void loadLevel(){
+	public AbstractLevelConfig loadLevel(){
 		
 		//Load a file, let the user choose
 		JFileChooser jfc = new JFileChooser()	;
+		jfc.setCurrentDirectory(new File(System.getProperty("user.dir")));
 		jfc.showOpenDialog(null);
 		String filebuffer = "";
 		
@@ -115,7 +118,7 @@ public class SWLevelBuilder {
 		
 		//Initialize a Google Json Serializer.
 		Gson gson = new Gson();
-		
+//		 System.err.println(filebuffer);
 		
 		//Check in the file to see what level type we are dealing with. We cannot instantiate an AbstractLevelConfig.
 		JsonParser parser = new JsonParser();
@@ -142,6 +145,7 @@ public class SWLevelBuilder {
 			
 		}
 		System.out.println("Successfully Loaded Level");
+		return this.levelConfig;
 	}
 	
 	/**

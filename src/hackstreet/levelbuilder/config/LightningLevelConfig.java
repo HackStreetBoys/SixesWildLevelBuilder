@@ -11,8 +11,10 @@ public class LightningLevelConfig extends AbstractLevelConfig{
 	}
 	
 	public LightningLevelConfig(int seconds, AbstractLevelConfig config){
+		
 		super("Lightning",config);
-		this.seconds = seconds;
+		LightningLevelConfig c = (LightningLevelConfig) config;
+		this.seconds = c.getSeconds();
 	}
 	
 	public int getSeconds() {

@@ -17,7 +17,9 @@ public class PuzzleLevelConfig extends AbstractLevelConfig {
 	
 	public PuzzleLevelConfig(int numMoves,AbstractLevelConfig config){
 		super("Puzzle",config);
-		this.numMoves = numMoves;
+		
+		PuzzleLevelConfig c = (PuzzleLevelConfig) config;
+		this.numMoves = c.getNumMoves();
 	}
 	
 	public void setNumMoves(int numMoves){

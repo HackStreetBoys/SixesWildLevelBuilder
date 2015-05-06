@@ -1,7 +1,9 @@
 package hackstreet.levelbuilder.gui.editor;
 
+import hackstreet.levelbuilder.config.EliminationLevelConfig;
 import hackstreet.levelbuilder.config.LightningLevelConfig;
 import hackstreet.levelbuilder.controller.ChangeTimeLimitController;
+import hackstreet.levelbuilder.controller.LevelTypeComboController;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.TextFieldUI;
 
@@ -23,6 +25,9 @@ public class LightningLevelEditorScreen extends AbstractLevelEditorScreen {
 	public LightningLevelEditorScreen(LevelBuilderApplication application, AbstractLevelEditorScreen editor){
 		super(application,editor);
 		this.initialize(application);
+		this.levelList.setSelectedIndex(2);
+		
+		
 	}
 	
 	public void initialize(LevelBuilderApplication application) {
@@ -32,15 +37,19 @@ public class LightningLevelEditorScreen extends AbstractLevelEditorScreen {
 			application.model.setLevelConfig(new LightningLevelConfig(60));
 		}
 		
+		
 		txtTimeLimit = new JTextField();
 		txtTimeLimit.setUI(new TextFieldUI("Time limit (seconds)",new Color(100,100,100)));
 		txtTimeLimit.setBounds(20, 82, 134, 28);
 		txtTimeLimit.setColumns(10);
+		LightningLevelConfig lvlc = (LightningLevelConfig) application.model.getLevelConfig();
+		txtTimeLimit.setText(lvlc.getSeconds()+"");
 		txtTimeLimit.addKeyListener(new ChangeTimeLimitController(application));
 		add(txtTimeLimit);
 		
 		application.model.setLevelConfig(application.model.getLevelConfig());
 		super.slider_6.setEnabled(true);
+		levelList.addItemListener(new LevelTypeComboController(application));
 	}	
 	
 	@Override

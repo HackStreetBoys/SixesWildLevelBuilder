@@ -1,7 +1,7 @@
 package hackstreet.levelbuilder.move;
 
 /**
- * @author Himanshu
+ * @author Himanshu, Ben
  */
 
 import java.awt.Color;
@@ -26,7 +26,8 @@ public class ChangeSlotTypeMove implements IMove {
 	
 	@Override
 	public boolean doMove() {
-			
+		
+		
 		if(model.getLevelConfig().getType() == "Release"){
 			ReleaseLevelConfig config = (ReleaseLevelConfig)model.getLevelConfig();
 			if(button.getBackground() == Color.LIGHT_GRAY){
@@ -57,8 +58,11 @@ public class ChangeSlotTypeMove implements IMove {
 				return false;
 			}
 		}
-		else if (model.getLevelConfig().getType() == "Puzzle" || model.getLevelConfig().getType() == "Elimination" || model.getLevelConfig().getType() == "Lightning") {		
+		else {		
 			if(button.getBackground() == Color.LIGHT_GRAY){
+				System.err.println("Event Fired");
+				
+				
 				model.getLevelConfig().getNullLocations().add(location);
 				button.setBackground(Color.black);
 				return true;
@@ -73,9 +77,7 @@ public class ChangeSlotTypeMove implements IMove {
 			}
 		}
 		
-		else {
-			return false;
-		}
+		
 	}
 
 	@Override

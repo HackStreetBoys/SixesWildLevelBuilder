@@ -57,7 +57,9 @@ public class AssignLevelController implements ActionListener{
 
 		//Load a file, let the user choose
 		JFileChooser jfc = new JFileChooser()	;
+		jfc.setCurrentDirectory(new File(System.getProperty("user.dir")));
 		jfc.showOpenDialog(null);
+		
 		String filebuffer = "";
 		
 		//Attempt to load a file, this will throw an exception if anything goes wrong.
@@ -100,7 +102,7 @@ public class AssignLevelController implements ActionListener{
 		if (application.getSelectedLevel() > application.levelData.size()-1 )
 		{
 			application.levelData.add(new SavedLevelData(obj));
-			application.levelButtons.get(application.getSelectedLevel()).setText( obj.getName() );
+			application.levelButtons.get(application.getSelectedLevel()).setText( obj.getFile().toString() );
 		}
 		else
 		{

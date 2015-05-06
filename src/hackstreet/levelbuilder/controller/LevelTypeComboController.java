@@ -13,6 +13,8 @@ import hackstreet.levelbuilder.gui.editor.ReleaseLevelEditorScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.JComboBox;
 
@@ -21,7 +23,7 @@ import javax.swing.JComboBox;
  * and uses it to change the kind of AbstractLevelConfig being used.
  * @author Nicholas
  */
-public class LevelTypeComboController implements ActionListener{
+public class LevelTypeComboController implements ItemListener{
 
 	LevelBuilderApplication application;
 	
@@ -33,28 +35,34 @@ public class LevelTypeComboController implements ActionListener{
 	 * Takes in a String from the LevelEditor's JComboBox,
 	 * and uses it to change the kind of AbstractLevelConfig being used.
 	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		@SuppressWarnings("unchecked")
-		JComboBox<String> combo = (JComboBox<String>)e.getSource();
+	
+	public void itemStateChanged(ItemEvent arg0) {
+		// TODO Auto-generated method stub
+		JComboBox<String> combo = (JComboBox<String>)arg0.getSource();
         application.changeLevelConfigType((String)combo.getSelectedItem());
         AbstractLevelEditorScreen editor = application.getLevelEditorScreen();
         String type = (String)combo.getSelectedItem();
         if(type.equals("Elimination")){
-        	application.model.setLevelConfig(new EliminationLevelConfig(50,application.model.getLevelConfig()));
-        	application.setLevelEditorScreen(new EliminationLevelEditorScreen(application,editor));
+        	application.model.setLevelConfig(new EliminationLevelConfig(50));
+        	application.setLevelEditorScreen(new EliminationLevelEditorScreen(application));
+        	return;
         }
         else if(type.equals("Release")){
-        	application.model.setLevelConfig(new ReleaseLevelConfig(50,application.model.getLevelConfig()));
-        	application.setLevelEditorScreen(new ReleaseLevelEditorScreen(application,editor));
+        	application.model.setLevelConfig(new ReleaseLevelConfig(50));
+        	application.setLevelEditorScreen(new ReleaseLevelEditorScreen(application));
+        	return;
         }
         else if(type.equals("Lightning")){
-        	application.model.setLevelConfig(new LightningLevelConfig(60,application.model.getLevelConfig()));
-        	application.setLevelEditorScreen(new LightningLevelEditorScreen(application,editor));
+        	application.model.setLevelConfig(new LightningLevelConfig(60));
+        	application.setLevelEditorScreen(new LightningLevelEditorScreen(application));
+        	return;
         }
         else if(type.equals("Puzzle")){
-        	application.model.setLevelConfig(new PuzzleLevelConfig(50,application.model.getLevelConfig()));
-        	application.setLevelEditorScreen(new PuzzleLevelEditorScreen(application,editor));
+        	application.model.setLevelConfig(new PuzzleLevelConfig(50));
+        	application.setLevelEditorScreen(new PuzzleLevelEditorScreen(application));
+        	return;
         }
+        
+		
 	}
 }

@@ -82,7 +82,7 @@ public class LevelManagerScreen extends AbstractScreen{
 			if (application.levelData.size() < i+1)
 				name="";
 			else
-				name = application.levelData.get(i).getLevelConfig().getName();
+				name = application.levelData.get(i).getLevelConfig().getFile().toString();
 			application.levelButtons.add(new JButton(name) );
 
 			

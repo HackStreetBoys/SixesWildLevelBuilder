@@ -34,6 +34,8 @@ import com.google.gson.reflect.TypeToken;
 import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.config.SavedLevelData;
 import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
+import hackstreet.levelbuilder.gui.editor.EliminationLevelEditorScreen;
+import hackstreet.levelbuilder.gui.editor.LightningLevelEditorScreen;
 import hackstreet.levelbuilder.gui.editor.PuzzleLevelEditorScreen;
 import hackstreet.levelbuilder.gui.editor.ReleaseLevelEditorScreen;
 
@@ -110,6 +112,7 @@ public class LevelBuilderApplication extends JFrame{
 			for (int i = 0; i < levelData.size();i++)
 			{
 				levelData.get(i).getLevelConfig();
+				
 				//Make sure all levelData level configs are loaded.
 			}
 			}
@@ -126,9 +129,9 @@ public class LevelBuilderApplication extends JFrame{
 		else if(this.model.getLevelConfig().getType() == "Release")
 			this.levelEditorScreen = new ReleaseLevelEditorScreen(this);
 		else if(this.model.getLevelConfig().getType() == "Lightning")
-			this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
+			this.levelEditorScreen = new LightningLevelEditorScreen(this);
 		else if(this.model.getLevelConfig().getType() == "Elimination")
-			this.levelEditorScreen = new PuzzleLevelEditorScreen(this);
+			this.levelEditorScreen = new EliminationLevelEditorScreen(this);
 		
 		this.getContentPane().add(activeScreen);
 		this.setSize(800, 600);
@@ -155,7 +158,7 @@ public class LevelBuilderApplication extends JFrame{
 	 * Display the Level Editor Screen.
 	 */
 	public void enterLevelEditorScreen(){
-		enterScreen(this.levelEditorScreen);
+		enterScreen(new PuzzleLevelEditorScreen(this));
 	}
 	
 	/**
@@ -224,6 +227,7 @@ public class LevelBuilderApplication extends JFrame{
 			JOptionPane.showMessageDialog(null, "You have no levels in your level data. You will be unable to play any games.", "Error: No Levels", JOptionPane.INFORMATION_MESSAGE);	
 		}
 		
+		if (levelData.size() > 0)
 		levelData.get(0).setUnlocked(true);
 		
 		Gson gson = new GsonBuilder().registerTypeAdapter(SavedLevelData.class, new ManifestSerializer()).setPrettyPrinting().create();//.registerTypeAdapter(ArrayList.class, new ManifestSerializer()).setPrettyPrinting().create();

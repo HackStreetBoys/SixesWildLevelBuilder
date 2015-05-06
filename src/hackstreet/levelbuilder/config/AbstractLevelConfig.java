@@ -17,20 +17,20 @@ public abstract class AbstractLevelConfig {
 
 	protected String Type; // Added so that we can load files. It is protected b/c sub classes need to know this information;
 	private String name;
-	private ArrayList<Location> nullLocations;
+	public ArrayList<Location> nullLocations;
 	private int numShuffle;
 	private int numSwap;
 	private int numRemove;
 	private int numHint;
-	private double freq1;
-	private double freq2;
-	private double freq3;
-	private double freq4;
-	private double freq5;
-	private double freq6;
-	private double freqMult1;
-	private double freqMult2;
-	private double freqMult3;
+	private float freq1;
+	private float freq2;
+	private float freq3;
+	private float freq4;
+	private float freq5;
+	private float freq6;
+	private float freqMult1;
+	private float freqMult2;
+	private float freqMult3;
 	private int pointsStar1;
 	private int pointsStar2;
 	private int pointsStar3;
@@ -123,7 +123,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreq1(double freq1) {
-		this.freq1 = freq1;
+		this.freq1 = (float)freq1;
 	}
 
 	public double getFreq2() {
@@ -131,7 +131,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreq2(double freq2) {
-		this.freq2 = freq2;
+		this.freq2 = (float) freq2;
 	}
 
 	public double getFreq3() {
@@ -139,7 +139,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreq3(double freq3) {
-		this.freq3 = freq3;
+		this.freq3 = (float) freq3;
 	}
 
 	public double getFreq4() {
@@ -147,7 +147,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreq4(double freq4) {
-		this.freq4 = freq4;
+		this.freq4 = (float) freq4;
 	}
 
 	public double getFreq5() {
@@ -155,7 +155,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreq5(double freq5) {
-		this.freq5 = freq5;
+		this.freq5 = (float) freq5;
 	}
 
 	public double getFreq6() {
@@ -163,7 +163,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreq6(double freq6) {
-		this.freq6 = freq6;
+		this.freq6 = (float) freq6;
 	}
 
 	public double getFreqMult1() {
@@ -171,7 +171,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreqMult1(double freqMult1) {
-		this.freqMult1 = freqMult1;
+		this.freqMult1 = (float)freqMult1;
 	}
 	
 	public double getFreqMult2() {
@@ -179,7 +179,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreqMult2(double freqMult2) {
-		this.freqMult2 = freqMult2;
+		this.freqMult2 = (float)freqMult2;
 	}
 
 	public double getFreqMult3() {
@@ -187,7 +187,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public void setFreqMult3(double freqMult3) {
-		this.freqMult3 = freqMult3;
+		this.freqMult3 = (float)freqMult3;
 	}
 
 	public int getPointsStar1() {
