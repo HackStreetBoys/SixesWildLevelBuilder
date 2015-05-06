@@ -5,6 +5,12 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Controller for removing a level in level management.
+ * 
+ * @author Tim 
+ *
+ */
 public class RemoveLevelController implements ActionListener {
 	
 	LevelBuilderApplication application;

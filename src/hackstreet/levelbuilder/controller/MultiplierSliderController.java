@@ -7,6 +7,12 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+/**
+ * Controller for changing the frequency of multipliers.
+ * 
+ * @author Himanshu
+ *
+ */
 public class MultiplierSliderController implements ChangeListener {
 
 	LevelBuilderApplication application;

@@ -10,6 +10,12 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+/**
+ * Controller for chaing the timer limit.
+ * 
+ * @author Himanshu, Pat
+ *
+ */
 public class ChangeTimeLimitController implements KeyListener{
 	LevelBuilderApplication application;
 

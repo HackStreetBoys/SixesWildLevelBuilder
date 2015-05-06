@@ -13,6 +13,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+/**
+ * 
+ * Controller for changing the tope of slot on a level board.
+ * 
+ * @author Himanshu, Ben, Pat
+ *
+ */
 public class ChangeSlotTypeController implements ActionListener {
 
 	LevelBuilderApplication application;
