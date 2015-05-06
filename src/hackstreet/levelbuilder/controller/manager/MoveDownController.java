@@ -9,12 +9,10 @@ import java.awt.event.ActionListener;
 
 
 /**
+ * Controller for moving level down in level manager screen.
+ * 
  * @author Ben
  */
-
-
-
-
 public class MoveDownController implements ActionListener{
 	
 
