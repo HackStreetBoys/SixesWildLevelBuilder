@@ -8,9 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.JWindow;
 
 /**
+ * Class for splash screens.
  * 
- * @author timpetri
- * Class for splash screens, most code found online
+ * @author Tim
+ * 
  */
 @SuppressWarnings("serial")
 public class SplashScreen extends JWindow {

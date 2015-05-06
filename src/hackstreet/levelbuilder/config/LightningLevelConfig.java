@@ -1,5 +1,11 @@
 package hackstreet.levelbuilder.config;
 
+/**
+ * Configuration class for the lightning level type.
+ * 
+ * @author Tim 
+ *
+ */
 public class LightningLevelConfig extends AbstractLevelConfig{
 
 	private int seconds;
