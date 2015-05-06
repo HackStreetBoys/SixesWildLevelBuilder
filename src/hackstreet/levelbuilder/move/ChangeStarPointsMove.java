@@ -5,6 +5,10 @@ import hackstreet.levelbuilder.config.AbstractLevelConfig;
 
 import javax.swing.JTextField;
 
+/**
+ * @author Himanshu
+ * /
+
 public class ChangeStarPointsMove implements IMove {
 	SWLevelBuilder model;
 	JTextField textField;
