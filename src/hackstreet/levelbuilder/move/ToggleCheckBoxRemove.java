@@ -6,6 +6,10 @@ import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
+/**
+ * @author ??
+ */
+
 public class ToggleCheckBoxRemove implements IMove {
 	SWLevelBuilder model;
 	JCheckBox removeCheck;
