@@ -1,12 +1,12 @@
 package hackstreet.levelbuilder.move;
 
-/**
- * @author Himanshu
- */
-
 import javax.swing.JCheckBox;
 
 import hackstreet.levelbuilder.SWLevelBuilder;
+
+/**
+ * @author Himanshu
+ */
 
 public class ShuffleBoardCheckMove implements IMove{
 
