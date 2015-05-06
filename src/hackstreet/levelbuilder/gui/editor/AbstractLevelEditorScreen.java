@@ -88,6 +88,15 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		this.initializeConstantElements(application);
 		this.addFieldsToContainer();
 		
+		slider_1.setValue( (int)(100*application.model.getLevelConfig().getFreq1()) );
+		slider_2.setValue( (int)(100*application.model.getLevelConfig().getFreq2()) );
+		slider_3.setValue( (int)(100*application.model.getLevelConfig().getFreq3()) );
+		slider_4.setValue( (int)(100*application.model.getLevelConfig().getFreq4()) );
+		slider_5.setValue( (int)(100*application.model.getLevelConfig().getFreq5()) );
+		slider_6.setValue( (int)(100*application.model.getLevelConfig().getFreq6()) );
+
+		
+		
 	}
 
 	public AbstractLevelEditorScreen(LevelBuilderApplication application) {
@@ -100,7 +109,12 @@ public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 		
 		
 		
-
+		slider_1.setValue( (int)(100*application.model.getLevelConfig().getFreq1()) );
+		slider_2.setValue( (int)(100*application.model.getLevelConfig().getFreq2()) );
+		slider_3.setValue( (int)(100*application.model.getLevelConfig().getFreq3()) );
+		slider_4.setValue( (int)(100*application.model.getLevelConfig().getFreq4()) );
+		slider_5.setValue( (int)(100*application.model.getLevelConfig().getFreq5()) );
+		slider_6.setValue( (int)(100*application.model.getLevelConfig().getFreq6()) );
 
 
 
@@ -249,6 +263,7 @@ star3.setText(application.model.getLevelConfig().getPointsStar3()+"");
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initializeFields(LevelBuilderApplication application){
+		
 		chckbxSwitchTiles = new JCheckBox("Switch Tiles");
 		chckbxSwitchTiles.setBounds(640, 249, 128, 23);
 		chckbxSwitchTiles.setBackground(Color.white);

@@ -215,7 +215,7 @@ public abstract class AbstractLevelConfig {
 	}
 
 	public File getFile() {
-		return File;
+		return new File(System.getProperty("user.dir")+"/data/"+File.getName());
 	}
 
 	public void setFile(File file) {

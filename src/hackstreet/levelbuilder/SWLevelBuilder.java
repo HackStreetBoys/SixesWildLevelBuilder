@@ -115,13 +115,15 @@ public class SWLevelBuilder {
 			    System.err.println(x);
 			}
 		
-		
+
+		 System.err.println(filebuffer);
 		//Initialize a Google Json Serializer.
 		Gson gson = new Gson();
-//		 System.err.println(filebuffer);
+
 		
 		//Check in the file to see what level type we are dealing with. We cannot instantiate an AbstractLevelConfig.
 		JsonParser parser = new JsonParser();
+
 		JsonObject obj = parser.parse(filebuffer).getAsJsonObject();
 		
 		String type = obj.get("Type").getAsString();
