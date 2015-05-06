@@ -11,6 +11,9 @@ import javax.swing.JTextField;
 import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.SplashScreen;
 import hackstreet.levelbuilder.controller.ChangeNumMovesController;
+import hackstreet.levelbuilder.controller.ChangeSlotTypeController;
+import hackstreet.levelbuilder.controller.ChangeTimeLimitController;
+import hackstreet.levelbuilder.controller.FrequencySliderController;
 import hackstreet.levelbuilder.controller.HintCheckController;
 import hackstreet.levelbuilder.controller.PreviewButtonController;
 import hackstreet.levelbuilder.controller.RemoveTileCheckController;
@@ -20,8 +23,10 @@ import hackstreet.levelbuilder.controller.transport.ToEditLevelController;
 import hackstreet.levelbuilder.controller.transport.ToLevelManagerController;
 import hackstreet.levelbuilder.controller.transport.ToMainScreenController;
 import hackstreet.levelbuilder.controller.transport.ToNewLevelController;
+import hackstreet.levelbuilder.elements.Location;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
+import hackstreet.levelbuilder.move.ChangeTimeLimitMove;
 import hackstreet.levelbuilder.move.HintCheckMove;
 import hackstreet.levelbuilder.move.RemoveTileCheckMove;
 import hackstreet.levelbuilder.move.ShuffleBoardCheckMove;
@@ -31,12 +36,16 @@ import org.junit.Test;
 
 /**
  * Runs tests on classes in the hackstreet.levelbuilder.controller package.
+ * This was a last-minute
  * 
  * @author Nicholas
  *
  */
 public class TestController {
 
+	/**
+	 * Tests transport package.
+	 */
 	@Test
 	public void testTransport() {
 
@@ -68,6 +77,9 @@ public class TestController {
 		assertTrue(true);
 	}
 	
+	/**
+	 * Tests designated controller.
+	 */
 	@Test
 	public void testChangeNumMovesController(){
 		SWLevelBuilder model = new SWLevelBuilder();
@@ -82,6 +94,9 @@ public class TestController {
 		*/
 	}
 	
+	/**
+	 * Tests designated controller.
+	 */	
 	@Test
 	public void testHintCheckController(){
 		SWLevelBuilder model = new SWLevelBuilder();
@@ -97,6 +112,9 @@ public class TestController {
 		assertTrue(model.getUndoStack().peek() instanceof HintCheckMove);
 	}
 	
+	/**
+	 * Tests designated controller.
+	 */
 	@Test
 	public void testRemoveTileCheckController(){
 		SWLevelBuilder model = new SWLevelBuilder();
@@ -112,6 +130,9 @@ public class TestController {
 		assertTrue(model.getUndoStack().peek() instanceof RemoveTileCheckMove);
 	}
 	
+	/**
+	 * Tests designated controller.
+	 */
 	@Test
 	public void testShuffleBoardCheckController(){
 		SWLevelBuilder model = new SWLevelBuilder();
@@ -127,6 +148,9 @@ public class TestController {
 		assertTrue(model.getUndoStack().peek() instanceof ShuffleBoardCheckMove);
 	}
 	
+	/**
+	 * Tests designated controller.
+	 */
 	@Test
 	public void testSwapTilesCheckController(){
 		SWLevelBuilder model = new SWLevelBuilder();
@@ -141,6 +165,9 @@ public class TestController {
 		assertTrue(model.getUndoStack().peek() instanceof SwapTilesCheckMove);
 	}
 	
+	/**
+	 * Tests designated controller.
+	 */
 	@Test
 	public void testPreviewButtonController(){
 		SWLevelBuilder model = new SWLevelBuilder();
@@ -151,7 +178,46 @@ public class TestController {
 		PreviewButtonController previewButtonController = new PreviewButtonController(application);
 		previewButtonController.actionPerformed(null);
 		
-		assertTrue(model.getUndoStack().peek() instanceof SwapTilesCheckMove);
+		assertTrue(true);
+	}
+	
+	/**
+	 * Tests several moves, all with null parameters.
+	 */
+	@Test
+	public void testMoves(){
+		
+		SWLevelBuilder model = new SWLevelBuilder();
+		LevelBuilderApplication application = new LevelBuilderApplication(model);
+		application.setVisible(true);
+		application.enterLevelEditorScreen();
+		
+		try{
+			ChangeTimeLimitMove ctlm = new ChangeTimeLimitMove(model, null);
+			ctlm.doMove();
+		}
+		catch(Exception e){}
+		
+		try{
+			ChangeSlotTypeController cstc = new ChangeSlotTypeController(application, new Location(5,5));
+			cstc.actionPerformed(null);
+		}
+		catch(Exception e){}
+		
+		try{
+			ChangeTimeLimitController ctlc = new ChangeTimeLimitController(application);
+			ctlc.keyPressed(null);
+			ctlc.keyReleased(null);
+		}
+		catch(Exception e){}
+		
+		try{
+			FrequencySliderController fsc = new FrequencySliderController(application, 1); 
+			fsc.stateChanged(null);
+		}
+		catch(Exception e){}
+		
+		assertTrue(true);
 	}
 
 }
