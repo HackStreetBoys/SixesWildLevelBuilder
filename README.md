@@ -14,7 +14,7 @@ You can set the point thresholds for attaining 1 star, 2 stars or 3 stars in the
 
 Happy with your design but want to preview it? There's a button for that - the "Preview" button!
 
-Finally, save youre level by hitting the "Save" button.
+Finally, save your level by hitting the "Save" button.
 
 ##Edit Existing Level
 On the main screen of the application, click on the "Edit Existing Level" button in order to edit a level that already exists. This takes you to the Level Editor Screen where you can edit the level as described above and then save the level.
