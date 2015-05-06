@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 /**
  * @author Himanshu
- * /
+ */
 
 public class ChangeNumMovesMove implements IMove {
 	SWLevelBuilder model;
