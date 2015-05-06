@@ -31,6 +31,10 @@ import hackstreet.levelbuilder.move.HintCheckMove;
 import hackstreet.levelbuilder.move.RemoveTileCheckMove;
 import hackstreet.levelbuilder.move.ShuffleBoardCheckMove;
 import hackstreet.levelbuilder.move.SwapTilesCheckMove;
+import hackstreet.levelbuilder.move.ToggleCheckAiHintMove;
+import hackstreet.levelbuilder.move.ToggleCheckBoxRemove;
+import hackstreet.levelbuilder.move.ToggleCheckBoxSwapMove;
+import hackstreet.levelbuilder.move.ToggleCheckResetBoardMove;
 
 import org.junit.Test;
 
@@ -104,12 +108,18 @@ public class TestController {
 		application.setVisible(true);
 		application.enterLevelEditorScreen();
 		
+		
 		HintCheckController hintCheckController = 
 				new HintCheckController(application);
 		JCheckBox checkBox = ((AbstractLevelEditorScreen)application.getActiveScreen()).getChckbxRemoveTile();
+		ToggleCheckAiHintMove move = new ToggleCheckAiHintMove(model, checkBox);
+		move.doMove();
 		hintCheckController.actionPerformed(new ActionEvent(checkBox, 0, null));
 		
 		assertTrue(model.getUndoStack().peek() instanceof HintCheckMove);
+
+		move.undoMove();
+		assertTrue(true);
 	}
 	
 	/**
@@ -125,9 +135,14 @@ public class TestController {
 		RemoveTileCheckController removeTileCheckController = 
 				new RemoveTileCheckController(application);
 		JCheckBox checkBox = ((AbstractLevelEditorScreen)application.getActiveScreen()).getChckbxRemoveTile();
+		ToggleCheckBoxRemove move = new ToggleCheckBoxRemove(model, checkBox);
+		move.doMove();		
 		removeTileCheckController.actionPerformed(new ActionEvent(checkBox, 0, null));
 		
 		assertTrue(model.getUndoStack().peek() instanceof RemoveTileCheckMove);
+		
+		move.undoMove();
+		assertTrue(true);
 	}
 	
 	/**
@@ -143,9 +158,14 @@ public class TestController {
 		ShuffleBoardCheckController shuffleBoardCheckMove = 
 				new ShuffleBoardCheckController(application);
 		JCheckBox checkBox = ((AbstractLevelEditorScreen)application.getActiveScreen()).getChckbxResetBoard();
+		ToggleCheckResetBoardMove move = new ToggleCheckResetBoardMove(model, checkBox);
+		move.doMove();		
 		shuffleBoardCheckMove.actionPerformed(new ActionEvent(checkBox, 0, null));
 		
 		assertTrue(model.getUndoStack().peek() instanceof ShuffleBoardCheckMove);
+		
+		move.undoMove();
+		assertTrue(true);
 	}
 	
 	/**
@@ -160,9 +180,14 @@ public class TestController {
 		
 		SwapTilesCheckController swapTilesCheckController = new SwapTilesCheckController(application);
 		JCheckBox checkBox = ((AbstractLevelEditorScreen)application.getActiveScreen()).getChckbxSwitchTiles();
+		ToggleCheckBoxSwapMove move = new ToggleCheckBoxSwapMove(model, checkBox);
+		move.doMove();
 		swapTilesCheckController.actionPerformed(new ActionEvent(checkBox, 0, null));
 		
 		assertTrue(model.getUndoStack().peek() instanceof SwapTilesCheckMove);
+		
+		move.undoMove();
+		assertTrue(true);
 	}
 	
 	/**
