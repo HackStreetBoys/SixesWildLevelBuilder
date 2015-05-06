@@ -6,6 +6,7 @@ import hackstreet.levelbuilder.config.LightningLevelConfig;
 import javax.swing.JTextField;
 
 /**
+ * Change time limit in Lightning game type
  * @author Himanshu
  */
 
