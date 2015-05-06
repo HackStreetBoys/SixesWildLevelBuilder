@@ -1,14 +1,15 @@
 package hackstreet.levelbuilder.move;
 
-/**
- * @author Himanshu, Pat
- */
-
 import javax.swing.JSlider;
 
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.editor.AbstractLevelEditorScreen;
+
+/**
+ * @author Himanshu, Pat
+ */
+
 public class FrequencyChangeMove implements IMove {
 
 	LevelBuilderApplication application;
