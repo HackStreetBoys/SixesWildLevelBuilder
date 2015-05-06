@@ -13,7 +13,7 @@ import javax.swing.event.ChangeListener;
 /**
  * Controller for changing the number of moves.
  * 
- * @author Tim 
+ * @author Himanshu 
  *
  */
 public class ChangeNumMovesController implements KeyListener {
