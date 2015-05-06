@@ -1,15 +1,14 @@
 package tests;
 
 import junit.framework.TestCase;
+import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import hackstreet.levelbuilder.config.EliminationLevelConfig;
 import hackstreet.levelbuilder.config.LightningLevelConfig;
-import hackstreet.levelbuilder.config.Location;
 import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.config.SavedLevelData;
-import hackstreet.levelbuilder.main.SWLevelBuilder;
-import hackstreet.levelbuilder.main.SplashScreen;
+import hackstreet.levelbuilder.elements.Location;
 
 public class FileIOTests {
 	
@@ -17,8 +16,8 @@ public class FileIOTests {
 		
 		SWLevelBuilder sw = new SWLevelBuilder();
 		
-		PuzzleLevelConfig plc = new PuzzleLevelConfig();
-		PuzzleLevelConfig dup = new PuzzleLevelConfig( plc);
+		PuzzleLevelConfig plc = new PuzzleLevelConfig(0);
+		PuzzleLevelConfig dup = new PuzzleLevelConfig(0, plc);
 		plc.getJSON();
 		plc.getNumHint();
 		plc.getNumRemove();
@@ -31,19 +30,19 @@ public class FileIOTests {
 		plc.setNumSwap(1);
 		sw.loadLevel();
 		
-		sw.setActiveLevel(plc);
+		//sw.setActiveLevel(plc);
 		sw.saveLevel();
 		
-		AbstractLevelConfig rlc = new ReleaseLevelConfig();
-		AbstractLevelConfig rup = new ReleaseLevelConfig( plc);		
-		AbstractLevelConfig llc = new LightningLevelConfig();
-		AbstractLevelConfig lup = new LightningLevelConfig( plc);
-		AbstractLevelConfig elc = new EliminationLevelConfig();
-		AbstractLevelConfig eup = new EliminationLevelConfig( plc);
+		AbstractLevelConfig rlc = new ReleaseLevelConfig(0);
+		AbstractLevelConfig rup = new ReleaseLevelConfig(0, plc);		
+		AbstractLevelConfig llc = new LightningLevelConfig(0);
+		AbstractLevelConfig lup = new LightningLevelConfig(0, plc);
+		AbstractLevelConfig elc = new EliminationLevelConfig(0);
+		AbstractLevelConfig eup = new EliminationLevelConfig(0, plc);
 		
 		Location l = new Location(1,2);
 		
-		SavedLevelData sld = new SavedLevelData(rlc,true,1);
+		SavedLevelData sld = new SavedLevelData(rlc);
 		
 	}
 	
