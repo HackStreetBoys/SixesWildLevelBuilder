@@ -6,8 +6,8 @@ import hackstreet.levelbuilder.config.LightningLevelConfig;
 import javax.swing.JTextField;
 
 /**
- * @author Himanshu 
- * /
+ * @author Himanshu
+ */
 
 public class ChangeTimeLimitMove implements IMove{
 
