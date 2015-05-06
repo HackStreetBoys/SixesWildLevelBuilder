@@ -12,6 +12,7 @@ import hackstreet.levelbuilder.SWLevelBuilder;
 import hackstreet.levelbuilder.SplashScreen;
 import hackstreet.levelbuilder.controller.ChangeNumMovesController;
 import hackstreet.levelbuilder.controller.HintCheckController;
+import hackstreet.levelbuilder.controller.PreviewButtonController;
 import hackstreet.levelbuilder.controller.RemoveTileCheckController;
 import hackstreet.levelbuilder.controller.ShuffleBoardCheckController;
 import hackstreet.levelbuilder.controller.SwapTilesCheckController;
@@ -136,6 +137,19 @@ public class TestController {
 		SwapTilesCheckController swapTilesCheckController = new SwapTilesCheckController(application);
 		JCheckBox checkBox = ((AbstractLevelEditorScreen)application.getActiveScreen()).getChckbxSwitchTiles();
 		swapTilesCheckController.actionPerformed(new ActionEvent(checkBox, 0, null));
+		
+		assertTrue(model.getUndoStack().peek() instanceof SwapTilesCheckMove);
+	}
+	
+	@Test
+	public void testPreviewButtonController(){
+		SWLevelBuilder model = new SWLevelBuilder();
+		LevelBuilderApplication application = new LevelBuilderApplication(model);
+		application.setVisible(true);
+		application.enterLevelEditorScreen();
+		
+		PreviewButtonController previewButtonController = new PreviewButtonController(application);
+		previewButtonController.actionPerformed(null);
 		
 		assertTrue(model.getUndoStack().peek() instanceof SwapTilesCheckMove);
 	}
