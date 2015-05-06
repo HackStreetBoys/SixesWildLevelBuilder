@@ -8,7 +8,8 @@ import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 
 import javax.swing.JTextField;
 
-/**
+/** 
+ * Change number of moves allowed
  * @author Himanshu
  */
 
