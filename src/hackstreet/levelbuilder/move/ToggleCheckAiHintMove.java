@@ -6,6 +6,10 @@ import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
+/**
+ * @author ??
+ */
+
 public class ToggleCheckAiHintMove implements IMove {
 	SWLevelBuilder model;
 	JCheckBox aiCheck;
