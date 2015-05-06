@@ -1,12 +1,13 @@
 package hackstreet.levelbuilder.move;
 
-/**
- * @author Himanshu
- */
-
 import javax.swing.JCheckBox;
 
 import hackstreet.levelbuilder.SWLevelBuilder;
+
+/**
+ * Move to enable/disable the AI hint special move
+ * @author Himanshu
+ */
 
 public class HintCheckMove implements IMove{
 
