@@ -11,6 +11,12 @@ import hackstreet.levelbuilder.gui.TextFieldUI;
 
 import javax.swing.JTextField;
 
+/**
+ *  Class for editing levels of release type.
+ * 
+ * @author Pat, Himanshu, Ben
+ *
+ */
 @SuppressWarnings("serial")
 public class ReleaseLevelEditorScreen extends AbstractLevelEditorScreen {
 

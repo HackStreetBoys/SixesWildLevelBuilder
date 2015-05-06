@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 
 import hackstreet.levelbuilder.SWLevelBuilder;
 
+/**
+ * Controller for button that saves the edited level.
+ * 
+ * @author Ben
+ *
+ */
 public class SaveButtonController implements ActionListener{
 	
 	//author Ben

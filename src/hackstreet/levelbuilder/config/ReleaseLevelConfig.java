@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Configuration class for the release level type.
  * 
  * @author Pat
  * 

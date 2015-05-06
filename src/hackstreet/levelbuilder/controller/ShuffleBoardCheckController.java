@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.controller;
 
-/**
- * @author Himanshu
- */
-
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.move.ShuffleBoardCheckMove;
 import java.awt.event.ActionEvent;
@@ -11,6 +7,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 
+/**
+ * Controller for being set shuffle board special move on/off.
+ * 
+ * @author Himanshu, Ben
+ *
+ */
 public class ShuffleBoardCheckController implements ActionListener {
 
 	LevelBuilderApplication application;

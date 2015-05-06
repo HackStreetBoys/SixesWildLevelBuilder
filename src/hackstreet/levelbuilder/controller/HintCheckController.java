@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.controller;
 
-/**
- * @author Himanshu
- */
-
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.move.HintCheckMove;
 
@@ -12,6 +8,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 
+/**
+ * Controller for turning hint on and off.
+ * 
+ * @author Himanshu
+ */
 public class HintCheckController implements ActionListener {
 
 	LevelBuilderApplication application;

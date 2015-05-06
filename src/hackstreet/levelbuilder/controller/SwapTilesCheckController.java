@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.controller;
 
-/**
- * @author Himanshu
- */
-
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.move.SwapTilesCheckMove;
 
@@ -12,6 +8,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 
+
+/**
+ * Controller for swap tiles special move on/off.
+ * 
+ * @author Himanshu, Pat
+ *
+ */
 public class SwapTilesCheckController implements ActionListener {
 
 	LevelBuilderApplication application;

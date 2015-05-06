@@ -16,7 +16,6 @@ import com.google.gson.JsonParser;
 /**
  * Stores a player's accomplishments on a specific level
  * (whether it is unlocked, and how many stars were earned).
- * <p>
  * This class is saved to disk.
  * @author Nicholas, Ben
  *

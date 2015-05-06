@@ -7,10 +7,10 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 
 
 /**
+ * Controller for going to main screen and saving.
+ * 
  * @author Ben
  */
-
-
 public class ToMainScreenSaveManifestController implements ActionListener {
 	LevelBuilderApplication application;
 	

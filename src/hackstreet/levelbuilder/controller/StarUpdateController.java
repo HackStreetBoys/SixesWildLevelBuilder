@@ -8,6 +8,12 @@ import hackstreet.levelbuilder.move.ChangeStarPointsMove;
 
 import javax.swing.JTextField;
 
+/**
+ * Controller for updating star threshold.
+ * 
+ * @author Himanshu
+ *
+ */
 public class StarUpdateController implements KeyListener{
 
 	LevelBuilderApplication application;

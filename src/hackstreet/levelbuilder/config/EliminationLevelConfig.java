@@ -1,6 +1,7 @@
 package hackstreet.levelbuilder.config;
 
 /**
+ * Configuration class for the elimination level type.
  * 
  * @author	Himanshu, Pat
  *

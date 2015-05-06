@@ -23,6 +23,12 @@ import hackstreet.levelbuilder.config.PuzzleLevelConfig;
 import hackstreet.levelbuilder.config.ReleaseLevelConfig;
 import hackstreet.levelbuilder.move.IMove;
 
+
+/**
+ * 
+ * @author Tim, Himanshu, Ben, Pat
+ *
+ */
 public class SWLevelBuilder {
 
 	
@@ -93,7 +99,7 @@ public class SWLevelBuilder {
 	}
 	
 	/**
-	 * 			
+	 * 
 	 */
 	public AbstractLevelConfig loadLevel(){
 		

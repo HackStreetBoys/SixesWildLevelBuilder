@@ -3,7 +3,7 @@ package hackstreet.levelbuilder.elements;
 /**
  * A temporary placeholder for a Location's value and multiplier.
  * 
- * @author Himanshu
+ * @author Pat
  *
  */
 public class Tile {

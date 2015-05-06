@@ -1,6 +1,7 @@
 package hackstreet.levelbuilder.config;
 
 /**
+ * Configuration class for the puzzle level type.
  * 
  * @author Pat, Himanshu
  *

@@ -7,10 +7,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+
 @SuppressWarnings("serial")
+/**
+ * Superclass for all screens used in the game.
+ * 
+ * @author Pat, Tim, Nick
+ *
+ */
 public abstract class AbstractScreen extends JPanel{
 
+	/** All screens have access to the application */
 	protected LevelBuilderApplication application;
+	
+	
+	/** All screens have a title that is displayed on the top of the screen */
 	private JLabel title;
 	
 	public AbstractScreen(LevelBuilderApplication application, String title){

@@ -1,9 +1,5 @@
 package hackstreet.levelbuilder.gui;
 
-/**
- * @author Himanshu
- */
-
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -11,6 +7,12 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
+/**
+ * Screen for generating a random board to display current settings in level builder.
+ * 
+ * @author Pat
+ *
+ */
 public class PassiveGameScreen extends JPanel {
 
 	private GridView gridView;

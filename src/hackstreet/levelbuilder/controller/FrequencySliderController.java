@@ -1,9 +1,4 @@
 package hackstreet.levelbuilder.controller;
-
-/**
- * @author Himanshu
- */
-
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -11,6 +6,12 @@ import javax.swing.event.ChangeListener;
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.move.FrequencyChangeMove;
 
+/**
+ * Controller for changing the frequency of a slider.
+ * 
+ * @author Himanshu
+ *
+ */
 public class FrequencySliderController implements ChangeListener {
 
 	LevelBuilderApplication application;

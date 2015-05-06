@@ -7,6 +7,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
+/**
+ * Correctly saves and loads fom JSON files.
+ * 
+ * @author Ben
+ *
+ */
 public class ManifestSerializer implements JsonSerializer<SavedLevelData>{
 	
 	

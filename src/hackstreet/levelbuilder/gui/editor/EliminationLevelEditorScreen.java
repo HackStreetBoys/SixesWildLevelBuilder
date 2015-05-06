@@ -10,7 +10,12 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.gui.TextFieldUI;
 
 import javax.swing.JTextField;
-
+/**
+ *  Class for editing levels of elimination type.
+ * 
+ * @author Pat, Himanshu, Ben
+ *
+ */
 @SuppressWarnings("serial")
 public class EliminationLevelEditorScreen extends AbstractLevelEditorScreen {
 

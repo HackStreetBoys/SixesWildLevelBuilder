@@ -33,6 +33,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 
+/**
+ * Controller for assigning level in level manager screen.
+ * 
+ * @author Ben
+ *
+ */
 public class AssignLevelController implements ActionListener{
 	
 

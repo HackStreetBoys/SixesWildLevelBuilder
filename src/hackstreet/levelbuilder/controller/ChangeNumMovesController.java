@@ -10,6 +10,12 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+/**
+ * Controller for changing the number of moves.
+ * 
+ * @author Tim 
+ *
+ */
 public class ChangeNumMovesController implements KeyListener {
 
 	LevelBuilderApplication application;

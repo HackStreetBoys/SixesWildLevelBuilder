@@ -35,11 +35,11 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 
 /**
+ * Superclass for level editing screens.
  * 
  * @author Pat, Himanshu, Ben
  *
  */
-
 @SuppressWarnings("serial")
 public abstract class AbstractLevelEditorScreen extends AbstractScreen{
 	private JTextField star1;

@@ -1,8 +1,5 @@
 package hackstreet.levelbuilder.controller;
 
-/**
- * @author Himanshu
- */
 
 import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import hackstreet.levelbuilder.move.RemoveTileCheckMove;
@@ -12,6 +9,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 
+/**
+ * Controller for setting remove tile special move on and off.
+ * 
+ * @author Himanshu
+ *
+ */
 public class RemoveTileCheckController implements ActionListener {
 
 	LevelBuilderApplication application;

@@ -5,6 +5,12 @@ import hackstreet.levelbuilder.gui.LevelBuilderApplication;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Controller for switching to new level editor screen.
+ * 
+ * @author Pat
+ *
+ */
 public class ToNewLevelController implements ActionListener {
 	LevelBuilderApplication application;
 	
