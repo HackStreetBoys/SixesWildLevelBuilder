@@ -4,7 +4,7 @@ import javax.swing.JCheckBox;
 
 import hackstreet.levelbuilder.SWLevelBuilder;
 
-/**
+/** Remove tiles special move
  * @author Himanshu
  */
 
