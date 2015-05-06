@@ -6,6 +6,10 @@ import hackstreet.levelbuilder.config.AbstractLevelConfig;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
+/**
+ * @author ??
+ */
+
 public class ToggleCheckResetBoardMove implements IMove {
 	SWLevelBuilder model;
 	JCheckBox resetCheck;
